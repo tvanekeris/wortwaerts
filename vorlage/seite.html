@@ -1,0 +1,324 @@
+<title>Alltagssätze zum Hören</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: eine schmale Spalte – Kopf, Steuerleiste (Play + Tempo), nummerierte Satzliste in Abspielreihenfolge */
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #17202b;
+    --muted: #5d6877;
+    --line: #d6dce3;
+    --accent: #1f5f8b;
+    --accent-ink: #ffffff;
+    --mark: #f2c14e;
+    --mark-soft: #fbf0d2;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Literata", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+      --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+    --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 8px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .lede { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 56ch; }
+
+  .controls {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
+  }
+  .play {
+    font-family: var(--font-display); font-weight: 600; font-size: 17px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px;
+    padding: 12px 22px 12px 16px; cursor: pointer;
+  }
+  .play svg { width: 20px; height: 20px; fill: currentColor; }
+  .play:hover { filter: brightness(1.08); }
+  .stop {
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    background: transparent; color: var(--ink); border: 1px solid var(--line);
+    border-radius: 999px; padding: 10px 16px; cursor: pointer;
+  }
+  .stop:disabled { opacity: .45; cursor: default; }
+  button:focus-visible, input:focus-visible, select:focus-visible, li:focus-visible {
+    outline: 3px solid var(--mark); outline-offset: 2px;
+  }
+
+  .speed { flex: 1 1 220px; min-width: 0; display: grid; gap: 4px; }
+  .speed-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .speed label, .voice label {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .rate {
+    font-family: var(--font-mono); font-weight: 500; font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .ticks {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+  }
+
+  .voice { flex: 1 1 100%; font-size: 13px; color: var(--muted); }
+
+  .note {
+    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink);
+    background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
+  }
+
+  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  li {
+    display: grid; grid-template-columns: 2.2em 1fr auto; gap: 0 12px; align-items: start;
+    padding: 14px 12px; border-radius: 10px; cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  li:hover { background: var(--surface); }
+  li.current { background: var(--mark-soft); border-left-color: var(--mark); }
+  .num {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    padding-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .text { min-width: 0; }
+  .de { font-size: 19px; line-height: 1.4; font-weight: 500; }
+
+  #themen { display: grid; gap: 28px; }
+  .thema { display: grid; gap: 6px; }
+  .thema-kopf {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    border-bottom: 1px solid var(--line); padding: 0 12px 8px;
+  }
+  .thema h2 {
+    font-family: var(--font-display); font-weight: 600; font-size: 20px;
+    margin: 0; text-wrap: balance;
+  }
+  .thema-play {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; white-space: nowrap;
+    background: transparent; color: var(--accent); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  }
+  .thema-play:hover { background: var(--surface); }
+  .say {
+    background: transparent; border: 1px solid var(--line); color: var(--accent);
+    border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center;
+    cursor: pointer; margin-top: 1px;
+  }
+  .say svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .foot {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) { li { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Hörübung · Deutsch · /*__ANZAHL__*/ Sätze in /*__THEMEN__*/ Themen</span>
+    <h1>Alltagssätze zum Hören</h1>
+    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein, auch während der Wiedergabe. Ein Klick auf einen Satz spielt nur diesen ab, der Knopf neben einem Thema spielt dessen Sätze.</p>
+  </header>
+
+  <section class="controls" aria-label="Wiedergabe">
+    <button class="play" id="play" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="play-icon"><path d="M7 4.5v15l13-7.5z"/></svg>
+      <span id="play-label">Alle abspielen</span>
+    </button>
+    <button class="stop" id="stop" type="button" disabled>Stopp</button>
+
+    <div class="speed">
+      <div class="speed-top">
+        <label for="rate">Tempo</label>
+        <span class="rate" id="rate-out">1,0×</span>
+      </div>
+      <input type="range" id="rate" min="0.5" max="1.5" step="0.1" value="1">
+      <div class="ticks" aria-hidden="true"><span>0,5× langsam</span><span>1,0×</span><span>1,5× schnell</span></div>
+    </div>
+
+    <p class="voice">Stimme: Thorsten (Piper, Deutsch), als Audiodatei eingebettet</p>
+  </section>
+
+  <p class="note" id="note" hidden></p>
+
+  <div id="themen"></div>
+
+  <div class="foot">
+    <span>/*__FUSSZEILE__*/</span>
+  </div>
+</div>
+
+<script>
+  // Wird von scripts/erzeuge_audio.py befüllt: [{thema, de, src}]
+  const SENTENCES = /*__DATEN__*/;
+
+  const themen = document.getElementById("themen");
+  const playBtn = document.getElementById("play");
+  const playLabel = document.getElementById("play-label");
+  const playIcon = document.getElementById("play-icon");
+  const stopBtn = document.getElementById("stop");
+  const rateIn = document.getElementById("rate");
+  const rateOut = document.getElementById("rate-out");
+  const note = document.getElementById("note");
+
+  const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
+  const ICON_PAUSE = '<path d="M6 4.5h4v15H6zM14 4.5h4v15h-4z"/>';
+  const PAUSE_BETWEEN_MS = 700;
+
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.preservesPitch = true;
+  audio.webkitPreservesPitch = true;
+
+  let state = "idle"; // idle | playing | paused
+  let queue = [];
+  let gapTimer = null;
+  let inGap = false;
+
+  const items = [];
+  let liste = null;
+  SENTENCES.forEach(({ thema, de }, i) => {
+    if (!liste || liste.dataset.thema !== thema) {
+      const sec = document.createElement("section");
+      sec.className = "thema";
+      sec.innerHTML = `<div class="thema-kopf"><h2></h2><button class="thema-play" type="button"></button></div><ol></ol>`;
+      sec.querySelector("h2").textContent = thema;
+      liste = sec.querySelector("ol");
+      liste.dataset.thema = thema;
+      const btn = sec.querySelector(".thema-play");
+      btn.textContent = "▶ Thema abspielen";
+      btn.setAttribute("aria-label", `Thema ${thema} abspielen`);
+      btn.addEventListener("click", () =>
+        start(SENTENCES.map((s, j) => s.thema === thema ? j : -1).filter(j => j >= 0)));
+      themen.appendChild(sec);
+    }
+    const li = document.createElement("li");
+    li.tabIndex = 0;
+    li.dataset.i = i;
+    li.innerHTML =
+      `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
+      `<span class="text"><span class="de"></span></span>` +
+      `<button class="say" type="button" aria-label="Satz ${i + 1} abspielen" tabindex="-1">` +
+      `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>`;
+    li.querySelector(".de").textContent = de;
+    li.addEventListener("click", () => start([i]));
+    li.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); start([i]); }
+    });
+    liste.appendChild(li);
+    items.push(li);
+  });
+
+  function rate() { return Number(rateIn.value); }
+  function formatRate(v) { return Number(v).toFixed(1).replace(".", ",") + "×"; }
+  rateIn.addEventListener("input", () => {
+    rateOut.textContent = formatRate(rateIn.value);
+    audio.playbackRate = rate();
+  });
+
+  function showNote(msg) { note.textContent = msg; note.hidden = !msg; }
+
+  function mark(i) {
+    items.forEach((li, j) => li.classList.toggle("current", j === i));
+    const el = items[i];
+    if (el) el.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
+  function setState(s) {
+    state = s;
+    const playing = s === "playing";
+    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    playLabel.textContent = playing ? "Pause" : s === "paused" ? "Weiter" : "Alle abspielen";
+    stopBtn.disabled = s === "idle";
+  }
+
+  function playNext() {
+    inGap = false;
+    if (!queue.length) { finish(); return; }
+    const i = queue.shift();
+    mark(i);
+    audio.src = SENTENCES[i].src;
+    audio.playbackRate = rate();
+    audio.play().catch(err => {
+      if (err.name === "AbortError") return;
+      showNote("Die Audiodatei konnte nicht abgespielt werden. Drück noch einmal auf Abspielen.");
+      finish();
+    });
+  }
+
+  audio.addEventListener("ratechange", () => {
+    // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
+    if (audio.playbackRate !== rate()) audio.playbackRate = rate();
+  });
+  audio.addEventListener("ended", () => {
+    if (state !== "playing") return;
+    if (!queue.length) { finish(); return; }
+    inGap = true;
+    gapTimer = setTimeout(playNext, PAUSE_BETWEEN_MS / rate());
+  });
+
+  function start(indices) {
+    clearTimeout(gapTimer);
+    showNote("");
+    queue = indices.slice();
+    setState("playing");
+    playNext();
+  }
+
+  function finish() {
+    clearTimeout(gapTimer);
+    inGap = false;
+    queue = [];
+    audio.pause();
+    mark(-1);
+    setState("idle");
+  }
+
+  playBtn.addEventListener("click", () => {
+    if (state === "idle") {
+      start(SENTENCES.map((_, i) => i));
+    } else if (state === "playing") {
+      clearTimeout(gapTimer);
+      audio.pause();
+      setState("paused");
+    } else {
+      setState("playing");
+      if (inGap) playNext();
+      else audio.play().catch(() => finish());
+    }
+  });
+
+  stopBtn.addEventListener("click", finish);
+</script>

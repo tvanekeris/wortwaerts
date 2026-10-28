@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+<title>Alltagssätze zum Hören</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: eine schmale Spalte – Kopf, Steuerleiste (Play + Tempo), nummerierte Satzliste in Abspielreihenfolge */
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #17202b;
+    --muted: #5d6877;
+    --line: #d6dce3;
+    --accent: #1f5f8b;
+    --accent-ink: #ffffff;
+    --mark: #f2c14e;
+    --mark-soft: #fbf0d2;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Literata", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+      --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+    --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 8px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .lede { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 56ch; }
+
+  .controls {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
+  }
+  .play {
+    font-family: var(--font-display); font-weight: 600; font-size: 17px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px;
+    padding: 12px 22px 12px 16px; cursor: pointer;
+  }
+  .play svg { width: 20px; height: 20px; fill: currentColor; }
+  .play:hover { filter: brightness(1.08); }
+  .stop {
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    background: transparent; color: var(--ink); border: 1px solid var(--line);
+    border-radius: 999px; padding: 10px 16px; cursor: pointer;
+  }
+  .stop:disabled { opacity: .45; cursor: default; }
+  button:focus-visible, input:focus-visible, select:focus-visible, li:focus-visible {
+    outline: 3px solid var(--mark); outline-offset: 2px;
+  }
+
+  .speed { flex: 1 1 220px; min-width: 0; display: grid; gap: 4px; }
+  .speed-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .speed label, .voice label {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .rate {
+    font-family: var(--font-mono); font-weight: 500; font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .ticks {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+  }
+
+  .voice { flex: 1 1 100%; font-size: 13px; color: var(--muted); }
+
+  .note {
+    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink);
+    background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
+  }
+
+  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  li {
+    display: grid; grid-template-columns: 2.2em 1fr auto; gap: 0 12px; align-items: start;
+    padding: 14px 12px; border-radius: 10px; cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  li:hover { background: var(--surface); }
+  li.current { background: var(--mark-soft); border-left-color: var(--mark); }
+  .num {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    padding-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .text { min-width: 0; }
+  .de { font-size: 19px; line-height: 1.4; font-weight: 500; }
+
+  #themen { display: grid; gap: 28px; }
+  .thema { display: grid; gap: 6px; }
+  .thema-kopf {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    border-bottom: 1px solid var(--line); padding: 0 12px 8px;
+  }
+  .thema h2 {
+    font-family: var(--font-display); font-weight: 600; font-size: 20px;
+    margin: 0; text-wrap: balance;
+  }
+  .thema-play {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; white-space: nowrap;
+    background: transparent; color: var(--accent); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  }
+  .thema-play:hover { background: var(--surface); }
+  .say {
+    background: transparent; border: 1px solid var(--line); color: var(--accent);
+    border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center;
+    cursor: pointer; margin-top: 1px;
+  }
+  .say svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .foot {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
+    font-size: 14px; color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) { li { transition: none; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Hörübung · Deutsch · 110 Sätze in 10 Themen</span>
+    <h1>Alltagssätze zum Hören</h1>
+    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein, auch während der Wiedergabe. Ein Klick auf einen Satz spielt nur diesen ab, der Knopf neben einem Thema spielt dessen Sätze.</p>
+  </header>
+
+  <section class="controls" aria-label="Wiedergabe">
+    <button class="play" id="play" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="play-icon"><path d="M7 4.5v15l13-7.5z"/></svg>
+      <span id="play-label">Alle abspielen</span>
+    </button>
+    <button class="stop" id="stop" type="button" disabled>Stopp</button>
+
+    <div class="speed">
+      <div class="speed-top">
+        <label for="rate">Tempo</label>
+        <span class="rate" id="rate-out">1,0×</span>
+      </div>
+      <input type="range" id="rate" min="0.5" max="1.5" step="0.1" value="1">
+      <div class="ticks" aria-hidden="true"><span>0,5× langsam</span><span>1,0×</span><span>1,5× schnell</span></div>
+    </div>
+
+    <p class="voice">Stimme: Thorsten (Piper, Deutsch), als Audiodatei eingebettet</p>
+  </section>
+
+  <p class="note" id="note" hidden></p>
+
+  <div id="themen"></div>
+
+  <div class="foot">
+    <span><a href="audio/alle-saetze.mp3" style="color:inherit">Alle Sätze als MP3</a></span>
+  </div>
+</div>
+
+<script>
+  // Wird von scripts/erzeuge_audio.py befüllt: [{thema, de, src}]
+  const SENTENCES = [{"thema": "Begrüßung & Smalltalk", "de": "Guten Morgen! Hast du gut geschlafen?", "src": "audio/001.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Hallo, wie geht es dir?", "src": "audio/002.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Mir geht es gut, danke. Und dir?", "src": "audio/003.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Schön, dich zu sehen!", "src": "audio/004.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Lange nicht gesehen! Was gibt's Neues?", "src": "audio/005.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Darf ich mich vorstellen? Ich heiße Anna.", "src": "audio/006.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Freut mich, Sie kennenzulernen.", "src": "audio/007.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Woher kommst du eigentlich?", "src": "audio/008.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Wie war dein Tag?", "src": "audio/009.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Bis später, mach's gut!", "src": "audio/010.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Schönen Abend noch!", "src": "audio/011.mp3"}, {"thema": "Essen & Trinken", "de": "Ich hätte gern einen Kaffee mit Milch, bitte.", "src": "audio/012.mp3"}, {"thema": "Essen & Trinken", "de": "Haben Sie einen Tisch für zwei Personen frei?", "src": "audio/013.mp3"}, {"thema": "Essen & Trinken", "de": "Könnte ich bitte die Speisekarte haben?", "src": "audio/014.mp3"}, {"thema": "Essen & Trinken", "de": "Was können Sie heute empfehlen?", "src": "audio/015.mp3"}, {"thema": "Essen & Trinken", "de": "Ich nehme die Tomatensuppe als Vorspeise.", "src": "audio/016.mp3"}, {"thema": "Essen & Trinken", "de": "Ist in dem Gericht Fleisch?", "src": "audio/017.mp3"}, {"thema": "Essen & Trinken", "de": "Ein Glas Leitungswasser, bitte.", "src": "audio/018.mp3"}, {"thema": "Essen & Trinken", "de": "Das Essen war wirklich lecker.", "src": "audio/019.mp3"}, {"thema": "Essen & Trinken", "de": "Wir möchten bitte bezahlen.", "src": "audio/020.mp3"}, {"thema": "Essen & Trinken", "de": "Zusammen oder getrennt?", "src": "audio/021.mp3"}, {"thema": "Essen & Trinken", "de": "Stimmt so, vielen Dank.", "src": "audio/022.mp3"}, {"thema": "Einkaufen", "de": "Kann ich hier mit Karte bezahlen?", "src": "audio/023.mp3"}, {"thema": "Einkaufen", "de": "Wie viel kostet das?", "src": "audio/024.mp3"}, {"thema": "Einkaufen", "de": "Ich schaue mich nur um, danke.", "src": "audio/025.mp3"}, {"thema": "Einkaufen", "de": "Haben Sie diese Hose auch in einer anderen Größe?", "src": "audio/026.mp3"}, {"thema": "Einkaufen", "de": "Wo sind die Umkleidekabinen?", "src": "audio/027.mp3"}, {"thema": "Einkaufen", "de": "Wo finde ich die Milch?", "src": "audio/028.mp3"}, {"thema": "Einkaufen", "de": "Brauchen Sie eine Tüte?", "src": "audio/029.mp3"}, {"thema": "Einkaufen", "de": "Kann ich das umtauschen, wenn es nicht passt?", "src": "audio/030.mp3"}, {"thema": "Einkaufen", "de": "Ich hätte gern ein halbes Kilo Äpfel.", "src": "audio/031.mp3"}, {"thema": "Einkaufen", "de": "Haben Sie heute noch frische Brötchen?", "src": "audio/032.mp3"}, {"thema": "Einkaufen", "de": "Darf ich bitte den Kassenbon haben?", "src": "audio/033.mp3"}, {"thema": "Unterwegs", "de": "Entschuldigung, wo ist der nächste Bahnhof?", "src": "audio/034.mp3"}, {"thema": "Unterwegs", "de": "Wann fährt der nächste Bus in die Innenstadt?", "src": "audio/035.mp3"}, {"thema": "Unterwegs", "de": "Eine Fahrkarte nach Hamburg, bitte.", "src": "audio/036.mp3"}, {"thema": "Unterwegs", "de": "Muss ich umsteigen?", "src": "audio/037.mp3"}, {"thema": "Unterwegs", "de": "Von welchem Gleis fährt der Zug ab?", "src": "audio/038.mp3"}, {"thema": "Unterwegs", "de": "Der Zug hat zehn Minuten Verspätung.", "src": "audio/039.mp3"}, {"thema": "Unterwegs", "de": "Ist dieser Platz noch frei?", "src": "audio/040.mp3"}, {"thema": "Unterwegs", "de": "Wie komme ich am besten zum Rathaus?", "src": "audio/041.mp3"}, {"thema": "Unterwegs", "de": "Gehen Sie geradeaus und dann die zweite Straße links.", "src": "audio/042.mp3"}, {"thema": "Unterwegs", "de": "Ist das weit von hier?", "src": "audio/043.mp3"}, {"thema": "Unterwegs", "de": "Können Sie mir bitte ein Taxi rufen?", "src": "audio/044.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich bin heute leider etwas spät dran.", "src": "audio/045.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich habe um zehn Uhr einen Termin.", "src": "audio/046.mp3"}, {"thema": "Arbeit & Termine", "de": "Können wir das Meeting auf morgen verschieben?", "src": "audio/047.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich schicke dir die Unterlagen per E-Mail.", "src": "audio/048.mp3"}, {"thema": "Arbeit & Termine", "de": "Hast du kurz Zeit für eine Frage?", "src": "audio/049.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich arbeite heute von zu Hause aus.", "src": "audio/050.mp3"}, {"thema": "Arbeit & Termine", "de": "Wann ist die Besprechung zu Ende?", "src": "audio/051.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich mache jetzt Mittagspause.", "src": "audio/052.mp3"}, {"thema": "Arbeit & Termine", "de": "Das erledige ich gleich morgen früh.", "src": "audio/053.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich bin nächste Woche im Urlaub.", "src": "audio/054.mp3"}, {"thema": "Arbeit & Termine", "de": "Schönen Feierabend!", "src": "audio/055.mp3"}, {"thema": "Zuhause & Familie", "de": "Wer ist heute mit Kochen dran?", "src": "audio/056.mp3"}, {"thema": "Zuhause & Familie", "de": "Kannst du bitte den Müll rausbringen?", "src": "audio/057.mp3"}, {"thema": "Zuhause & Familie", "de": "Ich gehe kurz einkaufen. Brauchen wir noch etwas?", "src": "audio/058.mp3"}, {"thema": "Zuhause & Familie", "de": "Das Abendessen ist fertig!", "src": "audio/059.mp3"}, {"thema": "Zuhause & Familie", "de": "Hast du die Schlüssel gesehen?", "src": "audio/060.mp3"}, {"thema": "Zuhause & Familie", "de": "Mach bitte das Licht aus, wenn du gehst.", "src": "audio/061.mp3"}, {"thema": "Zuhause & Familie", "de": "Die Kinder sind schon im Bett.", "src": "audio/062.mp3"}, {"thema": "Zuhause & Familie", "de": "Meine Eltern kommen am Sonntag zu Besuch.", "src": "audio/063.mp3"}, {"thema": "Zuhause & Familie", "de": "Wir müssen noch die Wäsche aufhängen.", "src": "audio/064.mp3"}, {"thema": "Zuhause & Familie", "de": "Ich bin wieder zu Hause!", "src": "audio/065.mp3"}, {"thema": "Zuhause & Familie", "de": "Gute Nacht und schlaf gut!", "src": "audio/066.mp3"}, {"thema": "Gesundheit", "de": "Ich fühle mich heute nicht so gut.", "src": "audio/067.mp3"}, {"thema": "Gesundheit", "de": "Ich habe Kopfschmerzen.", "src": "audio/068.mp3"}, {"thema": "Gesundheit", "de": "Ich hätte gern einen Termin beim Arzt.", "src": "audio/069.mp3"}, {"thema": "Gesundheit", "de": "Seit wann haben Sie die Beschwerden?", "src": "audio/070.mp3"}, {"thema": "Gesundheit", "de": "Haben Sie etwas gegen Halsschmerzen?", "src": "audio/071.mp3"}, {"thema": "Gesundheit", "de": "Wie oft muss ich die Tabletten nehmen?", "src": "audio/072.mp3"}, {"thema": "Gesundheit", "de": "Ich bin gegen Nüsse allergisch.", "src": "audio/073.mp3"}, {"thema": "Gesundheit", "de": "Ich glaube, ich habe Fieber.", "src": "audio/074.mp3"}, {"thema": "Gesundheit", "de": "Ich bleibe heute lieber im Bett.", "src": "audio/075.mp3"}, {"thema": "Gesundheit", "de": "Gute Besserung!", "src": "audio/076.mp3"}, {"thema": "Gesundheit", "de": "Wo ist die nächste Apotheke?", "src": "audio/077.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Was machst du am Wochenende?", "src": "audio/078.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Wir treffen uns um halb acht vor dem Kino.", "src": "audio/079.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Hast du Lust, heute Abend etwas zu unternehmen?", "src": "audio/080.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Wollen wir zusammen ins Schwimmbad gehen?", "src": "audio/081.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich gehe am Samstag mit Freunden wandern.", "src": "audio/082.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Welche Musik hörst du gern?", "src": "audio/083.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Hast du den Film schon gesehen?", "src": "audio/084.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich lese gerade ein spannendes Buch.", "src": "audio/085.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Passt es dir am Freitag um sieben?", "src": "audio/086.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Leider kann ich heute nicht. Vielleicht nächste Woche?", "src": "audio/087.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich freue mich schon darauf!", "src": "audio/088.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Könnten Sie das bitte noch einmal wiederholen?", "src": "audio/089.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Danke, das ist sehr nett von dir!", "src": "audio/090.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Entschuldigung, das habe ich nicht verstanden.", "src": "audio/091.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Können Sie bitte etwas langsamer sprechen?", "src": "audio/092.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Was bedeutet dieses Wort?", "src": "audio/093.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Wie sagt man das auf Deutsch?", "src": "audio/094.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Ich spreche nur ein bisschen Deutsch.", "src": "audio/095.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Kein Problem, gern geschehen.", "src": "audio/096.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Entschuldigung, das war mein Fehler.", "src": "audio/097.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Darf ich Sie etwas fragen?", "src": "audio/098.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Könnten Sie mir bitte helfen?", "src": "audio/099.mp3"}, {"thema": "Wetter & Zeit", "de": "Wie spät ist es?", "src": "audio/100.mp3"}, {"thema": "Wetter & Zeit", "de": "Es ist Viertel nach drei.", "src": "audio/101.mp3"}, {"thema": "Wetter & Zeit", "de": "Heute ist es ganz schön kalt draußen.", "src": "audio/102.mp3"}, {"thema": "Wetter & Zeit", "de": "Morgen soll es regnen.", "src": "audio/103.mp3"}, {"thema": "Wetter & Zeit", "de": "Nimm lieber einen Regenschirm mit.", "src": "audio/104.mp3"}, {"thema": "Wetter & Zeit", "de": "Was für ein schöner Sonnentag!", "src": "audio/105.mp3"}, {"thema": "Wetter & Zeit", "de": "Welcher Tag ist heute?", "src": "audio/106.mp3"}, {"thema": "Wetter & Zeit", "de": "Ich habe am dritten Mai Geburtstag.", "src": "audio/107.mp3"}, {"thema": "Wetter & Zeit", "de": "Die Zeit vergeht so schnell.", "src": "audio/108.mp3"}, {"thema": "Wetter & Zeit", "de": "Im Sommer wird es hier sehr heiß.", "src": "audio/109.mp3"}, {"thema": "Wetter & Zeit", "de": "Ich komme in fünf Minuten.", "src": "audio/110.mp3"}];
+
+  const themen = document.getElementById("themen");
+  const playBtn = document.getElementById("play");
+  const playLabel = document.getElementById("play-label");
+  const playIcon = document.getElementById("play-icon");
+  const stopBtn = document.getElementById("stop");
+  const rateIn = document.getElementById("rate");
+  const rateOut = document.getElementById("rate-out");
+  const note = document.getElementById("note");
+
+  const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
+  const ICON_PAUSE = '<path d="M6 4.5h4v15H6zM14 4.5h4v15h-4z"/>';
+  const PAUSE_BETWEEN_MS = 700;
+
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.preservesPitch = true;
+  audio.webkitPreservesPitch = true;
+
+  let state = "idle"; // idle | playing | paused
+  let queue = [];
+  let gapTimer = null;
+  let inGap = false;
+
+  const items = [];
+  let liste = null;
+  SENTENCES.forEach(({ thema, de }, i) => {
+    if (!liste || liste.dataset.thema !== thema) {
+      const sec = document.createElement("section");
+      sec.className = "thema";
+      sec.innerHTML = `<div class="thema-kopf"><h2></h2><button class="thema-play" type="button"></button></div><ol></ol>`;
+      sec.querySelector("h2").textContent = thema;
+      liste = sec.querySelector("ol");
+      liste.dataset.thema = thema;
+      const btn = sec.querySelector(".thema-play");
+      btn.textContent = "▶ Thema abspielen";
+      btn.setAttribute("aria-label", `Thema ${thema} abspielen`);
+      btn.addEventListener("click", () =>
+        start(SENTENCES.map((s, j) => s.thema === thema ? j : -1).filter(j => j >= 0)));
+      themen.appendChild(sec);
+    }
+    const li = document.createElement("li");
+    li.tabIndex = 0;
+    li.dataset.i = i;
+    li.innerHTML =
+      `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
+      `<span class="text"><span class="de"></span></span>` +
+      `<button class="say" type="button" aria-label="Satz ${i + 1} abspielen" tabindex="-1">` +
+      `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>`;
+    li.querySelector(".de").textContent = de;
+    li.addEventListener("click", () => start([i]));
+    li.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); start([i]); }
+    });
+    liste.appendChild(li);
+    items.push(li);
+  });
+
+  function rate() { return Number(rateIn.value); }
+  function formatRate(v) { return Number(v).toFixed(1).replace(".", ",") + "×"; }
+  rateIn.addEventListener("input", () => {
+    rateOut.textContent = formatRate(rateIn.value);
+    audio.playbackRate = rate();
+  });
+
+  function showNote(msg) { note.textContent = msg; note.hidden = !msg; }
+
+  function mark(i) {
+    items.forEach((li, j) => li.classList.toggle("current", j === i));
+    const el = items[i];
+    if (el) el.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
+  function setState(s) {
+    state = s;
+    const playing = s === "playing";
+    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    playLabel.textContent = playing ? "Pause" : s === "paused" ? "Weiter" : "Alle abspielen";
+    stopBtn.disabled = s === "idle";
+  }
+
+  function playNext() {
+    inGap = false;
+    if (!queue.length) { finish(); return; }
+    const i = queue.shift();
+    mark(i);
+    audio.src = SENTENCES[i].src;
+    audio.playbackRate = rate();
+    audio.play().catch(err => {
+      if (err.name === "AbortError") return;
+      showNote("Die Audiodatei konnte nicht abgespielt werden. Drück noch einmal auf Abspielen.");
+      finish();
+    });
+  }
+
+  audio.addEventListener("ratechange", () => {
+    // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
+    if (audio.playbackRate !== rate()) audio.playbackRate = rate();
+  });
+  audio.addEventListener("ended", () => {
+    if (state !== "playing") return;
+    if (!queue.length) { finish(); return; }
+    inGap = true;
+    gapTimer = setTimeout(playNext, PAUSE_BETWEEN_MS / rate());
+  });
+
+  function start(indices) {
+    clearTimeout(gapTimer);
+    showNote("");
+    queue = indices.slice();
+    setState("playing");
+    playNext();
+  }
+
+  function finish() {
+    clearTimeout(gapTimer);
+    inGap = false;
+    queue = [];
+    audio.pause();
+    mark(-1);
+    setState("idle");
+  }
+
+  playBtn.addEventListener("click", () => {
+    if (state === "idle") {
+      start(SENTENCES.map((_, i) => i));
+    } else if (state === "playing") {
+      clearTimeout(gapTimer);
+      audio.pause();
+      setState("paused");
+    } else {
+      setState("playing");
+      if (inGap) playNext();
+      else audio.play().catch(() => finish());
+    }
+  });
+
+  stopBtn.addEventListener("click", finish);
+</script>
+</body>
+</html>
