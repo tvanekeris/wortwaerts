@@ -8,7 +8,9 @@ Kleines interaktives Artifact mit 10 deutschen Alltagssätzen und einem Play-But
 der die Sätze nacheinander mit einstellbarer Geschwindigkeit vorliest.
 
 ## Aktueller Stand
-Fertig. Die Sprachausgabe nutzt die Web Speech API des Browsers (`speechSynthesis`,
+**Abgelöst durch [2026-10-alltagssaetze-audio](../2026-10-alltagssaetze-audio/)** – die Browser-Stimme bleibt im Artifact stumm.
+
+Die Sprachausgabe nutzt die Web Speech API des Browsers (`speechSynthesis`,
 Sprache `de-DE`) – keine externen Dienste, keine Audiodateien.
 
 Funktionen:
