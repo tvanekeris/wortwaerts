@@ -1,0 +1,346 @@
+<title>Alltagssätze zum Hören</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: eine schmale Spalte – Kopf, Steuerleiste (Play + Tempo), nummerierte Satzliste in Abspielreihenfolge */
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #17202b;
+    --muted: #5d6877;
+    --line: #d6dce3;
+    --accent: #1f5f8b;
+    --accent-ink: #ffffff;
+    --mark: #f2c14e;
+    --mark-soft: #fbf0d2;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Literata", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+      --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #11161d; --surface: #19212b; --ink: #e8edf2; --muted: #98a4b3; --line: #2a3542;
+    --accent: #6fb0e0; --accent-ink: #0d1620; --mark: #e2b443; --mark-soft: #2c2716;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 8px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .lede { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 56ch; }
+
+  .controls {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
+  }
+  .play {
+    font-family: var(--font-display); font-weight: 600; font-size: 17px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px;
+    padding: 12px 22px 12px 16px; cursor: pointer;
+  }
+  .play svg { width: 20px; height: 20px; fill: currentColor; }
+  .play:hover { filter: brightness(1.08); }
+  .stop {
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    background: transparent; color: var(--ink); border: 1px solid var(--line);
+    border-radius: 999px; padding: 10px 16px; cursor: pointer;
+  }
+  .stop:disabled { opacity: .45; cursor: default; }
+  button:focus-visible, input:focus-visible, select:focus-visible, li:focus-visible {
+    outline: 3px solid var(--mark); outline-offset: 2px;
+  }
+
+  .speed { flex: 1 1 220px; min-width: 0; display: grid; gap: 4px; }
+  .speed-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .speed label, .voice label {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .rate {
+    font-family: var(--font-mono); font-weight: 500; font-size: 15px;
+    font-variant-numeric: tabular-nums;
+  }
+  input[type="range"] { width: 100%; accent-color: var(--accent); }
+  .ticks {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+  }
+
+  .voice { display: grid; gap: 4px; flex: 1 1 100%; }
+  .voice select {
+    font: 14px var(--font-body); color: var(--ink); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; max-width: 100%;
+  }
+
+  .note {
+    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink);
+    background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
+  }
+
+  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  li {
+    display: grid; grid-template-columns: 2.2em 1fr auto; gap: 0 12px; align-items: start;
+    padding: 14px 12px; border-radius: 10px; cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  li:hover { background: var(--surface); }
+  li.current { background: var(--mark-soft); border-left-color: var(--mark); }
+  .num {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    padding-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .text { min-width: 0; display: grid; gap: 3px; }
+  .de { font-size: 19px; line-height: 1.4; font-weight: 500; }
+  .en { font-size: 14px; line-height: 1.4; color: var(--muted); font-style: italic; }
+  .hide-en .en { display: none; }
+  .say {
+    background: transparent; border: 1px solid var(--line); color: var(--accent);
+    border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center;
+    cursor: pointer; margin-top: 1px;
+  }
+  .say svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .foot {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
+    font-size: 14px; color: var(--muted);
+  }
+  .toggle { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+  .toggle input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+  @media (prefers-reduced-motion: reduce) { li { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Hörübung · Deutsch · 10 Sätze</span>
+    <h1>Alltagssätze zum Hören</h1>
+    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein. Ein Klick auf einen Satz spielt nur diesen ab.</p>
+  </header>
+
+  <section class="controls" aria-label="Wiedergabe">
+    <button class="play" id="play" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="play-icon"><path d="M7 4.5v15l13-7.5z"/></svg>
+      <span id="play-label">Alle abspielen</span>
+    </button>
+    <button class="stop" id="stop" type="button" disabled>Stopp</button>
+
+    <div class="speed">
+      <div class="speed-top">
+        <label for="rate">Tempo</label>
+        <span class="rate" id="rate-out">1,0×</span>
+      </div>
+      <input type="range" id="rate" min="0.5" max="1.5" step="0.1" value="1">
+      <div class="ticks" aria-hidden="true"><span>0,5× langsam</span><span>1,0×</span><span>1,5× schnell</span></div>
+    </div>
+
+    <div class="voice">
+      <label for="voice">Stimme</label>
+      <select id="voice"><option>Standardstimme (Deutsch)</option></select>
+    </div>
+  </section>
+
+  <p class="note" id="note" hidden></p>
+
+  <ol id="list"></ol>
+
+  <div class="foot">
+    <label class="toggle"><input type="checkbox" id="show-en" checked> Englische Übersetzung zeigen</label>
+    <span>Sprachausgabe über die Stimme deines Geräts</span>
+  </div>
+</div>
+
+<script>
+  const SENTENCES = [
+    ["Guten Morgen! Hast du gut geschlafen?", "Good morning! Did you sleep well?"],
+    ["Ich hätte gern einen Kaffee mit Milch, bitte.", "I'd like a coffee with milk, please."],
+    ["Entschuldigung, wo ist der nächste Bahnhof?", "Excuse me, where is the nearest train station?"],
+    ["Kann ich hier mit Karte bezahlen?", "Can I pay by card here?"],
+    ["Wie viel kostet das?", "How much does that cost?"],
+    ["Ich bin heute leider etwas spät dran.", "Unfortunately I'm running a bit late today."],
+    ["Was machst du am Wochenende?", "What are you doing at the weekend?"],
+    ["Könnten Sie das bitte noch einmal wiederholen?", "Could you please repeat that once more?"],
+    ["Wir treffen uns um halb acht vor dem Kino.", "We'll meet at half past seven in front of the cinema."],
+    ["Danke, das ist sehr nett von dir!", "Thanks, that's very kind of you!"],
+  ];
+
+  const synth = window.speechSynthesis;
+  const list = document.getElementById("list");
+  const playBtn = document.getElementById("play");
+  const playLabel = document.getElementById("play-label");
+  const playIcon = document.getElementById("play-icon");
+  const stopBtn = document.getElementById("stop");
+  const rateIn = document.getElementById("rate");
+  const rateOut = document.getElementById("rate-out");
+  const voiceSel = document.getElementById("voice");
+  const note = document.getElementById("note");
+  const showEn = document.getElementById("show-en");
+
+  const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
+  const ICON_PAUSE = '<path d="M6 4.5h4v15H6zM14 4.5h4v15h-4z"/>';
+  const PAUSE_BETWEEN_MS = 700;
+
+  let voices = [];
+  let state = "idle"; // idle | playing | paused
+  let queue = [];     // Indizes, die noch gesprochen werden
+  let current = -1;
+  let gapTimer = null;
+  let runId = 0;
+
+  // Liste aufbauen
+  SENTENCES.forEach(([de, en], i) => {
+    const li = document.createElement("li");
+    li.tabIndex = 0;
+    li.dataset.i = i;
+    li.innerHTML =
+      `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
+      `<span class="text"><span class="de"></span><span class="en"></span></span>` +
+      `<button class="say" type="button" aria-label="Satz ${i + 1} abspielen" tabindex="-1">` +
+      `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>`;
+    li.querySelector(".de").textContent = de;
+    li.querySelector(".en").textContent = en;
+    li.addEventListener("click", () => playOnly(i));
+    li.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playOnly(i); }
+    });
+    list.appendChild(li);
+  });
+
+  function formatRate(v) { return Number(v).toFixed(1).replace(".", ",") + "×"; }
+  rateIn.addEventListener("input", () => { rateOut.textContent = formatRate(rateIn.value); });
+
+  showEn.addEventListener("change", () => list.classList.toggle("hide-en", !showEn.checked));
+
+  function showNote(msg) { note.textContent = msg; note.hidden = !msg; }
+
+  if (!synth || typeof SpeechSynthesisUtterance === "undefined") {
+    showNote("Dein Browser unterstützt keine Sprachausgabe. Probier es in Chrome, Edge oder Safari.");
+    playBtn.disabled = true;
+  }
+
+  function loadVoices() {
+    if (!synth) return;
+    const all = synth.getVoices();
+    voices = all.filter(v => v.lang && v.lang.toLowerCase().startsWith("de"));
+    const previous = voiceSel.value;
+    voiceSel.innerHTML = "";
+    if (!voices.length) {
+      voiceSel.add(new Option("Standardstimme (Deutsch)", ""));
+      if (all.length) showNote("Auf diesem Gerät ist keine deutsche Stimme installiert. Es wird die Standardstimme verwendet, die Aussprache kann daher abweichen.");
+      return;
+    }
+    showNote("");
+    voices.forEach((v, i) => voiceSel.add(new Option(`${v.name} (${v.lang})`, String(i))));
+    const keep = [...voiceSel.options].find(o => o.value === previous);
+    const pick = keep ? previous : String(Math.max(0, voices.findIndex(v => v.lang === "de-DE")));
+    voiceSel.value = pick;
+  }
+  if (synth) {
+    loadVoices();
+    synth.addEventListener?.("voiceschanged", loadVoices);
+  }
+
+  function mark(i) {
+    current = i;
+    list.querySelectorAll("li").forEach(li => li.classList.toggle("current", Number(li.dataset.i) === i));
+    const el = list.children[i];
+    if (el) el.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
+  function setState(s) {
+    state = s;
+    const playing = s === "playing";
+    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    playLabel.textContent = playing ? "Pause" : s === "paused" ? "Weiter" : "Alle abspielen";
+    stopBtn.disabled = s === "idle";
+  }
+
+  function speakNext(id) {
+    if (id !== runId) return;
+    if (!queue.length) { finish(); return; }
+    const i = queue.shift();
+    mark(i);
+    const u = new SpeechSynthesisUtterance(SENTENCES[i][0]);
+    u.lang = "de-DE";
+    const v = voices[Number(voiceSel.value)];
+    if (v) u.voice = v;
+    u.rate = Number(rateIn.value);
+    u.onend = () => {
+      if (id !== runId) return;
+      gapTimer = setTimeout(() => speakNext(id), queue.length ? PAUSE_BETWEEN_MS / u.rate : 0);
+    };
+    u.onerror = e => {
+      if (id !== runId || e.error === "interrupted" || e.error === "canceled") return;
+      showNote("Die Sprachausgabe wurde unterbrochen. Drück noch einmal auf Abspielen.");
+      finish();
+    };
+    synth.speak(u);
+  }
+
+  function start(indices) {
+    stopAll();
+    const id = ++runId;
+    queue = indices.slice();
+    setState("playing");
+    speakNext(id);
+  }
+
+  function stopAll() {
+    runId++;
+    clearTimeout(gapTimer);
+    queue = [];
+    if (synth) synth.cancel();
+  }
+
+  function finish() {
+    stopAll();
+    mark(-1);
+    setState("idle");
+  }
+
+  function playOnly(i) { if (synth) start([i]); }
+
+  playBtn.addEventListener("click", () => {
+    if (state === "idle") {
+      start(SENTENCES.map((_, i) => i));
+    } else if (state === "playing") {
+      synth.pause();
+      clearTimeout(gapTimer);
+      setState("paused");
+    } else {
+      setState("playing");
+      if (synth.paused) synth.resume();
+      if (!synth.speaking) {
+        // Pause fiel in die Lücke zwischen zwei Sätzen
+        speakNext(runId);
+      }
+    }
+  });
+
+  stopBtn.addEventListener("click", finish);
+</script>
