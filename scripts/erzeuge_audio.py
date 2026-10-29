@@ -6,6 +6,7 @@ Zweck:   Erzeugt aus saetze.json ({Thema: [Sätze]}) mit der Offline-Sprachsynth
            - site/index.html        Webseite, lädt die MP3s aus site/audio/
            - alltagssaetze.html     Artifact-Version, MP3s als data:-URIs eingebettet
 Aufruf:  python3 scripts/erzeuge_audio.py --piper <pfad/zu/piper> --modell <pfad/zu/de-thorsten-low.onnx>
+         python3 scripts/erzeuge_audio.py --nur-seiten   (nur HTML neu bauen, vorhandene MP3s nutzen)
          (im Projektordner 2026-10-alltagssaetze/ ausführen)
 Pakete:  piper-tts (pip), ffmpeg (System), Stimme voice-de-thorsten-low.tar.gz
          – Details und Versionen in docs/werkzeuge.md
@@ -61,29 +62,34 @@ def seite(vorlage, daten, fusszeile):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--piper", required=True)
-    ap.add_argument("--modell", required=True, type=Path)
+    ap.add_argument("--piper")
+    ap.add_argument("--modell", type=Path)
+    ap.add_argument("--nur-seiten", action="store_true",
+                    help="keine Sprachsynthese, nur die HTML-Seiten aus vorhandenen MP3s bauen")
     a = ap.parse_args()
+    if not a.nur_seiten and not (a.piper and a.modell):
+        ap.error("--piper und --modell sind nötig (oder --nur-seiten)")
 
     themen = json.loads((PROJEKT / "saetze.json").read_text(encoding="utf-8"))
     saetze = [(thema, de) for thema, liste in themen.items() for de in liste]
     audio_dir = PROJEKT / "site" / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
-    for alt in audio_dir.glob("*.mp3"):
-        alt.unlink()
     vorlage = (PROJEKT / "vorlage" / "seite.html").read_text(encoding="utf-8")
 
-    with tempfile.TemporaryDirectory() as t:
-        tmp = Path(t)
-        wavs = []
-        for i, (_thema, de) in enumerate(saetze, 1):
-            wav = tmp / f"{i:03d}.wav"
-            synthese(a.piper, a.modell, de, wav)
-            zu_mp3(wav, audio_dir / f"{i:03d}.mp3")
-            wavs.append(wav)
-            print(f"{i:03d}.mp3  {de}")
-        gesamtdatei(wavs, audio_dir / "alle-saetze.mp3", tmp)
-        print("alle-saetze.mp3")
+    if not a.nur_seiten:
+        for alt in audio_dir.glob("*.mp3"):
+            alt.unlink()
+        with tempfile.TemporaryDirectory() as t:
+            tmp = Path(t)
+            wavs = []
+            for i, (_thema, de) in enumerate(saetze, 1):
+                wav = tmp / f"{i:03d}.wav"
+                synthese(a.piper, a.modell, de, wav)
+                zu_mp3(wav, audio_dir / f"{i:03d}.mp3")
+                wavs.append(wav)
+                print(f"{i:03d}.mp3  {de}")
+            gesamtdatei(wavs, audio_dir / "alle-saetze.mp3", tmp)
+            print("alle-saetze.mp3")
 
     # Webseite: relative Pfade, funktioniert lokal (Doppelklick) und auf jedem Webserver
     web = [{"thema": t, "de": de, "src": f"audio/{i:03d}.mp3"} for i, (t, de) in enumerate(saetze, 1)]

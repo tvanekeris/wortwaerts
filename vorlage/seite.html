@@ -93,6 +93,28 @@
 
   .voice { flex: 1 1 100%; font-size: 13px; color: var(--muted); }
 
+  .quelle { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+  .quelle-titel {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .seg {
+    display: inline-flex; border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px; background: var(--bg); margin: 0; min-width: 0;
+  }
+  .seg label { position: relative; }
+  .seg input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .seg span {
+    display: block; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--muted);
+  }
+  .seg input:checked + span { background: var(--accent); color: var(--accent-ink); }
+  .seg input:focus-visible + span { outline: 3px solid var(--mark); outline-offset: 2px; }
+  .quelle select {
+    font: 14px var(--font-body); color: var(--ink); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; max-width: 100%; min-width: 0;
+  }
+
   .note {
     margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink);
     background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
@@ -149,7 +171,7 @@
   <header>
     <span class="eyebrow">Hörübung · Deutsch · /*__ANZAHL__*/ Sätze in /*__THEMEN__*/ Themen</span>
     <h1>Alltagssätze zum Hören</h1>
-    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein, auch während der Wiedergabe. Ein Klick auf einen Satz spielt nur diesen ab, der Knopf neben einem Thema spielt dessen Sätze.</p>
+    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein. Ein Klick auf einen Satz spielt nur diesen ab, der Knopf neben einem Thema spielt dessen Sätze.</p>
   </header>
 
   <section class="controls" aria-label="Wiedergabe">
@@ -168,7 +190,15 @@
       <div class="ticks" aria-hidden="true"><span>0,5× langsam</span><span>1,0×</span><span>1,5× schnell</span></div>
     </div>
 
-    <p class="voice">Stimme: Thorsten (Piper, Deutsch), als Audiodatei eingebettet</p>
+    <div class="quelle" id="quelle" hidden>
+      <span class="quelle-titel" id="quelle-titel">Sprachausgabe</span>
+      <div class="seg" role="radiogroup" aria-labelledby="quelle-titel">
+        <label><input type="radio" name="quelle" id="quelle-mp3" value="mp3" checked><span>MP3-Aufnahme</span></label>
+        <label><input type="radio" name="quelle" id="quelle-browser" value="browser"><span>Browser-Stimme</span></label>
+      </div>
+      <select id="browser-stimme" aria-label="Browser-Stimme wählen" hidden></select>
+    </div>
+    <p class="voice" id="voice-info">Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet</p>
   </section>
 
   <p class="note" id="note" hidden></p>
@@ -202,10 +232,24 @@
   audio.preservesPitch = true;
   audio.webkitPreservesPitch = true;
 
-  let state = "idle"; // idle | playing | paused
+  const synth = window.speechSynthesis;
+  const quelleBox = document.getElementById("quelle");
+  const quelleRadios = document.querySelectorAll('input[name="quelle"]');
+  const stimmeSel = document.getElementById("browser-stimme");
+  const voiceInfo = document.getElementById("voice-info");
+  const SPEICHER_KEY = "alltagssaetze-quelle";
+  const START_TIMEOUT_MS = 2500;
+
+  let quelle = "mp3";   // mp3 | browser
+  let stimmen = [];     // deutsche Browser-Stimmen
+  let state = "idle";   // idle | playing | paused
   let queue = [];
+  let current = -1;
   let gapTimer = null;
+  let startTimer = null;
   let inGap = false;
+  let mp3Index = -1;    // Satz, der gerade im Audio-Element geladen ist
+  let token = 0;        // macht Rückrufe abgebrochener Sätze wirkungslos
 
   const items = [];
   let liste = null;
@@ -245,7 +289,8 @@
   function formatRate(v) { return Number(v).toFixed(1).replace(".", ",") + "×"; }
   rateIn.addEventListener("input", () => {
     rateOut.textContent = formatRate(rateIn.value);
-    audio.playbackRate = rate();
+    audio.defaultPlaybackRate = rate();
+    audio.playbackRate = rate(); // Browser-Stimme: gilt ab dem nächsten Satz
   });
 
   function showNote(msg) { note.textContent = msg; note.hidden = !msg; }
@@ -264,33 +309,156 @@
     stopBtn.disabled = s === "idle";
   }
 
-  function playNext() {
+  // ---- Browser-Stimme erkennen ----
+  function deutscheStimmen() {
+    return synth.getVoices().filter(v => v.lang && v.lang.toLowerCase().replace("_", "-").startsWith("de"));
+  }
+
+  function warteAufStimmen() {
+    return new Promise(resolve => {
+      if (!synth || typeof SpeechSynthesisUtterance === "undefined") return resolve([]);
+      let list = [];
+      try { list = deutscheStimmen(); } catch { return resolve([]); }
+      if (list.length) return resolve(list);
+      const fertig = () => { try { resolve(deutscheStimmen()); } catch { resolve([]); } };
+      synth.addEventListener?.("voiceschanged", fertig, { once: true });
+      setTimeout(fertig, 1500);
+    });
+  }
+
+  function zeigeVoiceInfo() {
+    if (quelle === "browser") {
+      const v = stimmen[Number(stimmeSel.value)];
+      voiceInfo.textContent = `Stimme: ${v ? v.name : "Browser-Standard"} (Sprachausgabe des Browsers)`;
+    } else {
+      voiceInfo.textContent = "Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet";
+    }
+    stimmeSel.hidden = quelle !== "browser";
+  }
+
+  function setzeQuelle(q, merken = true) {
+    const vorher = quelle;
+    quelle = q;
+    mp3Index = -1;
+    quelleRadios.forEach(r => { r.checked = r.value === q; });
+    zeigeVoiceInfo();
+    if (merken) { try { localStorage.setItem(SPEICHER_KEY, q); } catch {} }
+    if (vorher !== q && state === "playing" && current >= 0) {
+      // laufenden Satz mit der neuen Quelle neu beginnen
+      halteAn();
+      spieleSatz(current);
+    } else if (vorher !== q && state === "paused") {
+      halteAn();
+    }
+  }
+
+  function browserStimmeAus(meldung) {
+    stimmen = [];
+    quelleBox.hidden = true;
+    setzeQuelle("mp3", false);
+    if (meldung) showNote(meldung);
+  }
+
+  warteAufStimmen().then(list => {
+    if (!list.length) return; // keine Browser-Stimme: Schalter bleibt versteckt, immer MP3
+    stimmen = list;
+    stimmeSel.innerHTML = "";
+    list.forEach((v, i) => stimmeSel.add(new Option(`${v.name} (${v.lang})`, String(i))));
+    stimmeSel.value = String(Math.max(0, list.findIndex(v => v.lang === "de-DE")));
+    quelleBox.hidden = false;
+    let gespeichert = null;
+    try { gespeichert = localStorage.getItem(SPEICHER_KEY); } catch {}
+    setzeQuelle(gespeichert === "browser" ? "browser" : "mp3", false);
+  });
+
+  quelleRadios.forEach(r => r.addEventListener("change", () => { if (r.checked) setzeQuelle(r.value); }));
+  stimmeSel.addEventListener("change", zeigeVoiceInfo);
+
+  // ---- Wiedergabe ----
+  audio.addEventListener("ratechange", () => {
+    // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
+    if (audio.playbackRate !== rate()) audio.playbackRate = rate();
+  });
+
+  function halteAn() {
+    token++;
+    clearTimeout(gapTimer);
+    clearTimeout(startTimer);
     inGap = false;
+    audio.pause();
+    if (synth && (synth.speaking || synth.pending)) synth.cancel();
+  }
+
+  function nachSatz(t) {
+    if (t !== token || state !== "playing") return;
     if (!queue.length) { finish(); return; }
-    const i = queue.shift();
+    inGap = true;
+    gapTimer = setTimeout(playNext, PAUSE_BETWEEN_MS / rate());
+  }
+
+  function spieleSatz(i) {
+    const t = ++token;
+    current = i;
     mark(i);
+    if (quelle === "browser") sprich(i, t);
+    else spieleMp3(i, t);
+  }
+
+  function spieleMp3(i, t) {
+    mp3Index = i;
     audio.src = SENTENCES[i].src;
+    audio.defaultPlaybackRate = rate();
     audio.playbackRate = rate();
+    audio.onended = () => nachSatz(t);
     audio.play().catch(err => {
-      if (err.name === "AbortError") return;
+      if (t !== token || err.name === "AbortError") return;
       showNote("Die Audiodatei konnte nicht abgespielt werden. Drück noch einmal auf Abspielen.");
       finish();
     });
   }
 
-  audio.addEventListener("ratechange", () => {
-    // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
-    if (audio.playbackRate !== rate()) audio.playbackRate = rate();
-  });
-  audio.addEventListener("ended", () => {
-    if (state !== "playing") return;
+  function sprich(i, t) {
+    let gestartet = false;
+    const rueckfall = () => {
+      if (t !== token) return;
+      // setzeQuelle startet den laufenden Satz als MP3 neu
+      browserStimmeAus("Die Browser-Stimme funktioniert hier nicht. Es werden die MP3-Aufnahmen abgespielt.");
+    };
+    let u;
+    try {
+      u = new SpeechSynthesisUtterance(SENTENCES[i].de);
+      u.lang = "de-DE";
+      const v = stimmen[Number(stimmeSel.value)];
+      if (v) u.voice = v;
+      u.rate = rate();
+    } catch {
+      rueckfall();
+      return;
+    }
+    u.onstart = () => { gestartet = true; clearTimeout(startTimer); };
+    u.onend = () => { if (gestartet) nachSatz(t); else rueckfall(); };
+    u.onerror = e => {
+      if (t !== token || e.error === "interrupted" || e.error === "canceled") return;
+      rueckfall();
+    };
+    startTimer = setTimeout(() => { if (!gestartet) rueckfall(); }, START_TIMEOUT_MS);
+    try {
+      synth.cancel();
+      synth.speak(u);
+    } catch {
+      clearTimeout(startTimer);
+      rueckfall();
+    }
+  }
+
+  function playNext() {
+    inGap = false;
     if (!queue.length) { finish(); return; }
-    inGap = true;
-    gapTimer = setTimeout(playNext, PAUSE_BETWEEN_MS / rate());
-  });
+    spieleSatz(queue.shift());
+  }
 
   function start(indices) {
-    clearTimeout(gapTimer);
+    halteAn();
     showNote("");
     queue = indices.slice();
     setState("playing");
@@ -298,10 +466,9 @@
   }
 
   function finish() {
-    clearTimeout(gapTimer);
-    inGap = false;
+    halteAn();
     queue = [];
-    audio.pause();
+    current = -1;
     mark(-1);
     setState("idle");
   }
@@ -310,13 +477,21 @@
     if (state === "idle") {
       start(SENTENCES.map((_, i) => i));
     } else if (state === "playing") {
+      const imSatz = !inGap;
       clearTimeout(gapTimer);
-      audio.pause();
+      if (quelle === "browser") {
+        // Browser-Pause ist unzuverlässig: abbrechen und den Satz beim Weiterspielen neu sprechen
+        halteAn();
+        inGap = !imSatz;
+      } else {
+        audio.pause();
+      }
       setState("paused");
     } else {
       setState("playing");
       if (inGap) playNext();
-      else audio.play().catch(() => finish());
+      else if (quelle === "mp3" && mp3Index === current) audio.play().catch(() => finish());
+      else spieleSatz(current);
     }
   });
 

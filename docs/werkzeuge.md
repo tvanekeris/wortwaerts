@@ -32,7 +32,16 @@ verwenden und das Skript einfach erneut laufen lassen.
    - erzeugt `site/audio/alle-saetze.mp3` (alle Sätze mit 0,8 s Pause),
    - füllt `vorlage/seite.html` zweimal: `site/index.html` (lädt die MP3-Dateien) und
      `alltagssaetze.html` (MP3s als base64-`data:`-URIs eingebettet, für das Artifact).
+   Nur die Seiten neu bauen (z. B. nach Änderungen an `vorlage/seite.html`), ohne neue MP3s:
+   `python3 scripts/erzeuge_audio.py --nur-seiten`
 3. Artifact mit `alltagssaetze.html` veröffentlichen.
+
+## Test
+
+Playwright-Skript (nicht im Repo, Wegwerf-Test): Chromium mit
+`--autoplay-policy=no-user-gesture-required`, drei Fälle über eine nachgebaute
+`speechSynthesis`: keine Stimme (Schalter versteckt, MP3), funktionierende Stimme
+(Schalter sichtbar, Browser spricht), stumme Stimme (Rückfall auf MP3 nach 2,5 s).
 
 ## Tempo
 
