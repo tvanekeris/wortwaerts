@@ -311,7 +311,7 @@
 
   // ---- Browser-Stimme erkennen ----
   function deutscheStimmen() {
-    return synth.getVoices().filter(v => v.lang && v.lang.toLowerCase().replace("_", "-").startsWith("de"));
+    return synth.getVoices().filter(v => v.lang && v.lang.toLowerCase().startsWith("de"));
   }
 
   function warteAufStimmen() {
