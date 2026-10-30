@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Zweck:   Erzeugt aus saetze.json ({Thema: [Sätze]}) mit Microsoft Azure AI Speech für jeden Satz
+Zweck:   Erzeugt aus saetze.json (lange Sätze) und saetze_kurz.json (kurze Sätze, 3–4 Wörter),
+         beide im Format {Thema: [Sätze]}, mit Microsoft Azure AI Speech für jeden Satz
          MP3-Dateien in zwei Stimmen (Frau/Mann, festgelegt in stimmen.json) und drei Tempi
          (0,5 / 0,7 / 1,0 – das Tempo erzeugt Azure direkt, per SSML <prosody rate>) und baut aus
          vorlage/seite.html die Webseite site/index.html.
-         Ablage: site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3 …
+         Ablage: site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3 … (lange Sätze)
+                                                     k001.mp3 … (kurze Sätze)
          Vorhandene Dateien werden nur neu erzeugt, wenn sich Stimme, Tempo oder Satztext geändert
          haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent.
 Aufruf:  python3 scripts/erzeuge_audio.py               (fehlende/geänderte MP3s + Seite)
@@ -71,13 +73,14 @@ def anzeigename(kurzname):
 
 
 def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
+    """saetze: Liste von (nr, text), z. B. ("001", "…") oder ("k001", "…")."""
     manifest_datei = audio_dir / "manifest.json"
     manifest = {} if neu or not manifest_datei.exists() else json.loads(manifest_datei.read_text("utf-8"))
     soll = {}
     for g in GESCHLECHTER:
         for tempo in TEMPI:
-            for i, (_thema, de) in enumerate(saetze, 1):
-                soll[f"{g}/{tempo}/{i:03d}.mp3"] = (stimmen[g], tempo, de)
+            for nr, de in saetze:
+                soll[f"{g}/{tempo}/{nr}.mp3"] = (stimmen[g], tempo, de)
 
     # Dateien, die nicht mehr gebraucht werden (z. B. Satz gelöscht), entfernen
     for alt in audio_dir.rglob("*.mp3"):
@@ -103,18 +106,27 @@ def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
     manifest_datei.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), "utf-8")
 
 
-def baue_seite(themen, stimmen):
+def nummeriere(lang, kurz):
+    """Liefert {Thema: {"lang": [(nr, text)], "kurz": [(nr, text)]}} mit fortlaufenden Nummern."""
+    ergebnis = {thema: {"lang": [], "kurz": []} for thema in lang}
+    for laenge, themen, praefix in (("lang", lang, ""), ("kurz", kurz, "k")):
+        nr = 0
+        for thema, liste in themen.items():
+            for de in liste:
+                nr += 1
+                ergebnis[thema][laenge].append((f"{praefix}{nr:03d}", de))
+    return ergebnis
+
+
+def baue_seite(nummern, stimmen):
     daten = {
         "themen": [], "tempi": TEMPI,
         "stimmen": {g: anzeigename(stimmen[g]) for g in GESCHLECHTER},
     }
-    nr = 0
-    for thema, liste in themen.items():
-        eintraege = []
-        for de in liste:
-            nr += 1
-            eintraege.append({"nr": f"{nr:03d}", "de": de})
-        daten["themen"].append({"name": thema, "saetze": eintraege})
+    for thema, laengen in nummern.items():
+        daten["themen"].append({"name": thema, **{
+            laenge: [{"nr": nr, "de": de} for nr, de in eintraege]
+            for laenge, eintraege in laengen.items()}})
     vorlage = (PROJEKT / "vorlage" / "seite.html").read_text(encoding="utf-8")
     html = vorlage.replace("/*__DATEN__*/", json.dumps(daten, ensure_ascii=False))
     (PROJEKT / "site" / "index.html").write_text(html, encoding="utf-8")
@@ -126,15 +138,19 @@ def main():
     ap.add_argument("--nur-seiten", action="store_true", help="keine Sprachsynthese, nur site/index.html bauen")
     a = ap.parse_args()
 
-    themen = json.loads((PROJEKT / "saetze.json").read_text(encoding="utf-8"))
+    lang = json.loads((PROJEKT / "saetze.json").read_text(encoding="utf-8"))
+    kurz = json.loads((PROJEKT / "saetze_kurz.json").read_text(encoding="utf-8"))
+    if list(lang) != list(kurz):
+        raise SystemExit("saetze.json und saetze_kurz.json müssen dieselben Themen in derselben Reihenfolge haben")
     stimmen = json.loads((PROJEKT / "stimmen.json").read_text(encoding="utf-8"))
-    saetze = [(thema, de) for thema, liste in themen.items() for de in liste]
+    nummern = nummeriere(lang, kurz)
+    saetze = [e for laengen in nummern.values() for liste in laengen.values() for e in liste]
     audio_dir = PROJEKT / "site" / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
 
     if not a.nur_seiten:
         erzeuge_mp3s(saetze, stimmen, audio_dir, a.neu)
-    baue_seite(themen, stimmen)
+    baue_seite(nummern, stimmen)
     print("site/index.html geschrieben")
 
 

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: eine Spalte – 1 Stimme, 2 Tempo, 3 Thema, dann großer Play-Knopf, Aufdecken, Neuer Satz */
+  /* Layout: eine Spalte – 1 Stimme, 2 Tempo, 3 Satzlänge, 4 Thema, dann großer Play-Knopf, Aufdecken, Neuer Satz */
   :root {
     --bg: #eef1f4;
     --surface: #ffffff;
@@ -70,7 +70,7 @@
     outline: 3px solid var(--mark); outline-offset: 3px;
   }
 
-  /* Stimme: Schieber mit zwei Stellungen (Radio-Knöpfe, der Knopf gleitet zur gewählten Seite) */
+  /* Stimme und Satzlänge: Schieber mit zwei Stellungen (Radio-Knöpfe, der Knopf gleitet zur gewählten Seite) */
   .schieber {
     position: relative; display: grid; grid-template-columns: 1fr 1fr;
     background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px;
@@ -79,7 +79,7 @@
     content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px);
     border-radius: 999px; background: var(--accent); transition: transform .2s ease;
   }
-  .schieber:has(input[value="mann"]:checked)::before { transform: translateX(100%); }
+  .schieber:has(label:last-child input:checked)::before { transform: translateX(100%); }
   .schieber label { position: relative; }
   .schieber input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
   .schieber span {
@@ -214,7 +214,15 @@
   </fieldset>
 
   <fieldset class="schritt">
-    <legend class="schritt-titel"><span class="schritt-nr">3</span> Thema</legend>
+    <legend class="schritt-titel"><span class="schritt-nr">3</span> Satzlänge</legend>
+    <div class="schieber" id="laenge">
+      <label><input type="radio" name="laenge" value="kurz"><span>kurze Sätze</span></label>
+      <label><input type="radio" name="laenge" value="lang"><span>lange Sätze</span></label>
+    </div>
+  </fieldset>
+
+  <fieldset class="schritt">
+    <legend class="schritt-titel"><span class="schritt-nr">4</span> Thema</legend>
     <div class="themen" id="themen"></div>
   </fieldset>
 
@@ -265,6 +273,7 @@
   const tempoIn = document.getElementById("tempo");
   const stufen = document.querySelectorAll("#stufen span");
   const stimmeRadios = document.querySelectorAll('input[name="stimme"]');
+  const laengeRadios = document.querySelectorAll('input[name="laenge"]');
   const playBtn = document.getElementById("play");
   const playIcon = document.getElementById("play-icon");
   const playLabel = document.getElementById("play-label");
@@ -284,6 +293,7 @@
 
   let stimme = lies("stimme") === "mann" ? "mann" : "frau";
   let tempoStufe = ["0", "1", "2"].includes(lies("tempo")) ? Number(lies("tempo")) : 0;
+  let laenge = lies("laenge") === "lang" ? "lang" : "kurz";
   let thema = null;       // ALLE oder Index in DATEN.themen
   let stapel = [];        // gemischte, noch nicht gespielte Sätze des Themas
   let satz = null;        // aktueller Satz {nr, de}
@@ -292,6 +302,17 @@
   stimmeRadios.forEach(r => {
     r.checked = r.value === stimme;
     r.addEventListener("change", () => { if (r.checked) { stimme = r.value; merke("stimme", stimme); } });
+  });
+
+  // ---- Satzlänge: wechselt zu einem Satz der neuen Länge (vorgeladen, nicht abgespielt) ----
+  laengeRadios.forEach(r => {
+    r.checked = r.value === laenge;
+    r.addEventListener("change", () => {
+      if (!r.checked) return;
+      laenge = r.value;
+      merke("laenge", laenge);
+      if (thema !== null) waehleThema(thema, false);
+    });
   });
 
   // ---- Tempo ----
@@ -329,7 +350,7 @@
   }
 
   function saetzeDesThemas() {
-    return thema === ALLE ? DATEN.themen.flatMap(t => t.saetze) : DATEN.themen[thema].saetze;
+    return thema === ALLE ? DATEN.themen.flatMap(t => t[laenge]) : DATEN.themen[thema][laenge];
   }
 
   function naechsterSatz() {
@@ -355,6 +376,7 @@
       document.querySelector(".hoeren").scrollIntoView({ block: "nearest", behavior: ruhig ? "auto" : "smooth" });
     } else {
       // nur vorladen, damit der erste Tipp auf Abspielen sofort klingt
+      stoppe();
       audio.src = aufnahme();
       audio.load();
     }
