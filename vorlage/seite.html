@@ -198,7 +198,7 @@
       </div>
       <select id="browser-stimme" aria-label="Browser-Stimme wählen" hidden></select>
     </div>
-    <p class="voice" id="voice-info">Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet</p>
+    <p class="voice" id="voice-info">Stimme: /*__STIMME__*/, als MP3 eingebettet</p>
   </section>
 
   <p class="note" id="note" hidden></p>
@@ -335,7 +335,7 @@
       const v = stimmen[Number(stimmeSel.value)];
       voiceInfo.textContent = `Stimme: ${v ? v.name : "Browser-Standard"} (Sprachausgabe des Browsers)`;
     } else {
-      voiceInfo.textContent = "Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet";
+      voiceInfo.textContent = "Stimme: /*__STIMME__*/, als MP3 eingebettet";
     }
     stimmeSel.hidden = quelle !== "browser";
   }
