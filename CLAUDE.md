@@ -15,3 +15,7 @@
 - Neue Themen immer **am Ende** anfügen: Die Sätze werden fortlaufend nummeriert, so bleiben
   die Nummern und Aufnahmen der bestehenden Sätze unverändert. Für jedes neue Thema ein Symbol
   in `SYMBOLE` (`vorlage/seite.html`) ergänzen.
+- Wird ein Satz gelöscht oder eingefügt, rücken die Nummern der folgenden Sätze auf.
+  `erzeuge_audio.py` verschiebt die vorhandenen Aufnahmen dann an ihre neue Nummer (Abgleich über
+  Stimme, Tempo und Text) und erzeugt nichts neu.
+- Ein Satz soll nicht gleichzeitig kurz und lang vorkommen.

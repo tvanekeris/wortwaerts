@@ -821,66 +821,60 @@ site/audio/07-gesundheit/lang/frau/1.0/067.mp3;Gesundheit;lang;067;Ich fühle mi
 site/audio/07-gesundheit/lang/mann/0.5/067.mp3;Gesundheit;lang;067;Ich fühle mich heute nicht so gut.;mann;de-DE-KillianNeural;0,5
 site/audio/07-gesundheit/lang/mann/0.7/067.mp3;Gesundheit;lang;067;Ich fühle mich heute nicht so gut.;mann;de-DE-KillianNeural;0,7
 site/audio/07-gesundheit/lang/mann/1.0/067.mp3;Gesundheit;lang;067;Ich fühle mich heute nicht so gut.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/068.mp3;Gesundheit;lang;068;Ich habe Kopfschmerzen.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/069.mp3;Gesundheit;lang;069;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/070.mp3;Gesundheit;lang;070;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/071.mp3;Gesundheit;lang;071;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/072.mp3;Gesundheit;lang;072;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/073.mp3;Gesundheit;lang;073;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/074.mp3;Gesundheit;lang;074;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/075.mp3;Gesundheit;lang;075;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/076.mp3;Gesundheit;lang;076;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/076.mp3;Gesundheit;lang;076;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/076.mp3;Gesundheit;lang;076;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/076.mp3;Gesundheit;lang;076;Gute Besserung!;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/076.mp3;Gesundheit;lang;076;Gute Besserung!;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/076.mp3;Gesundheit;lang;076;Gute Besserung!;mann;de-DE-KillianNeural;1,0
-site/audio/07-gesundheit/lang/frau/0.5/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/07-gesundheit/lang/frau/0.7/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/07-gesundheit/lang/frau/1.0/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/07-gesundheit/lang/mann/0.5/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;0,5
-site/audio/07-gesundheit/lang/mann/0.7/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;0,7
-site/audio/07-gesundheit/lang/mann/1.0/077.mp3;Gesundheit;lang;077;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/068.mp3;Gesundheit;lang;068;Ich hätte gern einen Termin beim Arzt.;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/069.mp3;Gesundheit;lang;069;Seit wann haben Sie die Beschwerden?;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/070.mp3;Gesundheit;lang;070;Haben Sie etwas gegen Halsschmerzen?;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/071.mp3;Gesundheit;lang;071;Wie oft muss ich die Tabletten nehmen?;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/072.mp3;Gesundheit;lang;072;Ich bin gegen Nüsse allergisch.;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/073.mp3;Gesundheit;lang;073;Ich glaube, ich habe Fieber.;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/074.mp3;Gesundheit;lang;074;Ich bleibe heute lieber im Bett.;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/075.mp3;Gesundheit;lang;075;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/075.mp3;Gesundheit;lang;075;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/075.mp3;Gesundheit;lang;075;Gute Besserung!;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/075.mp3;Gesundheit;lang;075;Gute Besserung!;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/075.mp3;Gesundheit;lang;075;Gute Besserung!;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/075.mp3;Gesundheit;lang;075;Gute Besserung!;mann;de-DE-KillianNeural;1,0
+site/audio/07-gesundheit/lang/frau/0.5/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/07-gesundheit/lang/frau/0.7/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/07-gesundheit/lang/frau/1.0/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/07-gesundheit/lang/mann/0.5/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;0,5
+site/audio/07-gesundheit/lang/mann/0.7/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;0,7
+site/audio/07-gesundheit/lang/mann/1.0/076.mp3;Gesundheit;lang;076;Wo ist die nächste Apotheke?;mann;de-DE-KillianNeural;1,0
 site/audio/08-freizeit-verabredungen/kurz/frau/0.5/k071.mp3;Freizeit & Verabredungen;kurz;k071;Hast du heute Zeit?;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/08-freizeit-verabredungen/kurz/frau/0.7/k071.mp3;Freizeit & Verabredungen;kurz;k071;Hast du heute Zeit?;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/08-freizeit-verabredungen/kurz/frau/1.0/k071.mp3;Freizeit & Verabredungen;kurz;k071;Hast du heute Zeit?;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -941,72 +935,72 @@ site/audio/08-freizeit-verabredungen/kurz/frau/1.0/k080.mp3;Freizeit & Verabredu
 site/audio/08-freizeit-verabredungen/kurz/mann/0.5/k080.mp3;Freizeit & Verabredungen;kurz;k080;Bis Samstag dann!;mann;de-DE-KillianNeural;0,5
 site/audio/08-freizeit-verabredungen/kurz/mann/0.7/k080.mp3;Freizeit & Verabredungen;kurz;k080;Bis Samstag dann!;mann;de-DE-KillianNeural;0,7
 site/audio/08-freizeit-verabredungen/kurz/mann/1.0/k080.mp3;Freizeit & Verabredungen;kurz;k080;Bis Samstag dann!;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/078.mp3;Freizeit & Verabredungen;lang;078;Was machst du am Wochenende?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/079.mp3;Freizeit & Verabredungen;lang;079;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/080.mp3;Freizeit & Verabredungen;lang;080;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/081.mp3;Freizeit & Verabredungen;lang;081;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/082.mp3;Freizeit & Verabredungen;lang;082;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/083.mp3;Freizeit & Verabredungen;lang;083;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/084.mp3;Freizeit & Verabredungen;lang;084;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/085.mp3;Freizeit & Verabredungen;lang;085;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/086.mp3;Freizeit & Verabredungen;lang;086;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/087.mp3;Freizeit & Verabredungen;lang;087;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/frau/0.5/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/frau/0.7/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/frau/1.0/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/08-freizeit-verabredungen/lang/mann/0.5/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;0,5
-site/audio/08-freizeit-verabredungen/lang/mann/0.7/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;0,7
-site/audio/08-freizeit-verabredungen/lang/mann/1.0/088.mp3;Freizeit & Verabredungen;lang;088;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/077.mp3;Freizeit & Verabredungen;lang;077;Was machst du am Wochenende?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/078.mp3;Freizeit & Verabredungen;lang;078;Wir treffen uns um halb acht vor dem Kino.;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/079.mp3;Freizeit & Verabredungen;lang;079;Hast du Lust, heute Abend etwas zu unternehmen?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/080.mp3;Freizeit & Verabredungen;lang;080;Wollen wir zusammen ins Schwimmbad gehen?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/081.mp3;Freizeit & Verabredungen;lang;081;Ich gehe am Samstag mit Freunden wandern.;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/082.mp3;Freizeit & Verabredungen;lang;082;Welche Musik hörst du gern?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/083.mp3;Freizeit & Verabredungen;lang;083;Hast du den Film schon gesehen?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/084.mp3;Freizeit & Verabredungen;lang;084;Ich lese gerade ein spannendes Buch.;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/085.mp3;Freizeit & Verabredungen;lang;085;Passt es dir am Freitag um sieben?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/086.mp3;Freizeit & Verabredungen;lang;086;Leider kann ich heute nicht. Vielleicht nächste Woche?;mann;de-DE-KillianNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/frau/0.5/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/frau/0.7/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/frau/1.0/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/08-freizeit-verabredungen/lang/mann/0.5/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;0,5
+site/audio/08-freizeit-verabredungen/lang/mann/0.7/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;0,7
+site/audio/08-freizeit-verabredungen/lang/mann/1.0/087.mp3;Freizeit & Verabredungen;lang;087;Ich freue mich schon darauf!;mann;de-DE-KillianNeural;1,0
 site/audio/09-verstaendigung-hoeflichkeit/kurz/frau/0.5/k081.mp3;Verständigung & Höflichkeit;kurz;k081;Vielen Dank dafür!;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/09-verstaendigung-hoeflichkeit/kurz/frau/0.7/k081.mp3;Verständigung & Höflichkeit;kurz;k081;Vielen Dank dafür!;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/09-verstaendigung-hoeflichkeit/kurz/frau/1.0/k081.mp3;Verständigung & Höflichkeit;kurz;k081;Vielen Dank dafür!;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1067,72 +1061,72 @@ site/audio/09-verstaendigung-hoeflichkeit/kurz/frau/1.0/k090.mp3;Verständigung 
 site/audio/09-verstaendigung-hoeflichkeit/kurz/mann/0.5/k090.mp3;Verständigung & Höflichkeit;kurz;k090;Bitte, gern geschehen.;mann;de-DE-KillianNeural;0,5
 site/audio/09-verstaendigung-hoeflichkeit/kurz/mann/0.7/k090.mp3;Verständigung & Höflichkeit;kurz;k090;Bitte, gern geschehen.;mann;de-DE-KillianNeural;0,7
 site/audio/09-verstaendigung-hoeflichkeit/kurz/mann/1.0/k090.mp3;Verständigung & Höflichkeit;kurz;k090;Bitte, gern geschehen.;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/089.mp3;Verständigung & Höflichkeit;lang;089;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/090.mp3;Verständigung & Höflichkeit;lang;090;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/091.mp3;Verständigung & Höflichkeit;lang;091;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/092.mp3;Verständigung & Höflichkeit;lang;092;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/093.mp3;Verständigung & Höflichkeit;lang;093;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/094.mp3;Verständigung & Höflichkeit;lang;094;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/095.mp3;Verständigung & Höflichkeit;lang;095;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/096.mp3;Verständigung & Höflichkeit;lang;096;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/097.mp3;Verständigung & Höflichkeit;lang;097;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/098.mp3;Verständigung & Höflichkeit;lang;098;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;0,5
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;0,7
-site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/099.mp3;Verständigung & Höflichkeit;lang;099;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/088.mp3;Verständigung & Höflichkeit;lang;088;Könnten Sie das bitte noch einmal wiederholen?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/089.mp3;Verständigung & Höflichkeit;lang;089;Danke, das ist sehr nett von dir!;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/090.mp3;Verständigung & Höflichkeit;lang;090;Entschuldigung, das habe ich nicht verstanden.;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/091.mp3;Verständigung & Höflichkeit;lang;091;Können Sie bitte etwas langsamer sprechen?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/092.mp3;Verständigung & Höflichkeit;lang;092;Was bedeutet dieses Wort?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/093.mp3;Verständigung & Höflichkeit;lang;093;Wie sagt man das auf Deutsch?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/094.mp3;Verständigung & Höflichkeit;lang;094;Ich spreche nur ein bisschen Deutsch.;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/095.mp3;Verständigung & Höflichkeit;lang;095;Kein Problem, gern geschehen.;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/096.mp3;Verständigung & Höflichkeit;lang;096;Entschuldigung, das war mein Fehler.;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/097.mp3;Verständigung & Höflichkeit;lang;097;Darf ich Sie etwas fragen?;mann;de-DE-KillianNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.5/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/0.7/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/frau/1.0/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.5/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;0,5
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/0.7/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;0,7
+site/audio/09-verstaendigung-hoeflichkeit/lang/mann/1.0/098.mp3;Verständigung & Höflichkeit;lang;098;Könnten Sie mir bitte helfen?;mann;de-DE-KillianNeural;1,0
 site/audio/10-wetter-zeit/kurz/frau/0.5/k091.mp3;Wetter & Zeit;kurz;k091;Es regnet heute.;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/10-wetter-zeit/kurz/frau/0.7/k091.mp3;Wetter & Zeit;kurz;k091;Es regnet heute.;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/10-wetter-zeit/kurz/frau/1.0/k091.mp3;Wetter & Zeit;kurz;k091;Es regnet heute.;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1193,72 +1187,66 @@ site/audio/10-wetter-zeit/kurz/frau/1.0/k100.mp3;Wetter & Zeit;kurz;k100;Bald is
 site/audio/10-wetter-zeit/kurz/mann/0.5/k100.mp3;Wetter & Zeit;kurz;k100;Bald ist Sommer.;mann;de-DE-KillianNeural;0,5
 site/audio/10-wetter-zeit/kurz/mann/0.7/k100.mp3;Wetter & Zeit;kurz;k100;Bald ist Sommer.;mann;de-DE-KillianNeural;0,7
 site/audio/10-wetter-zeit/kurz/mann/1.0/k100.mp3;Wetter & Zeit;kurz;k100;Bald ist Sommer.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/100.mp3;Wetter & Zeit;lang;100;Wie spät ist es?;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/101.mp3;Wetter & Zeit;lang;101;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/102.mp3;Wetter & Zeit;lang;102;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/103.mp3;Wetter & Zeit;lang;103;Morgen soll es regnen.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/104.mp3;Wetter & Zeit;lang;104;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/105.mp3;Wetter & Zeit;lang;105;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/106.mp3;Wetter & Zeit;lang;106;Welcher Tag ist heute?;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/107.mp3;Wetter & Zeit;lang;107;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/108.mp3;Wetter & Zeit;lang;108;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/109.mp3;Wetter & Zeit;lang;109;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;1,0
-site/audio/10-wetter-zeit/lang/frau/0.5/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/10-wetter-zeit/lang/frau/0.7/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/10-wetter-zeit/lang/frau/1.0/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/10-wetter-zeit/lang/mann/0.5/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;0,5
-site/audio/10-wetter-zeit/lang/mann/0.7/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;0,7
-site/audio/10-wetter-zeit/lang/mann/1.0/110.mp3;Wetter & Zeit;lang;110;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/099.mp3;Wetter & Zeit;lang;099;Es ist Viertel nach drei.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/100.mp3;Wetter & Zeit;lang;100;Heute ist es ganz schön kalt draußen.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/101.mp3;Wetter & Zeit;lang;101;Morgen soll es regnen.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/102.mp3;Wetter & Zeit;lang;102;Nimm lieber einen Regenschirm mit.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/103.mp3;Wetter & Zeit;lang;103;Was für ein schöner Sonnentag!;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/104.mp3;Wetter & Zeit;lang;104;Welcher Tag ist heute?;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/105.mp3;Wetter & Zeit;lang;105;Ich habe am dritten Mai Geburtstag.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/106.mp3;Wetter & Zeit;lang;106;Die Zeit vergeht so schnell.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/107.mp3;Wetter & Zeit;lang;107;Im Sommer wird es hier sehr heiß.;mann;de-DE-KillianNeural;1,0
+site/audio/10-wetter-zeit/lang/frau/0.5/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/10-wetter-zeit/lang/frau/0.7/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/10-wetter-zeit/lang/frau/1.0/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/10-wetter-zeit/lang/mann/0.5/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;0,5
+site/audio/10-wetter-zeit/lang/mann/0.7/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;0,7
+site/audio/10-wetter-zeit/lang/mann/1.0/108.mp3;Wetter & Zeit;lang;108;Ich komme in fünf Minuten.;mann;de-DE-KillianNeural;1,0
 site/audio/11-koerperpflege-anziehen/kurz/frau/0.5/k101.mp3;Körperpflege & Anziehen;kurz;k101;Ich möchte duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/11-koerperpflege-anziehen/kurz/frau/0.7/k101.mp3;Körperpflege & Anziehen;kurz;k101;Ich möchte duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/11-koerperpflege-anziehen/kurz/frau/1.0/k101.mp3;Körperpflege & Anziehen;kurz;k101;Ich möchte duschen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1319,66 +1307,66 @@ site/audio/11-koerperpflege-anziehen/kurz/frau/1.0/k110.mp3;Körperpflege & Anzi
 site/audio/11-koerperpflege-anziehen/kurz/mann/0.5/k110.mp3;Körperpflege & Anziehen;kurz;k110;Der Pullover passt gut.;mann;de-DE-KillianNeural;0,5
 site/audio/11-koerperpflege-anziehen/kurz/mann/0.7/k110.mp3;Körperpflege & Anziehen;kurz;k110;Der Pullover passt gut.;mann;de-DE-KillianNeural;0,7
 site/audio/11-koerperpflege-anziehen/kurz/mann/1.0/k110.mp3;Körperpflege & Anziehen;kurz;k110;Der Pullover passt gut.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/111.mp3;Körperpflege & Anziehen;lang;111;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/112.mp3;Körperpflege & Anziehen;lang;112;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/113.mp3;Körperpflege & Anziehen;lang;113;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/114.mp3;Körperpflege & Anziehen;lang;114;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/115.mp3;Körperpflege & Anziehen;lang;115;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/116.mp3;Körperpflege & Anziehen;lang;116;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/117.mp3;Körperpflege & Anziehen;lang;117;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/118.mp3;Körperpflege & Anziehen;lang;118;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/119.mp3;Körperpflege & Anziehen;lang;119;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/frau/0.5/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/frau/0.7/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/frau/1.0/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/11-koerperpflege-anziehen/lang/mann/0.5/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;0,5
-site/audio/11-koerperpflege-anziehen/lang/mann/0.7/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;0,7
-site/audio/11-koerperpflege-anziehen/lang/mann/1.0/120.mp3;Körperpflege & Anziehen;lang;120;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/109.mp3;Körperpflege & Anziehen;lang;109;Kannst du mir bitte beim Anziehen der Jacke helfen?;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/110.mp3;Körperpflege & Anziehen;lang;110;Ich möchte heute Morgen zuerst duschen.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/111.mp3;Körperpflege & Anziehen;lang;111;Das Wasser ist mir ein bisschen zu heiß.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/112.mp3;Körperpflege & Anziehen;lang;112;Wo habe ich nur meine Brille hingelegt?;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/113.mp3;Körperpflege & Anziehen;lang;113;Ich ziehe heute die blaue Hose an.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/114.mp3;Körperpflege & Anziehen;lang;114;Bitte gib mir das Handtuch aus dem Schrank.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/115.mp3;Körperpflege & Anziehen;lang;115;Die Knöpfe an diesem Hemd sind sehr klein.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/116.mp3;Körperpflege & Anziehen;lang;116;Nach dem Frühstück putze ich mir die Zähne.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/117.mp3;Körperpflege & Anziehen;lang;117;Diese Schuhe kann ich allein anziehen.;mann;de-DE-KillianNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/frau/0.5/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/frau/0.7/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/frau/1.0/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/11-koerperpflege-anziehen/lang/mann/0.5/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;0,5
+site/audio/11-koerperpflege-anziehen/lang/mann/0.7/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;0,7
+site/audio/11-koerperpflege-anziehen/lang/mann/1.0/118.mp3;Körperpflege & Anziehen;lang;118;Ich möchte mir heute die Haare waschen.;mann;de-DE-KillianNeural;1,0
 site/audio/12-gefuehle-beduerfnisse/kurz/frau/0.5/k111.mp3;Gefühle & Bedürfnisse;kurz;k111;Ich bin glücklich.;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/12-gefuehle-beduerfnisse/kurz/frau/0.7/k111.mp3;Gefühle & Bedürfnisse;kurz;k111;Ich bin glücklich.;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/12-gefuehle-beduerfnisse/kurz/frau/1.0/k111.mp3;Gefühle & Bedürfnisse;kurz;k111;Ich bin glücklich.;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1439,66 +1427,66 @@ site/audio/12-gefuehle-beduerfnisse/kurz/frau/1.0/k120.mp3;Gefühle & Bedürfnis
 site/audio/12-gefuehle-beduerfnisse/kurz/mann/0.5/k120.mp3;Gefühle & Bedürfnisse;kurz;k120;Mir ist warm.;mann;de-DE-KillianNeural;0,5
 site/audio/12-gefuehle-beduerfnisse/kurz/mann/0.7/k120.mp3;Gefühle & Bedürfnisse;kurz;k120;Mir ist warm.;mann;de-DE-KillianNeural;0,7
 site/audio/12-gefuehle-beduerfnisse/kurz/mann/1.0/k120.mp3;Gefühle & Bedürfnisse;kurz;k120;Mir ist warm.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/121.mp3;Gefühle & Bedürfnisse;lang;121;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/123.mp3;Gefühle & Bedürfnisse;lang;123;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/125.mp3;Gefühle & Bedürfnisse;lang;125;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/127.mp3;Gefühle & Bedürfnisse;lang;127;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/129.mp3;Gefühle & Bedürfnisse;lang;129;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;0,5
-site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;0,7
-site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/130.mp3;Gefühle & Bedürfnisse;lang;130;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/119.mp3;Gefühle & Bedürfnisse;lang;119;Heute geht es mir richtig gut.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/120.mp3;Gefühle & Bedürfnisse;lang;120;Ich bin ein bisschen traurig, weil ich müde bin.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/121.mp3;Gefühle & Bedürfnisse;lang;121;Bitte lass mir einen Moment Zeit zum Antworten.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/122.mp3;Gefühle & Bedürfnisse;lang;122;Ich freue mich sehr auf deinen Besuch.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/123.mp3;Gefühle & Bedürfnisse;lang;123;Manchmal finde ich die richtigen Wörter nicht.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/124.mp3;Gefühle & Bedürfnisse;lang;124;Ich brauche jetzt eine kleine Pause.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/125.mp3;Gefühle & Bedürfnisse;lang;125;Es ärgert mich, wenn ich etwas nicht verstehe.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/126.mp3;Gefühle & Bedürfnisse;lang;126;Ich bin stolz auf das, was ich heute geschafft habe.;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/127.mp3;Gefühle & Bedürfnisse;lang;127;Mir ist kalt, kannst du bitte das Fenster schließen?;mann;de-DE-KillianNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.5/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/frau/0.7/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/frau/1.0/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.5/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;0,5
+site/audio/12-gefuehle-beduerfnisse/lang/mann/0.7/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;0,7
+site/audio/12-gefuehle-beduerfnisse/lang/mann/1.0/128.mp3;Gefühle & Bedürfnisse;lang;128;Ich möchte gern ein bisschen allein sein.;mann;de-DE-KillianNeural;1,0
 site/audio/13-hilfe-notfall/kurz/frau/0.5/k121.mp3;Hilfe & Notfall;kurz;k121;Ich brauche Hilfe.;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/13-hilfe-notfall/kurz/frau/0.7/k121.mp3;Hilfe & Notfall;kurz;k121;Ich brauche Hilfe.;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/13-hilfe-notfall/kurz/frau/1.0/k121.mp3;Hilfe & Notfall;kurz;k121;Ich brauche Hilfe.;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1559,66 +1547,66 @@ site/audio/13-hilfe-notfall/kurz/frau/1.0/k130.mp3;Hilfe & Notfall;kurz;k130;Hil
 site/audio/13-hilfe-notfall/kurz/mann/0.5/k130.mp3;Hilfe & Notfall;kurz;k130;Hilf mir bitte.;mann;de-DE-KillianNeural;0,5
 site/audio/13-hilfe-notfall/kurz/mann/0.7/k130.mp3;Hilfe & Notfall;kurz;k130;Hilf mir bitte.;mann;de-DE-KillianNeural;0,7
 site/audio/13-hilfe-notfall/kurz/mann/1.0/k130.mp3;Hilfe & Notfall;kurz;k130;Hilf mir bitte.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/131.mp3;Hilfe & Notfall;lang;131;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/132.mp3;Hilfe & Notfall;lang;132;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/133.mp3;Hilfe & Notfall;lang;133;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/134.mp3;Hilfe & Notfall;lang;134;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/135.mp3;Hilfe & Notfall;lang;135;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/136.mp3;Hilfe & Notfall;lang;136;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/137.mp3;Hilfe & Notfall;lang;137;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/138.mp3;Hilfe & Notfall;lang;138;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/139.mp3;Hilfe & Notfall;lang;139;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;1,0
-site/audio/13-hilfe-notfall/lang/frau/0.5/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/13-hilfe-notfall/lang/frau/0.7/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/13-hilfe-notfall/lang/frau/1.0/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/13-hilfe-notfall/lang/mann/0.5/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;0,5
-site/audio/13-hilfe-notfall/lang/mann/0.7/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;0,7
-site/audio/13-hilfe-notfall/lang/mann/1.0/140.mp3;Hilfe & Notfall;lang;140;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/129.mp3;Hilfe & Notfall;lang;129;Bitte ruf sofort den Notruf an.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/130.mp3;Hilfe & Notfall;lang;130;Ich bin hingefallen und komme nicht mehr hoch.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/131.mp3;Hilfe & Notfall;lang;131;Kannst du bitte meine Tochter anrufen?;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/132.mp3;Hilfe & Notfall;lang;132;Ich habe starke Schmerzen in der Brust.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/133.mp3;Hilfe & Notfall;lang;133;Bitte bleib bei mir, bis Hilfe kommt.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/134.mp3;Hilfe & Notfall;lang;134;Mein Arm fühlt sich plötzlich ganz taub an.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/135.mp3;Hilfe & Notfall;lang;135;Die Telefonnummer steht auf dem Zettel am Kühlschrank.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/136.mp3;Hilfe & Notfall;lang;136;Ich habe meinen Hausschlüssel verloren.;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/137.mp3;Hilfe & Notfall;lang;137;Können Sie mir bitte über die Straße helfen?;mann;de-DE-KillianNeural;1,0
+site/audio/13-hilfe-notfall/lang/frau/0.5/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/13-hilfe-notfall/lang/frau/0.7/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/13-hilfe-notfall/lang/frau/1.0/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/13-hilfe-notfall/lang/mann/0.5/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;0,5
+site/audio/13-hilfe-notfall/lang/mann/0.7/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;0,7
+site/audio/13-hilfe-notfall/lang/mann/1.0/138.mp3;Hilfe & Notfall;lang;138;Ich weiß gerade nicht, wo ich bin.;mann;de-DE-KillianNeural;1,0
 site/audio/14-therapie-reha/kurz/frau/0.5/k131.mp3;Therapie & Reha;kurz;k131;Ich übe jeden Tag.;frau;de-DE-SeraphinaMultilingualNeural;0,5
 site/audio/14-therapie-reha/kurz/frau/0.7/k131.mp3;Therapie & Reha;kurz;k131;Ich übe jeden Tag.;frau;de-DE-SeraphinaMultilingualNeural;0,7
 site/audio/14-therapie-reha/kurz/frau/1.0/k131.mp3;Therapie & Reha;kurz;k131;Ich übe jeden Tag.;frau;de-DE-SeraphinaMultilingualNeural;1,0
@@ -1679,63 +1667,63 @@ site/audio/14-therapie-reha/kurz/frau/1.0/k140.mp3;Therapie & Reha;kurz;k140;Das
 site/audio/14-therapie-reha/kurz/mann/0.5/k140.mp3;Therapie & Reha;kurz;k140;Das war gut.;mann;de-DE-KillianNeural;0,5
 site/audio/14-therapie-reha/kurz/mann/0.7/k140.mp3;Therapie & Reha;kurz;k140;Das war gut.;mann;de-DE-KillianNeural;0,7
 site/audio/14-therapie-reha/kurz/mann/1.0/k140.mp3;Therapie & Reha;kurz;k140;Das war gut.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/141.mp3;Therapie & Reha;lang;141;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/142.mp3;Therapie & Reha;lang;142;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/143.mp3;Therapie & Reha;lang;143;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/144.mp3;Therapie & Reha;lang;144;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/145.mp3;Therapie & Reha;lang;145;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/146.mp3;Therapie & Reha;lang;146;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/147.mp3;Therapie & Reha;lang;147;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/148.mp3;Therapie & Reha;lang;148;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/149.mp3;Therapie & Reha;lang;149;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;1,0
-site/audio/14-therapie-reha/lang/frau/0.5/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;0,5
-site/audio/14-therapie-reha/lang/frau/0.7/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;0,7
-site/audio/14-therapie-reha/lang/frau/1.0/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;1,0
-site/audio/14-therapie-reha/lang/mann/0.5/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;0,5
-site/audio/14-therapie-reha/lang/mann/0.7/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;0,7
-site/audio/14-therapie-reha/lang/mann/1.0/150.mp3;Therapie & Reha;lang;150;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/139.mp3;Therapie & Reha;lang;139;Heute habe ich um zehn Uhr Logopädie.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/140.mp3;Therapie & Reha;lang;140;Die Übungen mit der Hand fallen mir noch schwer.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/141.mp3;Therapie & Reha;lang;141;Können wir das Wort bitte noch einmal üben?;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/142.mp3;Therapie & Reha;lang;142;Mit dem Rollator kann ich schon allein gehen.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/143.mp3;Therapie & Reha;lang;143;Meine Physiotherapeutin ist sehr geduldig.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/144.mp3;Therapie & Reha;lang;144;Jeden Tag wird das Sprechen ein bisschen besser.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/145.mp3;Therapie & Reha;lang;145;Ich mache die Übungen auch zu Hause.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/146.mp3;Therapie & Reha;lang;146;Bitte sprich langsam und deutlich mit mir.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/147.mp3;Therapie & Reha;lang;147;Nach der Therapie bin ich immer sehr müde.;mann;de-DE-KillianNeural;1,0
+site/audio/14-therapie-reha/lang/frau/0.5/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;0,5
+site/audio/14-therapie-reha/lang/frau/0.7/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;0,7
+site/audio/14-therapie-reha/lang/frau/1.0/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;frau;de-DE-SeraphinaMultilingualNeural;1,0
+site/audio/14-therapie-reha/lang/mann/0.5/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;0,5
+site/audio/14-therapie-reha/lang/mann/0.7/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;0,7
+site/audio/14-therapie-reha/lang/mann/1.0/148.mp3;Therapie & Reha;lang;148;Nächste Woche fahre ich zur Reha.;mann;de-DE-KillianNeural;1,0

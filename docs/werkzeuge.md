@@ -18,8 +18,8 @@ von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher
 `site/audio/<Thema>/<kurz|lang>/<frau|mann>/<0.5|0.7|1.0>/<Nr>.mp3`, z. B.
 `site/audio/02-essen-trinken/kurz/frau/0.5/k011.mp3`. Die Themen-Ordner sind in der Reihenfolge
 der Themen nummeriert und ohne Umlaute/Sonderzeichen geschrieben; lange Sätze heißen `001.mp3` …
-`150.mp3`, kurze `k001.mp3` … `k140.mp3` (Nummern über alle Themen eindeutig) –
-290 Sätze × 2 Stimmen × 3 Tempi = 1.740 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
+`148.mp3`, kurze `k001.mp3` … `k140.mp3` (Nummern über alle Themen eindeutig) –
+288 Sätze × 2 Stimmen × 3 Tempi = 1.728 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
 
 ## Microsoft Azure AI Speech
 
@@ -44,7 +44,7 @@ Einrichtung (einmalig):
 Ablauf:
 ```
 python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeugen + Seite bauen
-python3 scripts/erzeuge_audio.py --neu         # alle 1.740 MP3s neu erzeugen
+python3 scripts/erzeuge_audio.py --neu         # alle 1.728 MP3s neu erzeugen
 python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
 Übersicht für Menschen (wird bei jedem Lauf, auch mit `--nur-seiten`, neu geschrieben):
@@ -52,8 +52,9 @@ python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Ände
 Aufnahmen; `site/audio/uebersicht.csv` – jede MP3 eine Zeile (Pfad, Thema, Länge, Nr, Satz,
 Stimme, Azure-Stimme, Tempo), Semikolon-getrennt, UTF-8 mit BOM, öffnet direkt in Excel.
 
-Ändert sich nur der Ablageort einer Aufnahme (z. B. Thema umbenannt, Ordnerstruktur geändert),
-verschiebt das Skript die vorhandene Datei, statt sie neu zu erzeugen.
+Ändert sich nur der Ablageort einer Aufnahme (z. B. Thema umbenannt, Ordnerstruktur geändert,
+Nummern aufgerückt, weil ein Satz gelöscht wurde), verschiebt das Skript die vorhandene Datei
+über ein Zwischenlager (`site/audio/.umzug`, wird danach gelöscht), statt sie neu zu erzeugen.
 
 Das Skript führt in `site/audio/manifest.json` Buch, mit welcher Stimme, welchem Tempo und
 welchem Text jede Datei erzeugt wurde. Ändert man `stimmen.json`, `saetze.json` oder
@@ -104,7 +105,7 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 - `scripts/test_seite.py` (Python 3, nur Standardbibliothek, plus Chromium; **kein Node.js**):
   startet einen kleinen Webserver für `site/`, lässt Chromium die Seite headless laden
   (`--dump-dom`) und prüft, ob es für jedes Thema einen Knopf gibt (plus „Alle Themen“), ob
-  alle 1.740 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
+  alle 1.728 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
   ```
   python3 scripts/test_seite.py                                            # lokal
   python3 scripts/test_seite.py https://tvanekeris.github.io/wortwaerts/   # live

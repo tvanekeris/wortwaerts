@@ -24,6 +24,7 @@ import argparse
 import csv
 import json
 import os
+import shutil
 import subprocess
 import tempfile
 import time
@@ -88,23 +89,29 @@ def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
                 soll[f"{ordner}/{g}/{tempo}/{nr}.mp3"] = (stimmen[g], tempo, de)
 
     # Vorhandene Aufnahmen mit gleichem Inhalt (Stimme, Tempo, Text) an einem anderen Ort
-    # verschieben statt neu erzeugen
-    # (derselbe Text kann mehrfach vorkommen, z. B. als kurzer und als langer Satz)
+    # verschieben statt neu erzeugen – auch wenn der Zielort gerade von einer anderen Aufnahme
+    # belegt ist (z. B. wenn nach dem Löschen eines Satzes die folgenden Nummern aufrücken).
+    # Dazu kommen alle falsch abgelegten Dateien erst in ein Zwischenlager.
+    # (Derselbe Text kann mehrfach vorkommen, z. B. als kurzer und als langer Satz.)
+    lager = audio_dir / ".umzug"
+    lager.mkdir(exist_ok=True)
     vorhanden = {}
-    for pfad, w in manifest.items():
-        if pfad not in soll and (audio_dir / pfad).exists():
-            vorhanden.setdefault(tuple(w), []).append(pfad)
+    for pfad, w in list(manifest.items()):
+        if (audio_dir / pfad).exists() and soll.get(pfad) != tuple(w):
+            ziel = lager / f"{len(vorhanden.get(tuple(w), []))}-{pfad.replace('/', '_')}"
+            os.replace(audio_dir / pfad, ziel)
+            vorhanden.setdefault(tuple(w), []).append(ziel)
+            del manifest[pfad]
     verschoben = 0
     for pfad, w in soll.items():
         if manifest.get(pfad) == list(w) and (audio_dir / pfad).exists():
             continue
-        alt = vorhanden.get(w, []).pop() if vorhanden.get(w) else None
-        if alt:
+        if vorhanden.get(w):
             (audio_dir / pfad).parent.mkdir(parents=True, exist_ok=True)
-            os.replace(audio_dir / alt, audio_dir / pfad)
+            os.replace(vorhanden[w].pop(), audio_dir / pfad)
             manifest[pfad] = list(w)
-            del manifest[alt]
             verschoben += 1
+    shutil.rmtree(lager)   # übrig sind nur Aufnahmen, die nicht mehr gebraucht werden
     if verschoben:
         print(f"{verschoben} MP3s an den neuen Ablageort verschoben")
 

@@ -16,7 +16,7 @@ Therapeut:innen. Es ergänzt eine logopädische Therapie, ersetzt sie aber nicht
 6. **Satz aufdecken** zeigt den Text – erst nach dem Hören, zum Üben des Sprachverständnisses.
 7. **Neuer Satz** spielt den nächsten Zufallssatz aus dem Thema.
 
-290 Sätze in 14 Themen – je Thema 10 kurze Sätze (3–4 Wörter) und 10–11 lange Sätze:
+288 Sätze in 14 Themen – je Thema 10 kurze Sätze (3–4 Wörter) und 10–11 lange Sätze:
 Begrüßung & Smalltalk, Essen & Trinken, Einkaufen, Unterwegs, Arbeit & Termine,
 Zuhause & Familie, Gesundheit, Freizeit & Verabredungen, Verständigung & Höflichkeit,
 Wetter & Zeit, Körperpflege & Anziehen, Gefühle & Bedürfnisse, Hilfe & Notfall,
