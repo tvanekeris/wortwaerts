@@ -118,5 +118,53 @@
     "Es schneit draußen.",
     "Der Wind ist stark.",
     "Bald ist Sommer."
+  ],
+  "Körperpflege & Anziehen": [
+    "Ich möchte duschen.",
+    "Wo ist das Handtuch?",
+    "Ich putze die Zähne.",
+    "Hilf mir beim Anziehen.",
+    "Die Jacke ist warm.",
+    "Ich kämme meine Haare.",
+    "Das Wasser ist kalt.",
+    "Ich ziehe Schuhe an.",
+    "Wo ist die Seife?",
+    "Der Pullover passt gut."
+  ],
+  "Gefühle & Bedürfnisse": [
+    "Ich bin glücklich.",
+    "Ich bin traurig.",
+    "Ich habe Angst.",
+    "Ich brauche Ruhe.",
+    "Ich freue mich.",
+    "Das ärgert mich.",
+    "Mir ist langweilig.",
+    "Ich vermisse dich.",
+    "Ich bin stolz.",
+    "Mir ist warm."
+  ],
+  "Hilfe & Notfall": [
+    "Ich brauche Hilfe.",
+    "Bitte ruf den Arzt.",
+    "Mir geht es schlecht.",
+    "Ich bin gestürzt.",
+    "Ruf den Notarzt!",
+    "Wo ist mein Handy?",
+    "Bitte bleib hier.",
+    "Ich kann nicht aufstehen.",
+    "Das tut sehr weh.",
+    "Hilf mir bitte."
+  ],
+  "Therapie & Reha": [
+    "Ich übe jeden Tag.",
+    "Heute ist Logopädie.",
+    "Das war anstrengend.",
+    "Ich schaffe das!",
+    "Noch einmal, bitte.",
+    "Wann ist Physiotherapie?",
+    "Das klappt schon besser.",
+    "Ich brauche eine Pause.",
+    "Wir üben zusammen.",
+    "Das war gut."
   ]
 }

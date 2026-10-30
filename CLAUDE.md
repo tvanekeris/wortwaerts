@@ -12,3 +12,6 @@
 ## Sätze
 - Zwei Gruppen mit denselben Themen in derselben Reihenfolge: `saetze_kurz.json` (kurze Sätze,
   **3–4 Wörter**, wirklich einfach) und `saetze.json` (lange Sätze).
+- Neue Themen immer **am Ende** anfügen: Die Sätze werden fortlaufend nummeriert, so bleiben
+  die Nummern und Aufnahmen der bestehenden Sätze unverändert. Für jedes neue Thema ein Symbol
+  in `SYMBOLE` (`vorlage/seite.html`) ergänzen.
