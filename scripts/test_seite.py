@@ -73,7 +73,7 @@ def main():
         [finde_chromium(), "--headless", "--no-sandbox", "--disable-gpu",
          "--virtual-time-budget=3000", "--dump-dom", url],
         capture_output=True, text=True, timeout=60).stdout
-    anzahl = len(re.findall(r'class="thema"', dom))
+    anzahl = len(re.findall(r'class="thema(?: alle)?"', dom))
     print(f"mit JavaScript:  {anzahl} von {erwartet} Themen-Knöpfen angezeigt")
     ok &= anzahl == erwartet
 

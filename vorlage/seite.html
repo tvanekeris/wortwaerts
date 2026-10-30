@@ -91,18 +91,37 @@
   }
   .schieber input:checked + span { color: var(--accent-ink); }
 
-  /* Tempo: Regler mit drei Rasterstufen */
-  .tempo input[type="range"] {
-    width: 100%; margin: 6px 0 0; accent-color: var(--accent); height: 32px; cursor: pointer;
+  /* Tempo: natives <input type="range"> mit drei Rasterstufen, gestaltet wie der Stimmen-Schieber.
+     Der Knopf ist ein Drittel so breit wie die Bahn, so liegt er bei jeder Stufe genau
+     unter deren Beschriftung (Breite über Container-Einheiten). */
+  .regler { position: relative; container-type: inline-size; }
+  .regler input[type="range"] {
+    -webkit-appearance: none; appearance: none; display: block; box-sizing: border-box;
+    width: 100%; height: 62px; margin: 0; padding: 4px; cursor: pointer;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+  }
+  .regler input[type="range"]::-webkit-slider-runnable-track {
+    height: 52px; background: transparent; border: 0; border-radius: 999px;
+  }
+  .regler input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: calc((100cqw - 10px) / 3); height: 52px; border: 0; border-radius: 999px;
+    background: var(--accent); cursor: grab;
+  }
+  .regler input[type="range"]::-moz-range-track {
+    height: 52px; background: transparent; border: 0; border-radius: 999px;
+  }
+  .regler input[type="range"]::-moz-range-thumb {
+    width: calc((100cqw - 10px) / 3); height: 52px; border: 0; border-radius: 999px;
+    background: var(--accent); cursor: grab;
   }
   .stufen {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    font-family: var(--font-display); font-size: 16px; color: var(--muted);
+    position: absolute; inset: 5px; display: grid; grid-template-columns: repeat(3, 1fr);
+    align-items: center; pointer-events: none;
+    font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--muted);
   }
   .stufen span { text-align: center; }
-  .stufen span:first-child { text-align: left; }
-  .stufen span:last-child { text-align: right; }
-  .stufen span.an { color: var(--ink); font-weight: 600; }
+  .stufen span.an { color: var(--accent-ink); }
 
   /* Themen: Kacheln mit Symbol und Beschriftung */
   .themen { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
@@ -117,6 +136,7 @@
     width: 40px; height: 40px; fill: none; stroke: var(--accent); stroke-width: 1.8;
     stroke-linecap: round; stroke-linejoin: round;
   }
+  .thema.alle { grid-column: span 2; }
   .thema:hover { border-color: var(--accent); }
   .thema[aria-pressed="true"] { background: var(--mark-soft); border-color: var(--mark); }
 
@@ -159,7 +179,6 @@
     margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink);
     background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
   }
-  .foot { font-size: 14px; color: var(--muted); }
 
   @media (prefers-reduced-motion: reduce) {
     .schieber::before, .schieber span { transition: none; }
@@ -187,11 +206,13 @@
 
   <fieldset class="schritt tempo">
     <legend class="schritt-titel"><span class="schritt-nr">2</span> Tempo</legend>
-    <input type="range" id="tempo" min="0" max="2" step="1" value="1" aria-label="Tempo">
-    <div class="stufen" id="stufen" aria-hidden="true">
-      <span>langsam</span>
-      <span>mittel</span>
-      <span>normal</span>
+    <div class="regler">
+      <input type="range" id="tempo" min="0" max="2" step="1" value="1" aria-label="Tempo">
+      <div class="stufen" id="stufen" aria-hidden="true">
+        <span>langsam</span>
+        <span>mittel</span>
+        <span>normal</span>
+      </div>
     </div>
   </fieldset>
 
@@ -220,8 +241,6 @@
   </section>
 
   <p class="note" id="note" hidden></p>
-
-  <p class="foot">Stimmen: Microsoft Azure (neuronale Sprachausgabe)</p>
 </div>
 
 <script>
@@ -294,7 +313,7 @@
   function themaKnopf(wert, name) {
     const b = document.createElement("button");
     b.type = "button";
-    b.className = "thema";
+    b.className = wert === ALLE ? "thema alle" : "thema";
     b.setAttribute("aria-pressed", "false");
     b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${SYMBOLE[name] || SYMBOL_ERSATZ}</svg><span></span>`;
     b.querySelector("span").textContent = wert === ALLE ? "Alle Themen" : name;
