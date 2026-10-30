@@ -360,8 +360,6 @@
       // auf dem Handy liegt der Play-Knopf unter den Themen: dorthin scrollen
       const ruhig = matchMedia("(prefers-reduced-motion: reduce)").matches;
       document.querySelector(".hoeren").scrollIntoView({ block: "nearest", behavior: ruhig ? "auto" : "smooth" });
-    } else {
-      hinweis.textContent = "Drück auf Abspielen.";
     }
   }
 
