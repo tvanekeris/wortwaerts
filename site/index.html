@@ -90,7 +90,6 @@
     transition: color .2s ease;
   }
   .schieber input:checked + span { color: var(--accent-ink); }
-  .schieber small { font-family: var(--font-body); font-weight: 400; font-size: 14px; opacity: .85; }
 
   /* Tempo: Regler mit drei Rasterstufen */
   .tempo input[type="range"] {
@@ -104,7 +103,6 @@
   .stufen span:first-child { text-align: left; }
   .stufen span:last-child { text-align: right; }
   .stufen span.an { color: var(--ink); font-weight: 600; }
-  .stufen small { display: block; font-family: var(--font-mono); font-size: 13px; }
 
   /* Themen: Kacheln mit Symbol und Beschriftung */
   .themen { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
@@ -182,8 +180,8 @@
   <fieldset class="schritt">
     <legend class="schritt-titel"><span class="schritt-nr">1</span> Stimme</legend>
     <div class="schieber" id="stimme">
-      <label><input type="radio" name="stimme" value="frau"><span>Frau <small id="name-frau"></small></span></label>
-      <label><input type="radio" name="stimme" value="mann"><span>Mann <small id="name-mann"></small></span></label>
+      <label><input type="radio" name="stimme" value="frau"><span>Frau</span></label>
+      <label><input type="radio" name="stimme" value="mann"><span>Mann</span></label>
     </div>
   </fieldset>
 
@@ -191,9 +189,9 @@
     <legend class="schritt-titel"><span class="schritt-nr">2</span> Tempo</legend>
     <input type="range" id="tempo" min="0" max="2" step="1" value="1" aria-label="Tempo">
     <div class="stufen" id="stufen" aria-hidden="true">
-      <span>langsam<small>0,5×</small></span>
-      <span>mittel<small>0,7×</small></span>
-      <span>normal<small>1,0×</small></span>
+      <span>langsam</span>
+      <span>mittel</span>
+      <span>normal</span>
     </div>
   </fieldset>
 
@@ -264,10 +262,7 @@
 
   const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
   const ICON_STOP = '<path d="M6.5 6.5h11v11h-11z"/>';
-  const TEMPO_TEXT = ["langsam, 0,5-fach", "mittel, 0,7-fach", "normal, 1,0-fach"];
-
-  document.getElementById("name-frau").textContent = DATEN.stimmen.frau;
-  document.getElementById("name-mann").textContent = DATEN.stimmen.mann;
+  const TEMPO_TEXT = ["langsam", "mittel", "normal"];
 
   // ---- Einstellungen merken (nur Komfort, Seite funktioniert auch ohne) ----
   function lies(k) { try { return localStorage.getItem("wortwaerts-" + k); } catch { return null; } }
