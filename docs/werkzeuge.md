@@ -28,6 +28,11 @@ python3 scripts/erzeuge_audio.py --azure de-DE-KatjaNeural   # alle Sätze neu e
 Die Probehör-Seite ist online unter https://tvanekeris.github.io/wortwaerts/stimmen/ (17 Stimmen,
 Stand 2026-10-30).
 
+Tonhöhe der Stimmen vergleichen: `python3 scripts/messe_tonhoehe.py site/stimmen/audio/*-0.8.mp3`
+(numpy 2.5.3, im Container vorhanden; sonst `pip install numpy`). Ergebnis 2026-10-30 (Median F0):
+Killian 103 Hz, Conrad 111, Christoph 113, Klaus 117, Florian 132, Kasper 136, Ralf 145, Bernd 152;
+Frauen 165 (Seraphina) bis 229 Hz (Maja), Gisela 302 Hz.
+
 `erzeuge_audio.py` schreibt den Stimmennamen nach `site/audio/stimme.txt`; die Seite zeigt ihn an.
 
 ## Piper (frühere Quelle, offline)
