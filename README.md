@@ -34,6 +34,7 @@ https://tvanekeris.github.io/wortwaerts/stimmen/
 | [stimmen.json](stimmen.json) | Welche Azure-Stimme für „Frau“ und „Mann“ verwendet wird |
 | [vorlage/seite.html](vorlage/seite.html) | HTML-Vorlage der App |
 | [scripts/erzeuge_audio.py](scripts/erzeuge_audio.py) | Erzeugt die MP3s (Azure) und baut daraus `site/index.html` |
+| [site/audio/README.md](site/audio/README.md) | Übersicht: welche MP3 zu welchem Satz gehört (Tabelle je Thema mit Links), dazu [uebersicht.csv](site/audio/uebersicht.csv) für Tabellenprogramme |
 | [scripts/stimmproben.py](scripts/stimmproben.py) | Baut die Probehör-Seite `site/stimmen/` |
 | [scripts/test_seite.py](scripts/test_seite.py) | Prüft die Seite (Themen, alle Aufnahmen, Hinweis ohne JavaScript) |
 | [site/](site/) | Fertige Webseite mit `audio/<frau\|mann>/<tempo>/001.mp3` … (lang) und `k001.mp3` … (kurz), wird als GitHub Pages veröffentlicht |

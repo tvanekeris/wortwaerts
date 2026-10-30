@@ -44,6 +44,11 @@ python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeug
 python3 scripts/erzeuge_audio.py --neu         # alle 1.740 MP3s neu erzeugen
 python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
+Übersicht für Menschen (wird bei jedem Lauf, auch mit `--nur-seiten`, neu geschrieben):
+`site/audio/README.md` – je Thema eine Tabelle mit Nummer, Satz und Links auf alle sechs
+Aufnahmen; `site/audio/uebersicht.csv` – jede MP3 eine Zeile (Pfad, Thema, Länge, Nr, Satz,
+Stimme, Azure-Stimme, Tempo), Semikolon-getrennt, UTF-8 mit BOM, öffnet direkt in Excel.
+
 Das Skript führt in `site/audio/manifest.json` Buch, mit welcher Stimme, welchem Tempo und
 welchem Text jede Datei erzeugt wurde. Ändert man `stimmen.json`, `saetze.json` oder
 `saetze_kurz.json`, werden
