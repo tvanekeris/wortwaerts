@@ -378,6 +378,43 @@
   quelleRadios.forEach(r => r.addEventListener("change", () => { if (r.checked) setzeQuelle(r.value); }));
   stimmeSel.addEventListener("change", zeigeVoiceInfo);
 
+  // ---- Audioausgabe wach halten ----
+  // Viele Geräte (Bluetooth, HDMI, Energiesparmodus der Soundkarte) schalten die Ausgabe in
+  // Pausen ab und blenden beim nächsten Ton erst ein – das verschluckt das erste Wort.
+  // Ein unhörbares Dauersignal (20 Hz, -80 dB) hält die Ausgabe offen, solange abgespielt wird.
+  const AUFWACH_MS = 400;          // Wartezeit, bis eine gerade geweckte Ausgabe bereit ist
+  const WACH_NACHLAUF_MS = 30000;  // so lange bleibt die Ausgabe nach dem Stopp noch wach
+  let wachCtx = null;
+  let schlafTimer = null;
+
+  // Weckt die Ausgabe; liefert, wie lange vor dem ersten Satz gewartet werden sollte.
+  function weckeAusgabe() {
+    clearTimeout(schlafTimer);
+    try {
+      if (!wachCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return 0;
+        wachCtx = new Ctx();
+        const ton = wachCtx.createOscillator();
+        const leise = wachCtx.createGain();
+        ton.frequency.value = 20;
+        leise.gain.value = 0.0001;
+        ton.connect(leise).connect(wachCtx.destination);
+        ton.start();
+        return AUFWACH_MS;
+      }
+      if (wachCtx.state !== "running") { wachCtx.resume(); return AUFWACH_MS; }
+    } catch {}
+    return 0;
+  }
+
+  function ausgabeSchlafenLegen() {
+    clearTimeout(schlafTimer);
+    schlafTimer = setTimeout(() => {
+      if (wachCtx && state === "idle") wachCtx.suspend().catch(() => {});
+    }, WACH_NACHLAUF_MS);
+  }
+
   // ---- Wiedergabe ----
   audio.addEventListener("ratechange", () => {
     // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
@@ -466,7 +503,9 @@
     showNote("");
     queue = indices.slice();
     setState("playing");
-    playNext();
+    const warten = weckeAusgabe();
+    if (warten) { inGap = true; gapTimer = setTimeout(playNext, warten); }
+    else playNext();
   }
 
   function finish() {
@@ -475,6 +514,7 @@
     current = -1;
     mark(-1);
     setState("idle");
+    ausgabeSchlafenLegen();
   }
 
   playBtn.addEventListener("click", () => {
