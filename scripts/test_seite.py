@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Prüft, ob die Wortwärts-Seite ihre Satzliste aufbaut und ohne JavaScript einen Hinweis zeigt.
+"""Prüft die Wortwärts-Seite: Themen-Knöpfe, alle Aufnahmen erreichbar, Hinweis ohne JavaScript.
 
 Zweck:
     1. Mit JavaScript: Chromium (headless) lädt die Seite, führt das Skript aus und gibt
-       das fertige DOM aus. Darin müssen so viele Sätze (<li>) stehen wie in saetze.json.
-    2. Ohne JavaScript: Das ausgelieferte HTML muss den <noscript>-Hinweis enthalten
-       (genau diesen Text zeigt der Browser dann an Stelle der Satzliste).
+       das fertige DOM aus. Darin muss es je Thema aus saetze.json einen Knopf geben, plus
+       „Alle Themen“.
+    2. Jede Aufnahme, die die Seite abspielen kann (Satz × Stimme × Tempo, aus den Daten in der
+       Seite), muss unter audio/<frau|mann>/<tempo>/<nr>.mp3 abrufbar sein.
+    3. Ohne JavaScript: Das ausgelieferte HTML muss den <noscript>-Hinweis enthalten.
 
 Aufruf:
     python3 scripts/test_seite.py                 # startet selbst einen Webserver für site/
@@ -26,6 +28,7 @@ import shutil
 import subprocess
 import sys
 import threading
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -60,20 +63,36 @@ def main():
     else:
         server, url = starte_server()
 
-    erwartet = sum(len(s) for s in json.loads((WURZEL / "saetze.json").read_text("utf-8")).values())
+    erwartet = len(json.loads((WURZEL / "saetze.json").read_text("utf-8"))) + 1
     ok = True
+    if not url.endswith("/"):
+        url += "/"
 
     # 1. Mit JavaScript: fertiges DOM aus Chromium
     dom = subprocess.run(
         [finde_chromium(), "--headless", "--no-sandbox", "--disable-gpu",
          "--virtual-time-budget=3000", "--dump-dom", url],
         capture_output=True, text=True, timeout=60).stdout
-    anzahl = len(re.findall(r"<li\b", dom))
-    print(f"mit JavaScript:  {anzahl} von {erwartet} Sätzen angezeigt")
+    anzahl = len(re.findall(r'class="thema(?: alle)?"', dom))
+    print(f"mit JavaScript:  {anzahl} von {erwartet} Themen-Knöpfen angezeigt")
     ok &= anzahl == erwartet
 
-    # 2. Ohne JavaScript: Hinweis im <noscript> des ausgelieferten HTML
+    # 2. Alle Aufnahmen erreichbar
     html = urllib.request.urlopen(url, timeout=30).read().decode("utf-8")
+    daten = json.loads(re.search(r"const DATEN = (\{.*?\});\n", html).group(1))
+    pfade = [f"audio/{g}/{t}/{s['nr']}.mp3" for g in daten["stimmen"] for t in daten["tempi"]
+             for th in daten["themen"] for s in th["saetze"]]
+    fehlend = []
+    for pfad in pfade:
+        try:
+            urllib.request.urlopen(urllib.request.Request(url + pfad, method="HEAD"), timeout=30)
+        except urllib.error.URLError:
+            fehlend.append(pfad)
+    print(f"Aufnahmen:       {len(pfade) - len(fehlend)} von {len(pfade)} erreichbar"
+          + (f" – fehlend z. B. {fehlend[:3]}" if fehlend else ""))
+    ok &= not fehlend
+
+    # 3. Ohne JavaScript: Hinweis im <noscript> des ausgelieferten HTML
     noscript = re.search(r"<noscript>(.*?)</noscript>", html, re.S)
     hinweis = bool(noscript and HINWEIS in noscript.group(1))
     print(f"ohne JavaScript: Hinweis vorhanden = {hinweis}")

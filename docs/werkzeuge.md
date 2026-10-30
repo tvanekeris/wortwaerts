@@ -1,14 +1,30 @@
-# Werkzeuge & Ablauf: Audio für die Alltagssätze
+# Werkzeuge & Ablauf
 
-## Microsoft Azure AI Speech (aktuelle Quelle für die Stimmen)
+## Die App (Stand 2026-10-30)
+
+Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau/Mann) →
+2 Tempo (0,5 / 0,7 / 1,0) → 3 Thema (10 Themen + „Alle Themen“). Nach der Themenwahl spielt
+die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man „Satz aufdecken“
+drückt. „Neuer Satz“ wählt und spielt den nächsten Zufallssatz. Innerhalb eines Themas kommt
+jeder Satz einmal dran, bevor sich etwas wiederholt. Stimme, Tempo und Thema merkt sich der
+Browser (`localStorage`, nur Komfort).
+
+Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
+von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:
+`site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3` … `110.mp3` – 110 Sätze × 2 Stimmen × 3 Tempi
+= 660 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
+
+## Microsoft Azure AI Speech
 
 | Baustein | Version / Stand | Quelle |
 |----------|-----------------|--------|
 | Azure AI Speech, Text-to-Speech REST-API (`/cognitiveservices/v1`) | abgerufen 2026-10-30 | https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech |
-| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; alle Sätze ≈ 4.000 Zeichen) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
+| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 21.600 Zeichen) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
 | Region | Germany West Central (`germanywestcentral`) | Azure-Portal |
+| Stimmen (vorläufig) | Frau: `de-DE-SeraphinaMultilingualNeural`, Mann: `de-DE-KillianNeural` | `stimmen.json` |
 | Ausgabeformat | `riff-24khz-16bit-mono-pcm` (WAV), danach ffmpeg → MP3 (24 kHz, mono, 64 kbit/s, Lautheit normalisiert) | |
-| Python | 3, nur Standardbibliothek (`urllib`), keine Zusatzpakete, kein Node.js | |
+| ffmpeg (inkl. libmp3lame) | 6.1.1-3ubuntu5 | System, `apt install ffmpeg` |
+| Python | 3.13, nur Standardbibliothek (`urllib`), keine Zusatzpakete, kein Node.js | |
 
 Einrichtung (einmalig):
 1. Azure-Konto mit Subscription (kostenloses Konto oder „Nutzungsbasierte Bezahlung“).
@@ -20,56 +36,43 @@ Einrichtung (einmalig):
 
 Ablauf:
 ```
-python3 scripts/stimmproben.py --liste                 # deutsche Stimmen anzeigen
-python3 scripts/stimmproben.py                         # Probehör-Seite site/stimmen/ (alle Stimmen,
-                                                       # Testsatz in 0,5× und 0,8×, Tempo per SSML <prosody rate>)
-python3 scripts/erzeuge_audio.py --azure de-DE-KatjaNeural   # alle Sätze neu erzeugen
+python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeugen + Seite bauen
+python3 scripts/erzeuge_audio.py --neu         # alle 660 MP3s neu erzeugen
+python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
-Die Probehör-Seite ist online unter https://tvanekeris.github.io/wortwaerts/stimmen/ (17 Stimmen,
-Stand 2026-10-30).
+Das Skript führt in `site/audio/manifest.json` Buch, mit welcher Stimme, welchem Tempo und
+welchem Text jede Datei erzeugt wurde. Ändert man `stimmen.json` oder `saetze.json`, werden
+nur die betroffenen Dateien neu erzeugt. Der Gratis-Tarif erlaubt nur wenige Anfragen pro
+Minute (das Skript wartet bei HTTP 429 automatisch); ein kompletter Durchlauf dauert gut
+30 Minuten.
 
-`erzeuge_audio.py` schreibt den Stimmennamen nach `site/audio/stimme.txt`; die Seite zeigt ihn an.
+Stimme wechseln: Kurznamen in `stimmen.json` eintragen (Liste:
+`python3 scripts/stimmproben.py --liste`), dann `python3 scripts/erzeuge_audio.py`.
 
-## Piper (frühere Quelle, offline)
+### Probehör-Seite `site/stimmen/`
 
-Ziel: Sprachausgabe nicht mehr über die Browser-Stimme (`speechSynthesis`), sondern über
-fertige MP3-Dateien, die überall abspielbar sind (Artifact, Webseite, beliebiger Player).
+```
+python3 scripts/stimmproben.py              # alle deutschen Stimmen, Testsatz in 0,5× und 0,8×
+python3 scripts/stimmproben.py --nur-seite  # nur HTML neu bauen
+```
+Online: https://tvanekeris.github.io/wortwaerts/stimmen/ (17 Stimmen, Stand 2026-10-30;
+Frauen- und Männerstimmen gruppiert).
 
-## Verwendete Software
+Tonhöhe der Stimmen vergleichen: `python3 scripts/messe_tonhoehe.py site/stimmen/audio/*-0.8.mp3`
+(numpy 2.5.3, im Container vorhanden; sonst `pip install numpy`). Ergebnis 2026-10-30 (Median F0):
+Killian 103 Hz, Conrad 111, Christoph 113, Klaus 117, Florian 132, Kasper 136, Ralf 145, Bernd 152;
+Frauen 165 (Seraphina) bis 229 Hz (Maja), Gisela 302 Hz.
 
-| Werkzeug | Version | Installation / Quelle |
-|----------|---------|-----------------------|
-| Python | 3.13.17 | System (Ubuntu 24.04) |
-| piper-tts | 1.8.0 | `python3 -m venv venv && ./venv/bin/pip install piper-tts` (PyPI) |
-| onnxruntime | 1.31.1 | Abhängigkeit von piper-tts |
-| numpy | 2.5.4 | Abhängigkeit von piper-tts |
-| Stimme „Thorsten“ (de, low, 16 kHz, Lizenz CC0) | Piper-Release v0.0.2 | https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-de-thorsten-low.tar.gz (entpacken: `de-thorsten-low.onnx` + `.onnx.json`) |
-| ffmpeg (inkl. libmp3lame) | 6.1.1-3ubuntu5 | System, `apt install ffmpeg` |
-| Chromium (Chrome for Testing) | 153.0.8010.12 | im Container vorinstalliert unter `/opt/pw-browsers/chromium`; sonst z. B. `apt install chromium` – nur für den Test der Seite |
+## Frühere Quelle: Piper (offline, bis 2026-10-30)
 
-Hinweis: Die besseren Piper-Stimmen (medium/high) liegen auf huggingface.co, das in der
-Cloud-Umgebung gesperrt war. Mit Zugriff darauf kann man z. B. `de_DE-thorsten-high`
-verwenden und das Skript einfach erneut laufen lassen.
-
-## Schritte
-
-1. Piper und Stimme wie oben installieren bzw. herunterladen.
-2. Im Projektordner ausführen:
-   ```
-   python3 scripts/erzeuge_audio.py --piper venv/bin/piper --modell voice/de-thorsten-low.onnx
-   ```
-   Das Skript
-   - spricht jeden Satz aus `saetze.json` (Format `{"Thema": ["Satz", …]}`) mit Piper ein (WAV),
-   - wandelt ihn mit ffmpeg in MP3 um (Lautheit normalisiert, mono, 22,05 kHz, 48 kbit/s) → `site/audio/001.mp3` … `110.mp3` (alte MP3s werden vorher gelöscht),
-   - erzeugt `site/audio/alle-saetze.mp3` (alle Sätze mit 0,8 s Pause),
-   - füllt `vorlage/seite.html` zweimal: `site/index.html` (lädt die MP3-Dateien) und
-     `alltagssaetze.html` (MP3s als base64-`data:`-URIs eingebettet, für das Artifact).
-   Nur die Seiten neu bauen (z. B. nach Änderungen an `vorlage/seite.html`), ohne neue MP3s:
-   `python3 scripts/erzeuge_audio.py --nur-seiten`
-3. Auf `main` pushen: Der Workflow `.github/workflows/pages.yml` veröffentlicht `site/` als
-   GitHub Pages (https://tvanekeris.github.io/wortwaerts/).
-4. Optional: `alltagssaetze.html` (eine Datei mit eingebetteten MP3s) weitergeben oder als
-   Claude-Artifact veröffentlichen.
+Bis zur Umstellung auf Azure kamen die MP3s aus Piper (`piper-tts` 1.8.0 von PyPI, mit
+onnxruntime 1.31.1 und numpy 2.5.4; Stimme „Thorsten“ low, CC0, aus
+https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-de-thorsten-low.tar.gz).
+Die Qualität war bei einigen Wörtern schlecht; die besseren Piper-Stimmen liegen auf
+huggingface.co, das in der Cloud-Umgebung gesperrt war. Der Piper-Aufruf steht in der
+Git-Historie von `scripts/erzeuge_audio.py`. Ebenfalls entfallen: die Einzeldatei
+`alltagssaetze.html` (alle MP3s eingebettet, mit 660 Aufnahmen zu groß) und
+`alle-saetze.mp3`.
 
 ## GitHub Pages
 
@@ -89,24 +92,22 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 
 ## Test
 
+| Werkzeug | Version | Quelle |
+|----------|---------|--------|
+| Chromium (Chrome for Testing) | 153.0.8010.12 | im Container vorinstalliert unter `/opt/pw-browsers/chromium`; sonst z. B. `apt install chromium` |
+
 - `scripts/test_seite.py` (Python 3, nur Standardbibliothek, plus Chromium; **kein Node.js**):
   startet einen kleinen Webserver für `site/`, lässt Chromium die Seite headless laden
-  (`--dump-dom`) und prüft, ob alle Sätze aus `saetze.json` in der Liste stehen. Außerdem
-  prüft es, ob das HTML den `<noscript>`-Hinweis für ausgeschaltetes JavaScript enthält.
+  (`--dump-dom`) und prüft, ob es für jedes Thema einen Knopf gibt (plus „Alle Themen“), ob
+  alle 660 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
   ```
   python3 scripts/test_seite.py                                            # lokal
   python3 scripts/test_seite.py https://tvanekeris.github.io/wortwaerts/   # live
   ```
-- Frühere Wegwerf-Tests (nicht im Repo, mit Node.js + Playwright): Abspielen, Satzwechsel,
-  Tempo; Schalter MP3/Browser-Stimme (keine Stimme, funktionierende Stimme, stumme Stimme
-  mit Rückfall auf MP3); Satzliste auf iPhone/Dunkelmodus, ohne `speechSynthesis`, ohne
-  localStorage.
-
-## Tempo
-
-Der Player nutzt `HTMLAudioElement.playbackRate` (0,5×–1,5×) mit `preservesPitch`,
-die Tonhöhe bleibt also gleich. Für `alle-saetze.mp3` in einem normalen Player regelt man
-das Tempo dort (die meisten Podcast-/Medienplayer können das).
+- Bedienung (einmalig im Browser getestet, nicht im Repo, mit dem im Container
+  vorinstallierten Playwright): Thema wählen spielt sofort ab, Aufdecken/Verdecken,
+  „Neuer Satz“ (11 verschiedene Sätze in 11 Schritten, keine direkte Wiederholung),
+  Stopp/Nochmal, Einstellungen bleiben nach Neuladen erhalten; iPhone-Ansicht.
 
 ## Einblenden am Satzanfang
 
@@ -114,12 +115,11 @@ Problem: Das erste Wort eines Satzes klang wie eingeblendet und undeutlich.
 
 Messung (`scripts/messe_einsatz.html`, Chromium; Hüllkurve in 25-ms-Schritten): Was der
 Browser ausgibt, entspricht den MP3-Dateien – die Sprache setzt nach 1–2 Schritten mit voller
-Lautstärke ein, bei 1,0× ohne Einblenden. Bei 0,7× und 0,5× macht die Tempo-Umrechnung
-(`preservesPitch`) den Einsatz nur um etwa 25 ms weicher. Das Einblenden entsteht also
-**nach** dem Browser: Betriebssystem bzw. Audiogerät schalten die Ausgabe in Pausen ab
-(Bluetooth-Kopfhörer/-Lautsprecher, HDMI-Monitore, Energiesparmodus der Soundkarte) und
-blenden beim nächsten Ton erst wieder ein.
+Lautstärke ein. Das Einblenden entsteht also **nach** dem Browser: Betriebssystem bzw.
+Audiogerät schalten die Ausgabe in Pausen ab (Bluetooth-Kopfhörer/-Lautsprecher,
+HDMI-Monitore, Energiesparmodus der Soundkarte) und blenden beim nächsten Ton erst wieder ein.
 
-Abhilfe im Player: Beim Abspielen läuft über Web Audio ein unhörbarer Ton (20 Hz, -80 dB),
-der die Ausgabe offen hält. Beim ersten Start (oder nach mehr als 30 s Stille) wartet der
-Player 0,4 s, bevor der Satz beginnt. 30 s nach dem Stopp wird der Ton angehalten.
+Abhilfe in der App: Beim Abspielen läuft über Web Audio ein unhörbarer Ton (20 Hz, -80 dB),
+der die Ausgabe offen hält. Beim ersten Abspielen (oder nach mehr als 60 s Stille) wartet die
+App 0,4 s, bevor der Satz beginnt. 60 s nach dem letzten Satz wird der Ton angehalten.
+Außerdem beginnen die Azure-Aufnahmen mit gut 0,1 s Stille.

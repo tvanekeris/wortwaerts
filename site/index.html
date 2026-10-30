@@ -4,14 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Wortwärts: deutsche Alltagssätze zum Hören und Nachsprechen, mit einstellbarem Tempo – zum Üben bei Aphasie.">
-<style>body{margin:0}[hidden]{display:none!important}</style>
 <title>Wortwärts – Alltagssätze zum Hören</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: eine schmale Spalte – Kopf, Steuerleiste (Play + Tempo), nummerierte Satzliste in Abspielreihenfolge */
+  /* Layout: eine Spalte – 1 Stimme, 2 Tempo, 3 Thema, dann großer Play-Knopf, Aufdecken, Neuer Satz */
   :root {
     --bg: #eef1f4;
     --surface: #ffffff;
@@ -39,364 +37,365 @@
     color-scheme: dark;
   }
 
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
-    background: var(--bg); color: var(--ink);
+    margin: 0; background: var(--bg); color: var(--ink);
     font-family: var(--font-body);
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-block: 40px 56px;
+    padding-block: 32px 56px;
   }
-  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 28px; }
+  .wrap { max-width: 680px; margin: 0 auto; display: grid; gap: 22px; }
 
-  header { display: grid; gap: 8px; }
-  .eyebrow {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--muted);
-  }
+  header { display: grid; gap: 6px; }
   h1 {
     font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 44px);
-    line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em;
+    line-height: 1.05; margin: 0; letter-spacing: -.01em;
   }
-  .lede { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 56ch; }
+  .lede { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
 
-  .controls {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px;
+  .schritt {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 16px 18px 18px; display: grid; gap: 12px; margin: 0; min-width: 0;
   }
+  .schritt-titel {
+    font-family: var(--font-display); font-weight: 600; font-size: 19px; padding: 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .schritt-nr {
+    display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-ink); font-size: 15px; font-weight: 800;
+  }
+  button:focus-visible, input:focus-visible + span, input[type="range"]:focus-visible {
+    outline: 3px solid var(--mark); outline-offset: 3px;
+  }
+
+  /* Stimme: Schieber mit zwei Stellungen (Radio-Knöpfe, der Knopf gleitet zur gewählten Seite) */
+  .schieber {
+    position: relative; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px;
+  }
+  .schieber::before {
+    content: ""; position: absolute; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px);
+    border-radius: 999px; background: var(--accent); transition: transform .2s ease;
+  }
+  .schieber:has(input[value="mann"]:checked)::before { transform: translateX(100%); }
+  .schieber label { position: relative; }
+  .schieber input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+  .schieber span {
+    position: relative; display: flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--muted);
+    transition: color .2s ease;
+  }
+  .schieber input:checked + span { color: var(--accent-ink); }
+
+  /* Tempo: natives <input type="range"> mit drei Rasterstufen, gestaltet wie der Stimmen-Schieber.
+     Der Knopf ist ein Drittel so breit wie die Bahn, so liegt er bei jeder Stufe genau
+     unter deren Beschriftung (Breite über Container-Einheiten). */
+  .regler { position: relative; container-type: inline-size; }
+  .regler input[type="range"] {
+    -webkit-appearance: none; appearance: none; display: block; box-sizing: border-box;
+    width: 100%; height: 62px; margin: 0; padding: 4px; cursor: pointer;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+  }
+  .regler input[type="range"]::-webkit-slider-runnable-track {
+    height: 52px; background: transparent; border: 0; border-radius: 999px;
+  }
+  .regler input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: calc((100cqw - 10px) / 3); height: 52px; border: 0; border-radius: 999px;
+    background: var(--accent); cursor: grab;
+  }
+  .regler input[type="range"]::-moz-range-track {
+    height: 52px; background: transparent; border: 0; border-radius: 999px;
+  }
+  .regler input[type="range"]::-moz-range-thumb {
+    width: calc((100cqw - 10px) / 3); height: 52px; border: 0; border-radius: 999px;
+    background: var(--accent); cursor: grab;
+  }
+  .stufen {
+    position: absolute; inset: 5px; display: grid; grid-template-columns: repeat(3, 1fr);
+    align-items: center; pointer-events: none;
+    font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--muted);
+  }
+  .stufen span { text-align: center; }
+  .stufen span.an { color: var(--accent-ink); }
+
+  /* Themen: Kacheln mit Symbol und Beschriftung */
+  .themen { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .thema {
+    display: grid; justify-items: center; align-content: start; gap: 8px;
+    min-height: 112px; padding: 14px 8px 12px; border-radius: 14px; cursor: pointer;
+    background: var(--bg); color: var(--ink); border: 2px solid var(--line);
+    font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.2;
+    text-align: center;
+  }
+  .thema svg {
+    width: 40px; height: 40px; fill: none; stroke: var(--accent); stroke-width: 1.8;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .thema.alle { grid-column: span 2; }
+  .thema:hover { border-color: var(--accent); }
+  .thema[aria-pressed="true"] { background: var(--mark-soft); border-color: var(--mark); }
+
+  /* Hören */
+  .hoeren { display: grid; justify-items: center; gap: 14px; padding: 8px 0; }
   .play {
-    font-family: var(--font-display); font-weight: 600; font-size: 17px;
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 999px;
-    padding: 12px 22px 12px 16px; cursor: pointer;
+    width: 148px; height: 148px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--accent); color: var(--accent-ink);
+    display: grid; place-items: center; align-content: center; gap: 4px;
+    font-family: var(--font-display); font-weight: 600; font-size: 18px;
+    box-shadow: 0 6px 18px rgb(0 0 0 / .18);
   }
-  .play svg { width: 20px; height: 20px; fill: currentColor; }
-  .play:hover { filter: brightness(1.08); }
-  .stop {
-    font-family: var(--font-display); font-weight: 600; font-size: 15px;
-    background: transparent; color: var(--ink); border: 1px solid var(--line);
-    border-radius: 999px; padding: 10px 16px; cursor: pointer;
-  }
-  .stop:disabled { opacity: .45; cursor: default; }
-  button:focus-visible, input:focus-visible, select:focus-visible, li:focus-visible {
-    outline: 3px solid var(--mark); outline-offset: 2px;
-  }
+  .play svg { width: 56px; height: 56px; fill: currentColor; }
+  .play:hover:not(:disabled) { filter: brightness(1.08); }
+  .play:disabled { opacity: .4; cursor: default; box-shadow: none; }
+  .play.spielt { background: var(--mark); color: #17202b; }
+  .hinweis { margin: 0; color: var(--muted); font-size: 16px; text-align: center; min-height: 1.5em; }
 
-  .speed { flex: 1 1 220px; min-width: 0; display: grid; gap: 4px; }
-  .speed-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-  .speed label, .voice label {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
-    text-transform: uppercase; color: var(--muted);
+  .knopf {
+    width: min(100%, 360px); min-height: 56px; border-radius: 999px; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600; font-size: 18px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--surface); color: var(--ink); border: 2px solid var(--line);
   }
-  .rate {
-    font-family: var(--font-mono); font-weight: 500; font-size: 15px;
-    font-variant-numeric: tabular-nums;
+  .knopf svg {
+    width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2;
+    stroke-linecap: round; stroke-linejoin: round;
   }
-  input[type="range"] { width: 100%; accent-color: var(--accent); }
-  .ticks {
-    display: flex; justify-content: space-between;
-    font-family: var(--font-mono); font-size: 11px; color: var(--muted);
-  }
+  .knopf:hover:not(:disabled) { border-color: var(--accent); }
+  .knopf:disabled { opacity: .4; cursor: default; }
+  .knopf.neu { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 
-  .voice { flex: 1 1 100%; font-size: 13px; color: var(--muted); }
-
-  .quelle { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
-  .quelle-titel {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em;
-    text-transform: uppercase; color: var(--muted);
-  }
-  .seg {
-    display: inline-flex; border: 1px solid var(--line); border-radius: 999px;
-    padding: 3px; background: var(--bg); margin: 0; min-width: 0;
-  }
-  .seg label { position: relative; }
-  .seg input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
-  .seg span {
-    display: block; padding: 6px 14px; border-radius: 999px; cursor: pointer;
-    font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--muted);
-  }
-  .seg input:checked + span { background: var(--accent); color: var(--accent-ink); }
-  .seg input:focus-visible + span { outline: 3px solid var(--mark); outline-offset: 2px; }
-  .quelle select {
-    font: 14px var(--font-body); color: var(--ink); background: var(--bg);
-    border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; max-width: 100%; min-width: 0;
+  .satz {
+    width: 100%; margin: 0; padding: 18px 20px; border-radius: 14px; text-align: center;
+    background: var(--mark-soft); border: 2px solid var(--mark);
+    font-size: clamp(22px, 5vw, 28px); line-height: 1.35; font-weight: 500;
   }
 
   .note {
-    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink);
+    margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink);
     background: var(--mark-soft); border-radius: 10px; padding: 10px 14px;
   }
 
-  ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-  li {
-    display: grid; grid-template-columns: 2.2em 1fr auto; gap: 0 12px; align-items: start;
-    padding: 14px 12px; border-radius: 10px; cursor: pointer;
-    border-left: 4px solid transparent;
-    transition: background-color .2s ease, border-color .2s ease;
+  @media (prefers-reduced-motion: reduce) {
+    .schieber::before, .schieber span { transition: none; }
   }
-  li:hover { background: var(--surface); }
-  li.current { background: var(--mark-soft); border-left-color: var(--mark); }
-  .num {
-    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
-    padding-top: 4px; font-variant-numeric: tabular-nums;
-  }
-  .text { min-width: 0; }
-  .de { font-size: 19px; line-height: 1.4; font-weight: 500; }
-
-  #themen { display: grid; gap: 28px; }
-  .thema { display: grid; gap: 6px; }
-  .thema-kopf {
-    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
-    border-bottom: 1px solid var(--line); padding: 0 12px 8px;
-  }
-  .thema h2 {
-    font-family: var(--font-display); font-weight: 600; font-size: 20px;
-    margin: 0; text-wrap: balance;
-  }
-  .thema-play {
-    font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; white-space: nowrap;
-    background: transparent; color: var(--accent); border: 1px solid var(--line);
-    border-radius: 999px; padding: 6px 12px; cursor: pointer;
-  }
-  .thema-play:hover { background: var(--surface); }
-  .say {
-    background: transparent; border: 1px solid var(--line); color: var(--accent);
-    border-radius: 999px; width: 34px; height: 34px; display: grid; place-items: center;
-    cursor: pointer; margin-top: 1px;
-  }
-  .say svg { width: 14px; height: 14px; fill: currentColor; }
-
-  .foot {
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px;
-    font-size: 14px; color: var(--muted);
-  }
-
-  @media (prefers-reduced-motion: reduce) { li { transition: none; } }
 </style>
-
 </head>
 <body>
 <div class="wrap">
   <header>
-    <span class="eyebrow">Alltagssätze zum Hören · 110 Sätze in 10 Themen</span>
     <h1>Wortwärts</h1>
-    <p class="lede">Drück auf Abspielen und hör dir alle Sätze nacheinander an. Mit dem Regler stellst du das Tempo ein. Ein Klick auf einen Satz spielt nur diesen ab, der Knopf neben einem Thema spielt dessen Sätze.</p>
+    <p class="lede">Hör dir einen Satz an und sprich ihn nach.</p>
   </header>
 
-  <section class="controls" aria-label="Wiedergabe">
-    <button class="play" id="play" type="button">
+  <noscript>
+    <p class="note">Diese Seite braucht JavaScript, um die Sätze abzuspielen. Bitte schalte JavaScript in deinem Browser ein und lade die Seite neu.</p>
+  </noscript>
+
+  <fieldset class="schritt">
+    <legend class="schritt-titel"><span class="schritt-nr">1</span> Stimme</legend>
+    <div class="schieber" id="stimme">
+      <label><input type="radio" name="stimme" value="frau"><span>Frau</span></label>
+      <label><input type="radio" name="stimme" value="mann"><span>Mann</span></label>
+    </div>
+  </fieldset>
+
+  <fieldset class="schritt tempo">
+    <legend class="schritt-titel"><span class="schritt-nr">2</span> Tempo</legend>
+    <div class="regler">
+      <input type="range" id="tempo" min="0" max="2" step="1" value="1" aria-label="Tempo">
+      <div class="stufen" id="stufen" aria-hidden="true">
+        <span>langsam</span>
+        <span>mittel</span>
+        <span>normal</span>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="schritt">
+    <legend class="schritt-titel"><span class="schritt-nr">3</span> Thema</legend>
+    <div class="themen" id="themen"></div>
+  </fieldset>
+
+  <section class="hoeren" aria-label="Hören">
+    <button class="play" id="play" type="button" disabled>
       <svg viewBox="0 0 24 24" aria-hidden="true" id="play-icon"><path d="M7 4.5v15l13-7.5z"/></svg>
-      <span id="play-label">Alle abspielen</span>
+      <span id="play-label">Abspielen</span>
     </button>
-    <button class="stop" id="stop" type="button" disabled>Stopp</button>
+    <p class="hinweis" id="hinweis" aria-live="polite">Wähl zuerst ein Thema.</p>
 
-    <div class="speed">
-      <div class="speed-top">
-        <label for="rate">Tempo</label>
-        <span class="rate" id="rate-out">1,0×</span>
-      </div>
-      <input type="range" id="rate" min="0.5" max="1.5" step="0.1" value="1">
-      <div class="ticks" aria-hidden="true"><span>0,5× langsam</span><span>1,0×</span><span>1,5× schnell</span></div>
-    </div>
+    <button class="knopf" id="aufdecken" type="button" disabled aria-expanded="false" aria-controls="satz">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span id="aufdecken-label">Satz aufdecken</span>
+    </button>
+    <p class="satz" id="satz" hidden aria-live="polite"></p>
 
-    <div class="quelle" id="quelle" hidden>
-      <span class="quelle-titel" id="quelle-titel">Sprachausgabe</span>
-      <div class="seg" role="radiogroup" aria-labelledby="quelle-titel">
-        <label><input type="radio" name="quelle" id="quelle-mp3" value="mp3" checked><span>MP3-Aufnahme</span></label>
-        <label><input type="radio" name="quelle" id="quelle-browser" value="browser"><span>Browser-Stimme</span></label>
-      </div>
-      <select id="browser-stimme" aria-label="Browser-Stimme wählen" hidden></select>
-    </div>
-    <p class="voice" id="voice-info">Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet</p>
+    <button class="knopf neu" id="neu" type="button" disabled>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3c4 0 6 10 10 10h3M17 14l3 3-3 3M4 17h3c1.5 0 2.6-1.4 3.6-3.2M13.4 10.2C14.4 8.4 15.5 7 17 7h3M17 4l3 3-3 3"/></svg>
+      <span>Neuer Satz</span>
+    </button>
   </section>
 
   <p class="note" id="note" hidden></p>
-
-  <noscript>
-    <p class="note">Diese Seite braucht JavaScript, um die Sätze anzuzeigen und abzuspielen. Bitte schalte JavaScript in deinem Browser ein und lade die Seite neu.</p>
-  </noscript>
-
-  <div id="themen"></div>
-
-  <div class="foot">
-    <span><a href="audio/alle-saetze.mp3" style="color:inherit">Alle Sätze als MP3</a></span>
-  </div>
 </div>
 
 <script>
-  // Wird von scripts/erzeuge_audio.py befüllt: [{thema, de, src}]
-  const SENTENCES = [{"thema": "Begrüßung & Smalltalk", "de": "Guten Morgen! Hast du gut geschlafen?", "src": "audio/001.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Hallo, wie geht es dir?", "src": "audio/002.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Mir geht es gut, danke. Und dir?", "src": "audio/003.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Schön, dich zu sehen!", "src": "audio/004.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Lange nicht gesehen! Was gibt's Neues?", "src": "audio/005.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Darf ich mich vorstellen? Ich heiße Anna.", "src": "audio/006.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Freut mich, Sie kennenzulernen.", "src": "audio/007.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Woher kommst du eigentlich?", "src": "audio/008.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Wie war dein Tag?", "src": "audio/009.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Bis später, mach's gut!", "src": "audio/010.mp3"}, {"thema": "Begrüßung & Smalltalk", "de": "Schönen Abend noch!", "src": "audio/011.mp3"}, {"thema": "Essen & Trinken", "de": "Ich hätte gern einen Kaffee mit Milch, bitte.", "src": "audio/012.mp3"}, {"thema": "Essen & Trinken", "de": "Haben Sie einen Tisch für zwei Personen frei?", "src": "audio/013.mp3"}, {"thema": "Essen & Trinken", "de": "Könnte ich bitte die Speisekarte haben?", "src": "audio/014.mp3"}, {"thema": "Essen & Trinken", "de": "Was können Sie heute empfehlen?", "src": "audio/015.mp3"}, {"thema": "Essen & Trinken", "de": "Ich nehme die Tomatensuppe als Vorspeise.", "src": "audio/016.mp3"}, {"thema": "Essen & Trinken", "de": "Ist in dem Gericht Fleisch?", "src": "audio/017.mp3"}, {"thema": "Essen & Trinken", "de": "Ein Glas Leitungswasser, bitte.", "src": "audio/018.mp3"}, {"thema": "Essen & Trinken", "de": "Das Essen war wirklich lecker.", "src": "audio/019.mp3"}, {"thema": "Essen & Trinken", "de": "Wir möchten bitte bezahlen.", "src": "audio/020.mp3"}, {"thema": "Essen & Trinken", "de": "Zusammen oder getrennt?", "src": "audio/021.mp3"}, {"thema": "Essen & Trinken", "de": "Stimmt so, vielen Dank.", "src": "audio/022.mp3"}, {"thema": "Einkaufen", "de": "Kann ich hier mit Karte bezahlen?", "src": "audio/023.mp3"}, {"thema": "Einkaufen", "de": "Wie viel kostet das?", "src": "audio/024.mp3"}, {"thema": "Einkaufen", "de": "Ich schaue mich nur um, danke.", "src": "audio/025.mp3"}, {"thema": "Einkaufen", "de": "Haben Sie diese Hose auch in einer anderen Größe?", "src": "audio/026.mp3"}, {"thema": "Einkaufen", "de": "Wo sind die Umkleidekabinen?", "src": "audio/027.mp3"}, {"thema": "Einkaufen", "de": "Wo finde ich die Milch?", "src": "audio/028.mp3"}, {"thema": "Einkaufen", "de": "Brauchen Sie eine Tüte?", "src": "audio/029.mp3"}, {"thema": "Einkaufen", "de": "Kann ich das umtauschen, wenn es nicht passt?", "src": "audio/030.mp3"}, {"thema": "Einkaufen", "de": "Ich hätte gern ein halbes Kilo Äpfel.", "src": "audio/031.mp3"}, {"thema": "Einkaufen", "de": "Haben Sie heute noch frische Brötchen?", "src": "audio/032.mp3"}, {"thema": "Einkaufen", "de": "Darf ich bitte den Kassenbon haben?", "src": "audio/033.mp3"}, {"thema": "Unterwegs", "de": "Entschuldigung, wo ist der nächste Bahnhof?", "src": "audio/034.mp3"}, {"thema": "Unterwegs", "de": "Wann fährt der nächste Bus in die Innenstadt?", "src": "audio/035.mp3"}, {"thema": "Unterwegs", "de": "Eine Fahrkarte nach Hamburg, bitte.", "src": "audio/036.mp3"}, {"thema": "Unterwegs", "de": "Muss ich umsteigen?", "src": "audio/037.mp3"}, {"thema": "Unterwegs", "de": "Von welchem Gleis fährt der Zug ab?", "src": "audio/038.mp3"}, {"thema": "Unterwegs", "de": "Der Zug hat zehn Minuten Verspätung.", "src": "audio/039.mp3"}, {"thema": "Unterwegs", "de": "Ist dieser Platz noch frei?", "src": "audio/040.mp3"}, {"thema": "Unterwegs", "de": "Wie komme ich am besten zum Rathaus?", "src": "audio/041.mp3"}, {"thema": "Unterwegs", "de": "Gehen Sie geradeaus und dann die zweite Straße links.", "src": "audio/042.mp3"}, {"thema": "Unterwegs", "de": "Ist das weit von hier?", "src": "audio/043.mp3"}, {"thema": "Unterwegs", "de": "Können Sie mir bitte ein Taxi rufen?", "src": "audio/044.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich bin heute leider etwas spät dran.", "src": "audio/045.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich habe um zehn Uhr einen Termin.", "src": "audio/046.mp3"}, {"thema": "Arbeit & Termine", "de": "Können wir das Meeting auf morgen verschieben?", "src": "audio/047.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich schicke dir die Unterlagen per E-Mail.", "src": "audio/048.mp3"}, {"thema": "Arbeit & Termine", "de": "Hast du kurz Zeit für eine Frage?", "src": "audio/049.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich arbeite heute von zu Hause aus.", "src": "audio/050.mp3"}, {"thema": "Arbeit & Termine", "de": "Wann ist die Besprechung zu Ende?", "src": "audio/051.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich mache jetzt Mittagspause.", "src": "audio/052.mp3"}, {"thema": "Arbeit & Termine", "de": "Das erledige ich gleich morgen früh.", "src": "audio/053.mp3"}, {"thema": "Arbeit & Termine", "de": "Ich bin nächste Woche im Urlaub.", "src": "audio/054.mp3"}, {"thema": "Arbeit & Termine", "de": "Schönen Feierabend!", "src": "audio/055.mp3"}, {"thema": "Zuhause & Familie", "de": "Wer ist heute mit Kochen dran?", "src": "audio/056.mp3"}, {"thema": "Zuhause & Familie", "de": "Kannst du bitte den Müll rausbringen?", "src": "audio/057.mp3"}, {"thema": "Zuhause & Familie", "de": "Ich gehe kurz einkaufen. Brauchen wir noch etwas?", "src": "audio/058.mp3"}, {"thema": "Zuhause & Familie", "de": "Das Abendessen ist fertig!", "src": "audio/059.mp3"}, {"thema": "Zuhause & Familie", "de": "Hast du die Schlüssel gesehen?", "src": "audio/060.mp3"}, {"thema": "Zuhause & Familie", "de": "Mach bitte das Licht aus, wenn du gehst.", "src": "audio/061.mp3"}, {"thema": "Zuhause & Familie", "de": "Die Kinder sind schon im Bett.", "src": "audio/062.mp3"}, {"thema": "Zuhause & Familie", "de": "Meine Eltern kommen am Sonntag zu Besuch.", "src": "audio/063.mp3"}, {"thema": "Zuhause & Familie", "de": "Wir müssen noch die Wäsche aufhängen.", "src": "audio/064.mp3"}, {"thema": "Zuhause & Familie", "de": "Ich bin wieder zu Hause!", "src": "audio/065.mp3"}, {"thema": "Zuhause & Familie", "de": "Gute Nacht und schlaf gut!", "src": "audio/066.mp3"}, {"thema": "Gesundheit", "de": "Ich fühle mich heute nicht so gut.", "src": "audio/067.mp3"}, {"thema": "Gesundheit", "de": "Ich habe Kopfschmerzen.", "src": "audio/068.mp3"}, {"thema": "Gesundheit", "de": "Ich hätte gern einen Termin beim Arzt.", "src": "audio/069.mp3"}, {"thema": "Gesundheit", "de": "Seit wann haben Sie die Beschwerden?", "src": "audio/070.mp3"}, {"thema": "Gesundheit", "de": "Haben Sie etwas gegen Halsschmerzen?", "src": "audio/071.mp3"}, {"thema": "Gesundheit", "de": "Wie oft muss ich die Tabletten nehmen?", "src": "audio/072.mp3"}, {"thema": "Gesundheit", "de": "Ich bin gegen Nüsse allergisch.", "src": "audio/073.mp3"}, {"thema": "Gesundheit", "de": "Ich glaube, ich habe Fieber.", "src": "audio/074.mp3"}, {"thema": "Gesundheit", "de": "Ich bleibe heute lieber im Bett.", "src": "audio/075.mp3"}, {"thema": "Gesundheit", "de": "Gute Besserung!", "src": "audio/076.mp3"}, {"thema": "Gesundheit", "de": "Wo ist die nächste Apotheke?", "src": "audio/077.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Was machst du am Wochenende?", "src": "audio/078.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Wir treffen uns um halb acht vor dem Kino.", "src": "audio/079.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Hast du Lust, heute Abend etwas zu unternehmen?", "src": "audio/080.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Wollen wir zusammen ins Schwimmbad gehen?", "src": "audio/081.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich gehe am Samstag mit Freunden wandern.", "src": "audio/082.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Welche Musik hörst du gern?", "src": "audio/083.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Hast du den Film schon gesehen?", "src": "audio/084.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich lese gerade ein spannendes Buch.", "src": "audio/085.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Passt es dir am Freitag um sieben?", "src": "audio/086.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Leider kann ich heute nicht. Vielleicht nächste Woche?", "src": "audio/087.mp3"}, {"thema": "Freizeit & Verabredungen", "de": "Ich freue mich schon darauf!", "src": "audio/088.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Könnten Sie das bitte noch einmal wiederholen?", "src": "audio/089.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Danke, das ist sehr nett von dir!", "src": "audio/090.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Entschuldigung, das habe ich nicht verstanden.", "src": "audio/091.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Können Sie bitte etwas langsamer sprechen?", "src": "audio/092.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Was bedeutet dieses Wort?", "src": "audio/093.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Wie sagt man das auf Deutsch?", "src": "audio/094.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Ich spreche nur ein bisschen Deutsch.", "src": "audio/095.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Kein Problem, gern geschehen.", "src": "audio/096.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Entschuldigung, das war mein Fehler.", "src": "audio/097.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Darf ich Sie etwas fragen?", "src": "audio/098.mp3"}, {"thema": "Verständigung & Höflichkeit", "de": "Könnten Sie mir bitte helfen?", "src": "audio/099.mp3"}, {"thema": "Wetter & Zeit", "de": "Wie spät ist es?", "src": "audio/100.mp3"}, {"thema": "Wetter & Zeit", "de": "Es ist Viertel nach drei.", "src": "audio/101.mp3"}, {"thema": "Wetter & Zeit", "de": "Heute ist es ganz schön kalt draußen.", "src": "audio/102.mp3"}, {"thema": "Wetter & Zeit", "de": "Morgen soll es regnen.", "src": "audio/103.mp3"}, {"thema": "Wetter & Zeit", "de": "Nimm lieber einen Regenschirm mit.", "src": "audio/104.mp3"}, {"thema": "Wetter & Zeit", "de": "Was für ein schöner Sonnentag!", "src": "audio/105.mp3"}, {"thema": "Wetter & Zeit", "de": "Welcher Tag ist heute?", "src": "audio/106.mp3"}, {"thema": "Wetter & Zeit", "de": "Ich habe am dritten Mai Geburtstag.", "src": "audio/107.mp3"}, {"thema": "Wetter & Zeit", "de": "Die Zeit vergeht so schnell.", "src": "audio/108.mp3"}, {"thema": "Wetter & Zeit", "de": "Im Sommer wird es hier sehr heiß.", "src": "audio/109.mp3"}, {"thema": "Wetter & Zeit", "de": "Ich komme in fünf Minuten.", "src": "audio/110.mp3"}];
+  // Wird von scripts/erzeuge_audio.py befüllt: {themen: [{name, saetze: [{nr, de}]}], tempi, stimmen}
+  const DATEN = {"themen": [{"name": "Begrüßung & Smalltalk", "saetze": [{"nr": "001", "de": "Guten Morgen! Hast du gut geschlafen?"}, {"nr": "002", "de": "Hallo, wie geht es dir?"}, {"nr": "003", "de": "Mir geht es gut, danke. Und dir?"}, {"nr": "004", "de": "Schön, dich zu sehen!"}, {"nr": "005", "de": "Lange nicht gesehen! Was gibt's Neues?"}, {"nr": "006", "de": "Darf ich mich vorstellen? Ich heiße Anna."}, {"nr": "007", "de": "Freut mich, Sie kennenzulernen."}, {"nr": "008", "de": "Woher kommst du eigentlich?"}, {"nr": "009", "de": "Wie war dein Tag?"}, {"nr": "010", "de": "Bis später, mach's gut!"}, {"nr": "011", "de": "Schönen Abend noch!"}]}, {"name": "Essen & Trinken", "saetze": [{"nr": "012", "de": "Ich hätte gern einen Kaffee mit Milch, bitte."}, {"nr": "013", "de": "Haben Sie einen Tisch für zwei Personen frei?"}, {"nr": "014", "de": "Könnte ich bitte die Speisekarte haben?"}, {"nr": "015", "de": "Was können Sie heute empfehlen?"}, {"nr": "016", "de": "Ich nehme die Tomatensuppe als Vorspeise."}, {"nr": "017", "de": "Ist in dem Gericht Fleisch?"}, {"nr": "018", "de": "Ein Glas Leitungswasser, bitte."}, {"nr": "019", "de": "Das Essen war wirklich lecker."}, {"nr": "020", "de": "Wir möchten bitte bezahlen."}, {"nr": "021", "de": "Zusammen oder getrennt?"}, {"nr": "022", "de": "Stimmt so, vielen Dank."}]}, {"name": "Einkaufen", "saetze": [{"nr": "023", "de": "Kann ich hier mit Karte bezahlen?"}, {"nr": "024", "de": "Wie viel kostet das?"}, {"nr": "025", "de": "Ich schaue mich nur um, danke."}, {"nr": "026", "de": "Haben Sie diese Hose auch in einer anderen Größe?"}, {"nr": "027", "de": "Wo sind die Umkleidekabinen?"}, {"nr": "028", "de": "Wo finde ich die Milch?"}, {"nr": "029", "de": "Brauchen Sie eine Tüte?"}, {"nr": "030", "de": "Kann ich das umtauschen, wenn es nicht passt?"}, {"nr": "031", "de": "Ich hätte gern ein halbes Kilo Äpfel."}, {"nr": "032", "de": "Haben Sie heute noch frische Brötchen?"}, {"nr": "033", "de": "Darf ich bitte den Kassenbon haben?"}]}, {"name": "Unterwegs", "saetze": [{"nr": "034", "de": "Entschuldigung, wo ist der nächste Bahnhof?"}, {"nr": "035", "de": "Wann fährt der nächste Bus in die Innenstadt?"}, {"nr": "036", "de": "Eine Fahrkarte nach Hamburg, bitte."}, {"nr": "037", "de": "Muss ich umsteigen?"}, {"nr": "038", "de": "Von welchem Gleis fährt der Zug ab?"}, {"nr": "039", "de": "Der Zug hat zehn Minuten Verspätung."}, {"nr": "040", "de": "Ist dieser Platz noch frei?"}, {"nr": "041", "de": "Wie komme ich am besten zum Rathaus?"}, {"nr": "042", "de": "Gehen Sie geradeaus und dann die zweite Straße links."}, {"nr": "043", "de": "Ist das weit von hier?"}, {"nr": "044", "de": "Können Sie mir bitte ein Taxi rufen?"}]}, {"name": "Arbeit & Termine", "saetze": [{"nr": "045", "de": "Ich bin heute leider etwas spät dran."}, {"nr": "046", "de": "Ich habe um zehn Uhr einen Termin."}, {"nr": "047", "de": "Können wir das Meeting auf morgen verschieben?"}, {"nr": "048", "de": "Ich schicke dir die Unterlagen per E-Mail."}, {"nr": "049", "de": "Hast du kurz Zeit für eine Frage?"}, {"nr": "050", "de": "Ich arbeite heute von zu Hause aus."}, {"nr": "051", "de": "Wann ist die Besprechung zu Ende?"}, {"nr": "052", "de": "Ich mache jetzt Mittagspause."}, {"nr": "053", "de": "Das erledige ich gleich morgen früh."}, {"nr": "054", "de": "Ich bin nächste Woche im Urlaub."}, {"nr": "055", "de": "Schönen Feierabend!"}]}, {"name": "Zuhause & Familie", "saetze": [{"nr": "056", "de": "Wer ist heute mit Kochen dran?"}, {"nr": "057", "de": "Kannst du bitte den Müll rausbringen?"}, {"nr": "058", "de": "Ich gehe kurz einkaufen. Brauchen wir noch etwas?"}, {"nr": "059", "de": "Das Abendessen ist fertig!"}, {"nr": "060", "de": "Hast du die Schlüssel gesehen?"}, {"nr": "061", "de": "Mach bitte das Licht aus, wenn du gehst."}, {"nr": "062", "de": "Die Kinder sind schon im Bett."}, {"nr": "063", "de": "Meine Eltern kommen am Sonntag zu Besuch."}, {"nr": "064", "de": "Wir müssen noch die Wäsche aufhängen."}, {"nr": "065", "de": "Ich bin wieder zu Hause!"}, {"nr": "066", "de": "Gute Nacht und schlaf gut!"}]}, {"name": "Gesundheit", "saetze": [{"nr": "067", "de": "Ich fühle mich heute nicht so gut."}, {"nr": "068", "de": "Ich habe Kopfschmerzen."}, {"nr": "069", "de": "Ich hätte gern einen Termin beim Arzt."}, {"nr": "070", "de": "Seit wann haben Sie die Beschwerden?"}, {"nr": "071", "de": "Haben Sie etwas gegen Halsschmerzen?"}, {"nr": "072", "de": "Wie oft muss ich die Tabletten nehmen?"}, {"nr": "073", "de": "Ich bin gegen Nüsse allergisch."}, {"nr": "074", "de": "Ich glaube, ich habe Fieber."}, {"nr": "075", "de": "Ich bleibe heute lieber im Bett."}, {"nr": "076", "de": "Gute Besserung!"}, {"nr": "077", "de": "Wo ist die nächste Apotheke?"}]}, {"name": "Freizeit & Verabredungen", "saetze": [{"nr": "078", "de": "Was machst du am Wochenende?"}, {"nr": "079", "de": "Wir treffen uns um halb acht vor dem Kino."}, {"nr": "080", "de": "Hast du Lust, heute Abend etwas zu unternehmen?"}, {"nr": "081", "de": "Wollen wir zusammen ins Schwimmbad gehen?"}, {"nr": "082", "de": "Ich gehe am Samstag mit Freunden wandern."}, {"nr": "083", "de": "Welche Musik hörst du gern?"}, {"nr": "084", "de": "Hast du den Film schon gesehen?"}, {"nr": "085", "de": "Ich lese gerade ein spannendes Buch."}, {"nr": "086", "de": "Passt es dir am Freitag um sieben?"}, {"nr": "087", "de": "Leider kann ich heute nicht. Vielleicht nächste Woche?"}, {"nr": "088", "de": "Ich freue mich schon darauf!"}]}, {"name": "Verständigung & Höflichkeit", "saetze": [{"nr": "089", "de": "Könnten Sie das bitte noch einmal wiederholen?"}, {"nr": "090", "de": "Danke, das ist sehr nett von dir!"}, {"nr": "091", "de": "Entschuldigung, das habe ich nicht verstanden."}, {"nr": "092", "de": "Können Sie bitte etwas langsamer sprechen?"}, {"nr": "093", "de": "Was bedeutet dieses Wort?"}, {"nr": "094", "de": "Wie sagt man das auf Deutsch?"}, {"nr": "095", "de": "Ich spreche nur ein bisschen Deutsch."}, {"nr": "096", "de": "Kein Problem, gern geschehen."}, {"nr": "097", "de": "Entschuldigung, das war mein Fehler."}, {"nr": "098", "de": "Darf ich Sie etwas fragen?"}, {"nr": "099", "de": "Könnten Sie mir bitte helfen?"}]}, {"name": "Wetter & Zeit", "saetze": [{"nr": "100", "de": "Wie spät ist es?"}, {"nr": "101", "de": "Es ist Viertel nach drei."}, {"nr": "102", "de": "Heute ist es ganz schön kalt draußen."}, {"nr": "103", "de": "Morgen soll es regnen."}, {"nr": "104", "de": "Nimm lieber einen Regenschirm mit."}, {"nr": "105", "de": "Was für ein schöner Sonnentag!"}, {"nr": "106", "de": "Welcher Tag ist heute?"}, {"nr": "107", "de": "Ich habe am dritten Mai Geburtstag."}, {"nr": "108", "de": "Die Zeit vergeht so schnell."}, {"nr": "109", "de": "Im Sommer wird es hier sehr heiß."}, {"nr": "110", "de": "Ich komme in fünf Minuten."}]}], "tempi": ["0.5", "0.7", "1.0"], "stimmen": {"frau": "Seraphina", "mann": "Killian"}};
+  const TEMPI = DATEN.tempi;            // ["0.5", "0.7", "1.0"]
+  const ALLE = "alle";
 
-  const themen = document.getElementById("themen");
+  // Symbole zu den Themen (Strichzeichnungen, 24×24)
+  const SYMBOLE = {
+    [ALLE]: '<path d="M4 7h3c4 0 6 10 10 10h3M17 14l3 3-3 3M4 17h3c1.5 0 2.6-1.4 3.6-3.2M13.4 10.2C14.4 8.4 15.5 7 17 7h3M17 4l3 3-3 3"/>',
+    "Begrüßung & Smalltalk": '<path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/>',
+    "Essen & Trinken": '<path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5v2.5M12 3.5v2.5"/>',
+    "Einkaufen": '<path d="M2.5 4h2.5l2.4 11h10.4l2.2-8H6"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/>',
+    "Unterwegs": '<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10.5h14"/><path d="M8.5 13.8h.01M15.5 13.8h.01"/><path d="M7.5 17v3M16.5 17v3"/>',
+    "Arbeit & Termine": '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7.5 14h3M7.5 17.5h6"/>',
+    "Zuhause & Familie": '<path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/>',
+    "Gesundheit": '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z"/><path d="M7.5 12h2.5l1.2-2.2 2 4.4 1.3-2.2h2"/>',
+    "Freizeit & Verabredungen": '<path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"/><path d="M15 7v10" stroke-dasharray="2 2"/>',
+    "Verständigung & Höflichkeit": '<path d="M3 4h12v8H8l-3.5 3V12H3z"/><path d="M18 9h3v8h-1.5v3L16 17H10v-2"/>',
+    "Wetter & Zeit": '<circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.5M3.8 4.6l1 1M2.5 9.5H4M14.2 4.6l-1 1"/><path d="M9 20h8.5a3.5 3.5 0 0 0 0-7 4.5 4.5 0 0 0-8.6.8A3.1 3.1 0 0 0 9 20z"/>',
+  };
+  const SYMBOL_ERSATZ = SYMBOLE["Begrüßung & Smalltalk"];
+
+  const themenBox = document.getElementById("themen");
+  const tempoIn = document.getElementById("tempo");
+  const stufen = document.querySelectorAll("#stufen span");
+  const stimmeRadios = document.querySelectorAll('input[name="stimme"]');
   const playBtn = document.getElementById("play");
-  const playLabel = document.getElementById("play-label");
   const playIcon = document.getElementById("play-icon");
-  const stopBtn = document.getElementById("stop");
-  const rateIn = document.getElementById("rate");
-  const rateOut = document.getElementById("rate-out");
+  const playLabel = document.getElementById("play-label");
+  const hinweis = document.getElementById("hinweis");
+  const aufdeckenBtn = document.getElementById("aufdecken");
+  const aufdeckenLabel = document.getElementById("aufdecken-label");
+  const satzBox = document.getElementById("satz");
+  const neuBtn = document.getElementById("neu");
   const note = document.getElementById("note");
 
   const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
-  const ICON_PAUSE = '<path d="M6 4.5h4v15H6zM14 4.5h4v15h-4z"/>';
-  const PAUSE_BETWEEN_MS = 700;
+  const ICON_STOP = '<path d="M6.5 6.5h11v11h-11z"/>';
+  const TEMPO_TEXT = ["langsam", "mittel", "normal"];
 
-  const audio = new Audio();
-  audio.preload = "auto";
-  audio.preservesPitch = true;
-  audio.webkitPreservesPitch = true;
+  // ---- Einstellungen merken (nur Komfort, Seite funktioniert auch ohne) ----
+  function lies(k) { try { return localStorage.getItem("wortwaerts-" + k); } catch { return null; } }
+  function merke(k, v) { try { localStorage.setItem("wortwaerts-" + k, v); } catch {} }
 
-  const synth = window.speechSynthesis;
-  const quelleBox = document.getElementById("quelle");
-  const quelleRadios = document.querySelectorAll('input[name="quelle"]');
-  const stimmeSel = document.getElementById("browser-stimme");
-  const voiceInfo = document.getElementById("voice-info");
-  const SPEICHER_KEY = "alltagssaetze-quelle";
-  const START_TIMEOUT_MS = 2500;
+  let stimme = lies("stimme") === "mann" ? "mann" : "frau";
+  let tempoStufe = ["0", "1", "2"].includes(lies("tempo")) ? Number(lies("tempo")) : 1;
+  let thema = null;       // ALLE oder Index in DATEN.themen
+  let stapel = [];        // gemischte, noch nicht gespielte Sätze des Themas
+  let satz = null;        // aktueller Satz {nr, de}
 
-  let quelle = "mp3";   // mp3 | browser
-  let stimmen = [];     // deutsche Browser-Stimmen
-  let state = "idle";   // idle | playing | paused
-  let queue = [];
-  let current = -1;
-  let gapTimer = null;
-  let startTimer = null;
-  let inGap = false;
-  let mp3Index = -1;    // Satz, der gerade im Audio-Element geladen ist
-  let token = 0;        // macht Rückrufe abgebrochener Sätze wirkungslos
+  // ---- Stimme ----
+  stimmeRadios.forEach(r => {
+    r.checked = r.value === stimme;
+    r.addEventListener("change", () => { if (r.checked) { stimme = r.value; merke("stimme", stimme); } });
+  });
 
-  const items = [];
-  let liste = null;
-  SENTENCES.forEach(({ thema, de }, i) => {
-    if (!liste || liste.dataset.thema !== thema) {
-      const sec = document.createElement("section");
-      sec.className = "thema";
-      sec.innerHTML = `<div class="thema-kopf"><h2></h2><button class="thema-play" type="button"></button></div><ol></ol>`;
-      sec.querySelector("h2").textContent = thema;
-      liste = sec.querySelector("ol");
-      liste.dataset.thema = thema;
-      const btn = sec.querySelector(".thema-play");
-      btn.textContent = "▶ Thema abspielen";
-      btn.setAttribute("aria-label", `Thema ${thema} abspielen`);
-      btn.addEventListener("click", () =>
-        start(SENTENCES.map((s, j) => s.thema === thema ? j : -1).filter(j => j >= 0)));
-      themen.appendChild(sec);
+  // ---- Tempo ----
+  function zeigeTempo() {
+    tempoIn.value = String(tempoStufe);
+    tempoIn.setAttribute("aria-valuetext", TEMPO_TEXT[tempoStufe]);
+    stufen.forEach((s, i) => s.classList.toggle("an", i === tempoStufe));
+  }
+  tempoIn.addEventListener("input", () => { tempoStufe = Number(tempoIn.value); merke("tempo", tempoStufe); zeigeTempo(); });
+  zeigeTempo();
+
+  // ---- Themen ----
+  const themenKnoepfe = [];
+  function themaKnopf(wert, name) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = wert === ALLE ? "thema alle" : "thema";
+    b.setAttribute("aria-pressed", "false");
+    b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${SYMBOLE[name] || SYMBOL_ERSATZ}</svg><span></span>`;
+    b.querySelector("span").textContent = wert === ALLE ? "Alle Themen" : name;
+    b.addEventListener("click", () => waehleThema(wert, true));
+    themenBox.appendChild(b);
+    themenKnoepfe.push([wert, b]);
+  }
+  themaKnopf(ALLE, ALLE);
+  DATEN.themen.forEach((t, i) => themaKnopf(i, t.name));
+
+  function mische(liste) {
+    const a = liste.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
     }
-    const li = document.createElement("li");
-    li.tabIndex = 0;
-    li.dataset.i = i;
-    li.innerHTML =
-      `<span class="num">${String(i + 1).padStart(2, "0")}</span>` +
-      `<span class="text"><span class="de"></span></span>` +
-      `<button class="say" type="button" aria-label="Satz ${i + 1} abspielen" tabindex="-1">` +
-      `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></button>`;
-    li.querySelector(".de").textContent = de;
-    li.addEventListener("click", () => start([i]));
-    li.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); start([i]); }
-    });
-    liste.appendChild(li);
-    items.push(li);
-  });
-
-  function rate() { return Number(rateIn.value); }
-  function formatRate(v) { return Number(v).toFixed(1).replace(".", ",") + "×"; }
-  rateIn.addEventListener("input", () => {
-    rateOut.textContent = formatRate(rateIn.value);
-    audio.defaultPlaybackRate = rate();
-    audio.playbackRate = rate(); // Browser-Stimme: gilt ab dem nächsten Satz
-  });
-
-  function showNote(msg) { note.textContent = msg; note.hidden = !msg; }
-
-  function mark(i) {
-    items.forEach((li, j) => li.classList.toggle("current", j === i));
-    const el = items[i];
-    if (el) el.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    return a;
   }
 
-  function setState(s) {
-    state = s;
-    const playing = s === "playing";
-    playIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
-    playLabel.textContent = playing ? "Pause" : s === "paused" ? "Weiter" : "Alle abspielen";
-    stopBtn.disabled = s === "idle";
+  function saetzeDesThemas() {
+    return thema === ALLE ? DATEN.themen.flatMap(t => t.saetze) : DATEN.themen[thema].saetze;
   }
 
-  // ---- Browser-Stimme erkennen ----
-  function deutscheStimmen() {
-    return synth.getVoices().filter(v => v.lang && v.lang.toLowerCase().startsWith("de"));
+  function naechsterSatz() {
+    if (!stapel.length) {
+      stapel = mische(saetzeDesThemas());
+      // nicht denselben Satz zweimal hintereinander
+      if (stapel.length > 1 && stapel[0] === satz) stapel.push(stapel.shift());
+    }
+    satz = stapel.shift();
+    verdecke();
   }
 
-  function warteAufStimmen() {
-    return new Promise(resolve => {
-      if (!synth || typeof SpeechSynthesisUtterance === "undefined") return resolve([]);
-      let list = [];
-      try { list = deutscheStimmen(); } catch { return resolve([]); }
-      if (list.length) return resolve(list);
-      const fertig = () => { try { resolve(deutscheStimmen()); } catch { resolve([]); } };
-      synth.addEventListener?.("voiceschanged", fertig, { once: true });
-      setTimeout(fertig, 1500);
-    });
-  }
-
-  function zeigeVoiceInfo() {
-    if (quelle === "browser") {
-      const v = stimmen[Number(stimmeSel.value)];
-      voiceInfo.textContent = `Stimme: ${v ? v.name : "Browser-Standard"} (Sprachausgabe des Browsers)`;
+  function waehleThema(wert, abspielen) {
+    thema = wert;
+    merke("thema", String(wert));
+    themenKnoepfe.forEach(([w, b]) => b.setAttribute("aria-pressed", String(w === wert)));
+    stapel = [];
+    naechsterSatz();
+    playBtn.disabled = aufdeckenBtn.disabled = neuBtn.disabled = false;
+    hinweis.textContent = "";
+    if (abspielen) {
+      spiele();
+      // auf dem Handy liegt der Play-Knopf unter den Themen: dorthin scrollen
+      const ruhig = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.querySelector(".hoeren").scrollIntoView({ block: "nearest", behavior: ruhig ? "auto" : "smooth" });
     } else {
-      voiceInfo.textContent = "Stimme: Thorsten (Piper, Deutsch), als MP3 eingebettet";
-    }
-    stimmeSel.hidden = quelle !== "browser";
-  }
-
-  function setzeQuelle(q, merken = true) {
-    const vorher = quelle;
-    quelle = q;
-    mp3Index = -1;
-    quelleRadios.forEach(r => { r.checked = r.value === q; });
-    zeigeVoiceInfo();
-    if (merken) { try { localStorage.setItem(SPEICHER_KEY, q); } catch {} }
-    if (vorher !== q && state === "playing" && current >= 0) {
-      // laufenden Satz mit der neuen Quelle neu beginnen
-      halteAn();
-      spieleSatz(current);
-    } else if (vorher !== q && state === "paused") {
-      halteAn();
+      hinweis.textContent = "Drück auf Abspielen.";
     }
   }
 
-  function browserStimmeAus(meldung) {
-    stimmen = [];
-    quelleBox.hidden = true;
-    setzeQuelle("mp3", false);
-    if (meldung) showNote(meldung);
+  // ---- Aufdecken ----
+  function verdecke() {
+    satzBox.hidden = true;
+    satzBox.textContent = "";
+    aufdeckenLabel.textContent = "Satz aufdecken";
+    aufdeckenBtn.setAttribute("aria-expanded", "false");
   }
-
-  warteAufStimmen().then(list => {
-    if (!list.length) return; // keine Browser-Stimme: Schalter bleibt versteckt, immer MP3
-    stimmen = list;
-    stimmeSel.innerHTML = "";
-    list.forEach((v, i) => stimmeSel.add(new Option(`${v.name} (${v.lang})`, String(i))));
-    stimmeSel.value = String(Math.max(0, list.findIndex(v => v.lang === "de-DE")));
-    quelleBox.hidden = false;
-    let gespeichert = null;
-    try { gespeichert = localStorage.getItem(SPEICHER_KEY); } catch {}
-    setzeQuelle(gespeichert === "browser" ? "browser" : "mp3", false);
+  aufdeckenBtn.addEventListener("click", () => {
+    if (!satz) return;
+    if (satzBox.hidden) {
+      satzBox.textContent = satz.de;
+      satzBox.hidden = false;
+      aufdeckenLabel.textContent = "Satz verdecken";
+      aufdeckenBtn.setAttribute("aria-expanded", "true");
+    } else {
+      verdecke();
+    }
   });
 
-  quelleRadios.forEach(r => r.addEventListener("change", () => { if (r.checked) setzeQuelle(r.value); }));
-  stimmeSel.addEventListener("change", zeigeVoiceInfo);
+  neuBtn.addEventListener("click", () => { if (thema !== null) { naechsterSatz(); spiele(); } });
 
   // ---- Audioausgabe wach halten ----
   // Viele Geräte (Bluetooth, HDMI, Energiesparmodus der Soundkarte) schalten die Ausgabe in
   // Pausen ab und blenden beim nächsten Ton erst ein – das verschluckt das erste Wort.
-  // Ein unhörbares Dauersignal (20 Hz, -80 dB) hält die Ausgabe offen, solange abgespielt wird.
+  // Ein unhörbares Dauersignal (20 Hz, -80 dB) hält die Ausgabe offen, solange geübt wird.
   const AUFWACH_MS = 400;          // Wartezeit, bis eine gerade geweckte Ausgabe bereit ist
-  const WACH_NACHLAUF_MS = 30000;  // so lange bleibt die Ausgabe nach dem Stopp noch wach
+  const WACH_NACHLAUF_MS = 60000;  // so lange bleibt die Ausgabe nach dem letzten Satz wach
   let wachCtx = null;
   let schlafTimer = null;
 
-  // Weckt die Ausgabe; liefert, wie lange vor dem ersten Satz gewartet werden sollte.
+  // Weckt die Ausgabe; liefert, wie lange vor dem Satz gewartet werden sollte.
   function weckeAusgabe() {
     clearTimeout(schlafTimer);
     try {
@@ -420,135 +419,61 @@
   function ausgabeSchlafenLegen() {
     clearTimeout(schlafTimer);
     schlafTimer = setTimeout(() => {
-      if (wachCtx && state === "idle") wachCtx.suspend().catch(() => {});
+      if (wachCtx && audio.paused) wachCtx.suspend().catch(() => {});
     }, WACH_NACHLAUF_MS);
   }
 
   // ---- Wiedergabe ----
-  audio.addEventListener("ratechange", () => {
-    // Manche Browser setzen die Rate beim Laden einer neuen Quelle zurück
-    if (audio.playbackRate !== rate()) audio.playbackRate = rate();
-  });
+  const audio = new Audio();
+  audio.preload = "auto";
+  let startTimer = null;
 
-  function halteAn() {
-    token++;
-    clearTimeout(gapTimer);
+  function zeigeSpielt(an) {
+    playBtn.classList.toggle("spielt", an);
+    playIcon.innerHTML = an ? ICON_STOP : ICON_PLAY;
+    playLabel.textContent = an ? "Stopp" : "Abspielen";
+  }
+
+  function stoppe() {
     clearTimeout(startTimer);
-    inGap = false;
     audio.pause();
-    if (synth && (synth.speaking || synth.pending)) synth.cancel();
-  }
-
-  function nachSatz(t) {
-    if (t !== token || state !== "playing") return;
-    if (!queue.length) { finish(); return; }
-    inGap = true;
-    gapTimer = setTimeout(playNext, PAUSE_BETWEEN_MS / rate());
-  }
-
-  function spieleSatz(i) {
-    const t = ++token;
-    current = i;
-    mark(i);
-    if (quelle === "browser") sprich(i, t);
-    else spieleMp3(i, t);
-  }
-
-  function spieleMp3(i, t) {
-    mp3Index = i;
-    audio.src = SENTENCES[i].src;
-    audio.defaultPlaybackRate = rate();
-    audio.playbackRate = rate();
-    audio.onended = () => nachSatz(t);
-    audio.play().catch(err => {
-      if (t !== token || err.name === "AbortError") return;
-      showNote("Die Audiodatei konnte nicht abgespielt werden. Drück noch einmal auf Abspielen.");
-      finish();
-    });
-  }
-
-  function sprich(i, t) {
-    let gestartet = false;
-    const rueckfall = () => {
-      if (t !== token) return;
-      // setzeQuelle startet den laufenden Satz als MP3 neu
-      browserStimmeAus("Die Browser-Stimme funktioniert hier nicht. Es werden die MP3-Aufnahmen abgespielt.");
-    };
-    let u;
-    try {
-      u = new SpeechSynthesisUtterance(SENTENCES[i].de);
-      u.lang = "de-DE";
-      const v = stimmen[Number(stimmeSel.value)];
-      if (v) u.voice = v;
-      u.rate = rate();
-    } catch {
-      rueckfall();
-      return;
-    }
-    u.onstart = () => { gestartet = true; clearTimeout(startTimer); };
-    u.onend = () => { if (gestartet) nachSatz(t); else rueckfall(); };
-    u.onerror = e => {
-      if (t !== token || e.error === "interrupted" || e.error === "canceled") return;
-      rueckfall();
-    };
-    startTimer = setTimeout(() => { if (!gestartet) rueckfall(); }, START_TIMEOUT_MS);
-    try {
-      synth.cancel();
-      synth.speak(u);
-    } catch {
-      clearTimeout(startTimer);
-      rueckfall();
-    }
-  }
-
-  function playNext() {
-    inGap = false;
-    if (!queue.length) { finish(); return; }
-    spieleSatz(queue.shift());
-  }
-
-  function start(indices) {
-    halteAn();
-    showNote("");
-    queue = indices.slice();
-    setState("playing");
-    const warten = weckeAusgabe();
-    if (warten) { inGap = true; gapTimer = setTimeout(playNext, warten); }
-    else playNext();
-  }
-
-  function finish() {
-    halteAn();
-    queue = [];
-    current = -1;
-    mark(-1);
-    setState("idle");
+    zeigeSpielt(false);
     ausgabeSchlafenLegen();
   }
 
+  function spiele() {
+    if (!satz) return;
+    stoppe();
+    note.hidden = true;
+    audio.src = `audio/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
+    zeigeSpielt(true);
+    startTimer = setTimeout(() => {
+      audio.play().catch(err => {
+        if (err.name === "AbortError") return;
+        zeigeSpielt(false);
+        note.textContent = "Der Satz konnte nicht abgespielt werden. Drück noch einmal auf Abspielen.";
+        note.hidden = false;
+      });
+    }, weckeAusgabe());
+  }
+
+  audio.addEventListener("ended", () => { zeigeSpielt(false); ausgabeSchlafenLegen(); });
+  audio.addEventListener("error", () => {
+    if (!audio.getAttribute("src")) return;
+    clearTimeout(startTimer);
+    zeigeSpielt(false);
+    note.textContent = "Der Satz konnte nicht geladen werden. Prüf die Internetverbindung und drück noch einmal auf Abspielen.";
+    note.hidden = false;
+  });
   playBtn.addEventListener("click", () => {
-    if (state === "idle") {
-      start(SENTENCES.map((_, i) => i));
-    } else if (state === "playing") {
-      const imSatz = !inGap;
-      clearTimeout(gapTimer);
-      if (quelle === "browser") {
-        // Browser-Pause ist unzuverlässig: abbrechen und den Satz beim Weiterspielen neu sprechen
-        halteAn();
-        inGap = !imSatz;
-      } else {
-        audio.pause();
-      }
-      setState("paused");
-    } else {
-      setState("playing");
-      if (inGap) playNext();
-      else if (quelle === "mp3" && mp3Index === current) audio.play().catch(() => finish());
-      else spieleSatz(current);
-    }
+    if (playBtn.classList.contains("spielt")) stoppe();
+    else spiele();
   });
 
-  stopBtn.addEventListener("click", finish);
+  // Zuletzt gewähltes Thema wieder auswählen (ohne Abspielen – Browser erlauben Ton erst nach einem Tipp)
+  const gemerkt = lies("thema");
+  if (gemerkt === ALLE) waehleThema(ALLE, false);
+  else if (gemerkt !== null && DATEN.themen[Number(gemerkt)]) waehleThema(Number(gemerkt), false);
 </script>
 </body>
 </html>
