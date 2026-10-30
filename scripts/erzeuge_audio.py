@@ -4,19 +4,22 @@ Zweck:   Erzeugt aus saetze.json (lange Sätze) und saetze_kurz.json (kurze Sät
          beide im Format {Thema: [Sätze]}, mit Microsoft Azure AI Speech für jeden Satz
          MP3-Dateien in zwei Stimmen (Frau/Mann, festgelegt in stimmen.json) und drei Tempi
          (0,5 / 0,7 / 1,0 – das Tempo erzeugt Azure direkt, per SSML <prosody rate>) und baut aus
-         vorlage/seite.html die Webseite site/index.html.
+         vorlage/seite.html die Webseite site/index.html. Außerdem schreibt es eine Übersicht,
+         welche MP3 zu welchem Satz gehört: site/audio/README.md (Tabelle je Thema mit Links)
+         und site/audio/uebersicht.csv (jede Datei eine Zeile, für Tabellenprogramme).
          Ablage: site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3 … (lange Sätze)
                                                      k001.mp3 … (kurze Sätze)
          Vorhandene Dateien werden nur neu erzeugt, wenn sich Stimme, Tempo oder Satztext geändert
          haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent.
 Aufruf:  python3 scripts/erzeuge_audio.py               (fehlende/geänderte MP3s + Seite)
          python3 scripts/erzeuge_audio.py --neu         (alle MP3s neu erzeugen)
-         python3 scripts/erzeuge_audio.py --nur-seiten  (nur site/index.html neu bauen)
+         python3 scripts/erzeuge_audio.py --nur-seiten  (nur site/index.html und Übersicht neu bauen)
          (im Wurzelverzeichnis des Repos wortwaerts ausführen; braucht die Umgebungsvariablen
          AZURE_SPEECH_KEY und AZURE_SPEECH_REGION)
 Pakete:  Python 3 (nur Standardbibliothek), ffmpeg (System) – Details in docs/werkzeuge.md
 """
 import argparse
+import csv
 import json
 import os
 import subprocess
@@ -132,6 +135,47 @@ def baue_seite(nummern, stimmen):
     (PROJEKT / "site" / "index.html").write_text(html, encoding="utf-8")
 
 
+def tempo_text(tempo):
+    return tempo.replace(".", ",")
+
+
+def schreibe_uebersicht(nummern, stimmen, audio_dir):
+    """site/audio/README.md (je Thema eine Tabelle) und site/audio/uebersicht.csv (je Datei eine Zeile)."""
+    namen = {g: anzeigename(stimmen[g]) for g in GESCHLECHTER}
+    anzahl = sum(len(l) for laengen in nummern.values() for l in laengen.values())
+    md = [
+        "# Übersicht der Aufnahmen",
+        "",
+        "Automatisch erzeugt von `scripts/erzeuge_audio.py` – bitte nicht von Hand bearbeiten.",
+        "",
+        f"{anzahl} Sätze × 2 Stimmen × 3 Tempi = {anzahl * 6} MP3-Dateien. Ablage: "
+        "`<frau|mann>/<tempo>/<nr>.mp3` – lange Sätze `001` …, kurze Sätze `k001` …",
+        "",
+        f"- Frau: {namen['frau']} (`{stimmen['frau']}`)",
+        f"- Mann: {namen['mann']} (`{stimmen['mann']}`)",
+        "- Tempo: 0,5 = langsam, 0,7 = mittel, 1,0 = normal",
+        "",
+        "Dieselben Angaben je Datei: [uebersicht.csv](uebersicht.csv)",
+    ]
+    zeilen = []
+    for thema, laengen in nummern.items():
+        md += ["", f"## {thema}", "", "| Nr | Länge | Satz | Frau | Mann |", "|----|-------|------|------|------|"]
+        for laenge in ("kurz", "lang"):
+            for nr, de in laengen[laenge]:
+                links = {g: " · ".join(f"[{tempo_text(t)}]({g}/{t}/{nr}.mp3)" for t in TEMPI) for g in GESCHLECHTER}
+                md.append(f"| {nr} | {laenge} | {de.replace('|', '\\|')} | {links['frau']} | {links['mann']} |")
+                for g in GESCHLECHTER:
+                    for t in TEMPI:
+                        zeilen.append([f"site/audio/{g}/{t}/{nr}.mp3", thema, laenge, nr, de,
+                                       g, stimmen[g], tempo_text(t)])
+    (audio_dir / "README.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    # Semikolon und BOM, damit Excel die Datei mit Umlauten direkt richtig öffnet
+    with open(audio_dir / "uebersicht.csv", "w", encoding="utf-8-sig", newline="") as f:
+        w = csv.writer(f, delimiter=";")
+        w.writerow(["Pfad", "Thema", "Länge", "Nr", "Satz", "Stimme", "Azure-Stimme", "Tempo"])
+        w.writerows(zeilen)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--neu", action="store_true", help="alle MP3s neu erzeugen")
@@ -151,7 +195,8 @@ def main():
     if not a.nur_seiten:
         erzeuge_mp3s(saetze, stimmen, audio_dir, a.neu)
     baue_seite(nummern, stimmen)
-    print("site/index.html geschrieben")
+    schreibe_uebersicht(nummern, stimmen, audio_dir)
+    print("site/index.html, site/audio/README.md und site/audio/uebersicht.csv geschrieben")
 
 
 if __name__ == "__main__":
