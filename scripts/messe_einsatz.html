@@ -1,0 +1,47 @@
+<!doctype html>
+<!--
+  Zweck:   Misst, wie der Satzanfang aus dem Browser herauskommt (Lautstärke-Hüllkurve in
+           25-ms-Schritten, dB) – für 3 Beispielsätze bei Tempo 1,0×, 0,7× und 0,5×.
+           Zeigt, ob ein Einblenden schon im Browser entsteht oder erst danach
+           (Betriebssystem/Audiogerät). Vergleichswerte der MP3-Datei selbst:
+           ffmpeg -i site/audio/001.mp3 -f s16le -ac 1 -ar 22050 - | (Auswertung wie unten)
+  Aufruf:  cp scripts/messe_einsatz.html site/ && cd site && python3 -m http.server 8000
+           Browser: http://localhost:8000/messe_einsatz.html → „Messen“ klicken
+           (danach site/messe_einsatz.html wieder löschen)
+  Pakete:  nur ein Browser und Python 3 (für den lokalen Webserver)
+--><meta charset="utf-8"><button id="los">Messen</button><pre id="out"></pre>
+<script>
+const out = document.getElementById('out');
+async function messe(src, rate) {
+  const ctx = new AudioContext();
+  const a = new Audio(src); a.preservesPitch = true; a.playbackRate = rate; a.defaultPlaybackRate = rate;
+  const quelle = ctx.createMediaElementSource(a);
+  const proc = ctx.createScriptProcessor(1024, 1, 1);
+  const daten = [];
+  proc.onaudioprocess = e => daten.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+  quelle.connect(proc); proc.connect(ctx.destination);
+  await ctx.resume(); await a.play();
+  await new Promise(r => a.onended = r);
+  await new Promise(r => setTimeout(r, 200));
+  ctx.close();
+  const alle = new Float32Array(daten.reduce((n, d) => n + d.length, 0));
+  let o = 0; for (const d of daten) { alle.set(d, o); o += d.length; }
+  // Hüllkurve 25 ms in dB, ab erstem Sample > -50 dB
+  const w = Math.round(ctx.sampleRate * 0.025);
+  const db = [];
+  for (let i = 0; i + w < alle.length; i += w) {
+    let s = 0; for (let j = i; j < i + w; j++) s += alle[j] * alle[j];
+    db.push(Math.round(10 * Math.log10(s / w + 1e-12)));
+  }
+  const start = db.findIndex(x => x > -50);
+  return db.slice(Math.max(0, start - 2), start + 14).join(' ');
+}
+document.getElementById('los').onclick = () => (async () => {
+  out.textContent = 'läuft …';
+  const z = [];
+  for (const f of ['001', '012', '068'])
+    for (const r of [1, 0.7, 0.5])
+      z.push(`${f} ${r}x: ${await messe('audio/' + f + '.mp3', r)}`);
+  out.textContent = 'FERTIG\n' + z.join('\n');
+})().catch(e => out.textContent = 'FEHLER ' + e);
+</script>

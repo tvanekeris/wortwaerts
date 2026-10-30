@@ -75,3 +75,19 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 Der Player nutzt `HTMLAudioElement.playbackRate` (0,5×–1,5×) mit `preservesPitch`,
 die Tonhöhe bleibt also gleich. Für `alle-saetze.mp3` in einem normalen Player regelt man
 das Tempo dort (die meisten Podcast-/Medienplayer können das).
+
+## Einblenden am Satzanfang
+
+Problem: Das erste Wort eines Satzes klang wie eingeblendet und undeutlich.
+
+Messung (`scripts/messe_einsatz.html`, Chromium; Hüllkurve in 25-ms-Schritten): Was der
+Browser ausgibt, entspricht den MP3-Dateien – die Sprache setzt nach 1–2 Schritten mit voller
+Lautstärke ein, bei 1,0× ohne Einblenden. Bei 0,7× und 0,5× macht die Tempo-Umrechnung
+(`preservesPitch`) den Einsatz nur um etwa 25 ms weicher. Das Einblenden entsteht also
+**nach** dem Browser: Betriebssystem bzw. Audiogerät schalten die Ausgabe in Pausen ab
+(Bluetooth-Kopfhörer/-Lautsprecher, HDMI-Monitore, Energiesparmodus der Soundkarte) und
+blenden beim nächsten Ton erst wieder ein.
+
+Abhilfe im Player: Beim Abspielen läuft über Web Audio ein unhörbarer Ton (20 Hz, -80 dB),
+der die Ausgabe offen hält. Beim ersten Start (oder nach mehr als 30 s Stille) wartet der
+Player 0,4 s, bevor der Satz beginnt. 30 s nach dem Stopp wird der Ton angehalten.
