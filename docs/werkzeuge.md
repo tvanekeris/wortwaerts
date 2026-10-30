@@ -21,9 +21,13 @@ Einrichtung (einmalig):
 Ablauf:
 ```
 python3 scripts/stimmproben.py --liste                 # deutsche Stimmen anzeigen
-python3 scripts/stimmproben.py --ziel /tmp/proben      # Hörproben + stimmproben.html
+python3 scripts/stimmproben.py                         # Probehör-Seite site/stimmen/ (alle Stimmen,
+                                                       # Testsatz in 0,5× und 0,8×, Tempo per SSML <prosody rate>)
 python3 scripts/erzeuge_audio.py --azure de-DE-KatjaNeural   # alle Sätze neu erzeugen
 ```
+Die Probehör-Seite ist online unter https://tvanekeris.github.io/wortwaerts/stimmen/ (17 Stimmen,
+Stand 2026-10-30).
+
 `erzeuge_audio.py` schreibt den Stimmennamen nach `site/audio/stimme.txt`; die Seite zeigt ihn an.
 
 ## Piper (frühere Quelle, offline)
