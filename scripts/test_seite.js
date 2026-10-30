@@ -1,6 +1,7 @@
 // Zweck:   Prüft, ob die Wortwärts-Seite (site/index.html) die Satzliste aufbaut –
 //          in mehreren Varianten (Desktop, iPhone + Dunkelmodus, ohne Browser-Stimme,
 //          ohne localStorage). Meldet Anzahl der Sätze, Sichtbarkeit und JS-Fehler.
+//          Zusätzlich: ohne JavaScript muss der <noscript>-Hinweis erscheinen.
 // Aufruf:  cd site && python3 -m http.server 8765 &
 //          node scripts/test_seite.js [URL]        (Standard: http://localhost:8765/)
 //          Gegen die Live-Seite: node scripts/test_seite.js https://tvanekeris.github.io/wortwaerts/
@@ -37,6 +38,13 @@ const faelle = [
     if (!anzahl || !sichtbar || fehler.length) ok = false;
     await ctx.close();
   }
+  const ctx = await browser.newContext({ javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  await page.goto(url);
+  const hinweis = (await page.evaluate(() => document.body.innerText)).includes('braucht JavaScript');
+  console.log(`ohne-javascript: Hinweis sichtbar=${hinweis}`);
+  if (!hinweis) ok = false;
+  await ctx.close();
   await browser.close();
   process.exit(ok ? 0 : 1);
 })();

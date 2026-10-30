@@ -55,7 +55,8 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 
 - `scripts/test_seite.js` (Node.js + Playwright mit Chromium, im Container vorinstalliert):
   prüft, ob die Satzliste aufgebaut wird und sichtbar ist (Desktop, iPhone mit Dunkelmodus,
-  ohne Browser-Stimme, ohne localStorage). Aufruf:
+  ohne Browser-Stimme, ohne localStorage) und ob ohne JavaScript der `<noscript>`-Hinweis
+  erscheint. Aufruf:
   ```
   cd site && python3 -m http.server 8765 &
   node scripts/test_seite.js                 # lokal
