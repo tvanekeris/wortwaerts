@@ -1,39 +1,51 @@
-# Alltagssätze zum Hören
+# Wortwärts
 
-- **Begonnen:** 2026-10-28
-- **Status:** aktiv
+Deutsche Alltagssätze zum Hören und Nachsprechen. Wortwärts richtet sich an Menschen mit
+Aphasie nach einem Schlaganfall (insbesondere Wernicke-Aphasie), ihre Angehörigen und
+Therapeut:innen. Es ergänzt eine logopädische Therapie, ersetzt sie aber nicht.
 
-## Ziel
-Deutsche Alltagssätze zum Hören: Player mit Play-Button und einstellbarem Tempo. Die
-Sprachausgabe läuft über echte Audiodateien, damit sie im Artifact, als Webseite und auch
-ohne Browser (MP3 in jedem Player) funktioniert.
+**Direkt ausprobieren:** https://tvanekeris.github.io/wortwaerts/
 
-## Aktueller Stand
-110 Sätze in 10 Themen zu je 11 Sätzen (Begrüßung & Smalltalk, Essen & Trinken, Einkaufen,
-Unterwegs, Arbeit & Termine, Zuhause & Familie, Gesundheit, Freizeit & Verabredungen,
-Verständigung & Höflichkeit, Wetter & Zeit). Audio offline mit Piper (Stimme „Thorsten“, low)
-erzeugt, siehe [docs/werkzeuge.md](docs/werkzeuge.md).
+## Funktionen
+- 110 Sätze in 10 Themen zu je 11 Sätzen: Begrüßung & Smalltalk, Essen & Trinken, Einkaufen,
+  Unterwegs, Arbeit & Termine, Zuhause & Familie, Gesundheit, Freizeit & Verabredungen,
+  Verständigung & Höflichkeit, Wetter & Zeit
+- Alle abspielen / Pause / Weiter / Stopp, ein Thema abspielen oder einen einzelnen Satz per Klick
+- Tempo 0,5×–1,5×, die Tonhöhe bleibt dabei gleich
+- Sprachausgabe über fertige MP3-Aufnahmen (Piper, Stimme „Thorsten“). Bietet der Browser eine
+  deutsche Stimme an, kann man auf diese umschalten. Startet sie nicht, fällt die Seite
+  automatisch auf MP3 zurück.
+- Alle Sätze als eine MP3-Datei (ca. 5 Minuten) zum Hören in jedem Player:
+  [site/audio/alle-saetze.mp3](site/audio/alle-saetze.mp3)
 
-Funktionen: Alle abspielen / Pause / Weiter / Stopp, Thema abspielen, Tempo 0,5×–1,5×
-(Tonhöhe bleibt gleich), Einzelsatz per Klick.
+## Aufbau
+| Pfad | Inhalt |
+|------|--------|
+| [saetze.json](saetze.json) | Die Sätze, Format `{"Thema": ["Satz", …]}` |
+| [vorlage/seite.html](vorlage/seite.html) | HTML-Vorlage des Players |
+| [scripts/erzeuge_audio.py](scripts/erzeuge_audio.py) | Erzeugt MP3s und baut daraus die Seiten |
+| [site/](site/) | Fertige Webseite mit `audio/001.mp3` … `110.mp3`, wird als GitHub Pages veröffentlicht |
+| `alltagssaetze.html` | Dieselbe Seite als eine Datei mit eingebetteten MP3s, z. B. zum Weitergeben oder Offline-Öffnen |
+| [docs/werkzeuge.md](docs/werkzeuge.md) | Verwendete Werkzeuge, Versionen, Ablauf |
+| [.github/workflows/pages.yml](.github/workflows/pages.yml) | Veröffentlicht `site/` bei jedem Push auf `main` |
 
-Sprachausgabe: Standard sind die MP3-Aufnahmen. Bietet der Browser eine deutsche Stimme an,
-erscheint ein Schalter „MP3-Aufnahme / Browser-Stimme“ (plus Auswahl der Stimme; die Wahl
-wird im Browser gemerkt). Ohne deutsche Browser-Stimme bleibt der Schalter versteckt. Startet
-die Browser-Stimme nicht innerhalb von 2,5 s oder meldet einen Fehler (z. B. im Artifact),
-schaltet die Seite automatisch auf MP3 um und blendet den Schalter aus.
+## Sätze ändern
+1. `saetze.json` bearbeiten.
+2. Audio neu erzeugen (Piper und ffmpeg nötig, siehe [docs/werkzeuge.md](docs/werkzeuge.md)):
+   ```
+   python3 scripts/erzeuge_audio.py --piper venv/bin/piper --modell voice/de-thorsten-low.onnx
+   ```
+   Nur die HTML-Seiten neu bauen (nach Änderungen an der Vorlage):
+   `python3 scripts/erzeuge_audio.py --nur-seiten`
+3. Committen und auf `main` pushen. Die Seite wird automatisch aktualisiert.
 
-Verlauf:
-1. Erste Version mit 10 Sätzen über die Browser-Sprachausgabe (`speechSynthesis`) – blieb im
-   Artifact stumm (Stand in der Git-Historie, altes Artifact: https://claude.ai/artifact/N476Y37MscE6DGXHHHhiPr, veraltet).
-2. Umstellung auf mit Piper erzeugte MP3-Dateien.
-3. Auf 110 Sätze in 10 Themen erweitert, englische Übersetzung entfernt.
-4. Schalter MP3 / Browser-Stimme mit automatischer Erkennung und Rückfall auf MP3.
+## Stand und nächste Schritte
+- Ausgelagert aus dem privaten Sammel-Repo `claude-chats` (Projekt „Alltagssätze“); die
+  bisherige Git-Historie ist übernommen.
+- Mögliche nächste Schritte: bessere Stimme (Piper medium/high), Nachsprech-Pausen nach jedem
+  Satz, Bilder zu den Sätzen, größere Schrift und Bedienelemente.
 
-Mögliche nächste Schritte: bessere Stimme (Piper medium/high, braucht Zugriff auf huggingface.co).
-
-## Ergebnisse & Links
-- Artifact: https://claude.ai/artifact/5vRJ13E9FKV4QFw9dp6BWt (Quelle: [alltagssaetze.html](alltagssaetze.html))
-- Webseite (lokal per Doppelklick oder auf jedem Webserver): [site/index.html](site/index.html)
-- MP3-Dateien: [site/audio/](site/audio/) – einzeln `001.mp3`…`110.mp3`, gesamt `alle-saetze.mp3` (ca. 5 Minuten)
-- Sätze bearbeiten: [saetze.json](saetze.json), danach [scripts/erzeuge_audio.py](scripts/erzeuge_audio.py) erneut ausführen
+## Lizenzen
+- Stimme „Thorsten“ (Thorsten Müller): CC0
+- Piper (`piper-tts`): nur als Werkzeug zum Erzeugen der Audiodateien genutzt, nicht Teil der Seite
+- Für den eigenen Code und die Sätze ist noch keine Lizenz festgelegt.

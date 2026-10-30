@@ -7,7 +7,7 @@ Zweck:   Erzeugt aus saetze.json ({Thema: [Sätze]}) mit der Offline-Sprachsynth
            - alltagssaetze.html     Artifact-Version, MP3s als data:-URIs eingebettet
 Aufruf:  python3 scripts/erzeuge_audio.py --piper <pfad/zu/piper> --modell <pfad/zu/de-thorsten-low.onnx>
          python3 scripts/erzeuge_audio.py --nur-seiten   (nur HTML neu bauen, vorhandene MP3s nutzen)
-         (im Projektordner 2026-10-alltagssaetze/ ausführen)
+         (im Wurzelverzeichnis des Repos wortwaerts ausführen)
 Pakete:  piper-tts (pip), ffmpeg (System), Stimme voice-de-thorsten-low.tar.gz
          – Details und Versionen in docs/werkzeuge.md
 """
@@ -95,6 +95,8 @@ def main():
     web = [{"thema": t, "de": de, "src": f"audio/{i:03d}.mp3"} for i, (t, de) in enumerate(saetze, 1)]
     kopf = ('<!doctype html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            '<meta name="description" content="Wortwärts: deutsche Alltagssätze zum Hören und '
+            'Nachsprechen, mit einstellbarem Tempo – zum Üben bei Aphasie.">\n'
             '<style>body{margin:0}[hidden]{display:none!important}</style>\n')
     inhalt = seite(vorlage, web, '<a href="audio/alle-saetze.mp3" style="color:inherit">Alle Sätze als MP3</a>')
     inhalt = inhalt.replace("<div class=\"wrap\">", "</head>\n<body>\n<div class=\"wrap\">", 1)

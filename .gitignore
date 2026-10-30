@@ -1,0 +1,19 @@
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Secrets – niemals committen
+.env
+*.key

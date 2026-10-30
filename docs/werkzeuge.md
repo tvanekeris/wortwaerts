@@ -34,7 +34,22 @@ verwenden und das Skript einfach erneut laufen lassen.
      `alltagssaetze.html` (MP3s als base64-`data:`-URIs eingebettet, für das Artifact).
    Nur die Seiten neu bauen (z. B. nach Änderungen an `vorlage/seite.html`), ohne neue MP3s:
    `python3 scripts/erzeuge_audio.py --nur-seiten`
-3. Artifact mit `alltagssaetze.html` veröffentlichen.
+3. Auf `main` pushen: Der Workflow `.github/workflows/pages.yml` veröffentlicht `site/` als
+   GitHub Pages (https://tvanekeris.github.io/wortwaerts/).
+4. Optional: `alltagssaetze.html` (eine Datei mit eingebetteten MP3s) weitergeben oder als
+   Claude-Artifact veröffentlichen.
+
+## GitHub Pages
+
+| Baustein | Version | Quelle |
+|----------|---------|--------|
+| actions/checkout | v4 | https://github.com/actions/checkout |
+| actions/configure-pages | v5 | https://github.com/actions/configure-pages |
+| actions/upload-pages-artifact | v3 | https://github.com/actions/upload-pages-artifact |
+| actions/deploy-pages | v4 | https://github.com/actions/deploy-pages |
+
+Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“. Das Repo muss
+öffentlich sein (oder ein bezahlter GitHub-Plan vorliegen).
 
 ## Test
 
