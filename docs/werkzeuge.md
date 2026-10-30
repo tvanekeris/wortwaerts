@@ -68,17 +68,6 @@ Tonhöhe der Stimmen vergleichen: `python3 scripts/messe_tonhoehe.py site/stimme
 Killian 103 Hz, Conrad 111, Christoph 113, Klaus 117, Florian 132, Kasper 136, Ralf 145, Bernd 152;
 Frauen 165 (Seraphina) bis 229 Hz (Maja), Gisela 302 Hz.
 
-## Frühere Quelle: Piper (offline, bis 2026-10-30)
-
-Bis zur Umstellung auf Azure kamen die MP3s aus Piper (`piper-tts` 1.8.0 von PyPI, mit
-onnxruntime 1.31.1 und numpy 2.5.4; Stimme „Thorsten“ low, CC0, aus
-https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-de-thorsten-low.tar.gz).
-Die Qualität war bei einigen Wörtern schlecht; die besseren Piper-Stimmen liegen auf
-huggingface.co, das in der Cloud-Umgebung gesperrt war. Der Piper-Aufruf steht in der
-Git-Historie von `scripts/erzeuge_audio.py`. Ebenfalls entfallen: die Einzeldatei
-`alltagssaetze.html` (alle MP3s eingebettet, mit 660 Aufnahmen zu groß) und
-`alle-saetze.mp3`.
-
 ## GitHub Pages
 
 | Baustein | Version | Quelle |
