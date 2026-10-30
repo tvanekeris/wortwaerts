@@ -13,7 +13,7 @@ fertige MP3-Dateien, die überall abspielbar sind (Artifact, Webseite, beliebige
 | numpy | 2.5.4 | Abhängigkeit von piper-tts |
 | Stimme „Thorsten“ (de, low, 16 kHz, Lizenz CC0) | Piper-Release v0.0.2 | https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-de-thorsten-low.tar.gz (entpacken: `de-thorsten-low.onnx` + `.onnx.json`) |
 | ffmpeg (inkl. libmp3lame) | 6.1.1-3ubuntu5 | System, `apt install ffmpeg` |
-| Playwright + Chromium | vorinstalliert im Container | nur für den Funktionstest (Abspielen, Satzwechsel, Tempo) |
+| Chromium (Chrome for Testing) | 153.0.8010.12 | im Container vorinstalliert unter `/opt/pw-browsers/chromium`; sonst z. B. `apt install chromium` – nur für den Test der Seite |
 
 Hinweis: Die besseren Piper-Stimmen (medium/high) liegen auf huggingface.co, das in der
 Cloud-Umgebung gesperrt war. Mit Zugriff darauf kann man z. B. `de_DE-thorsten-high`
@@ -43,29 +43,32 @@ verwenden und das Skript einfach erneut laufen lassen.
 
 | Baustein | Version | Quelle |
 |----------|---------|--------|
-| actions/checkout | v4 | https://github.com/actions/checkout |
-| actions/configure-pages | v5 | https://github.com/actions/configure-pages |
-| actions/upload-pages-artifact | v3 | https://github.com/actions/upload-pages-artifact |
-| actions/deploy-pages | v4 | https://github.com/actions/deploy-pages |
+| actions/checkout | v6 | https://github.com/actions/checkout |
+| actions/configure-pages | v6 | https://github.com/actions/configure-pages |
+| actions/upload-pages-artifact | v5 | https://github.com/actions/upload-pages-artifact |
+| actions/deploy-pages | v5 | https://github.com/actions/deploy-pages |
+
+Diese Versionen laufen bei GitHub auf Node.js 24 (die älteren auf Node.js 20 erzeugten die
+Warnung „Node.js 20 is deprecated“). Node.js läuft dabei nur intern auf GitHubs Servern;
+das Projekt selbst braucht kein Node.js.
 
 Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“. Das Repo muss
 öffentlich sein (oder ein bezahlter GitHub-Plan vorliegen).
 
 ## Test
 
-- `scripts/test_seite.js` (Node.js + Playwright mit Chromium, im Container vorinstalliert):
-  prüft, ob die Satzliste aufgebaut wird und sichtbar ist (Desktop, iPhone mit Dunkelmodus,
-  ohne Browser-Stimme, ohne localStorage) und ob ohne JavaScript der `<noscript>`-Hinweis
-  erscheint. Aufruf:
+- `scripts/test_seite.py` (Python 3, nur Standardbibliothek, plus Chromium; **kein Node.js**):
+  startet einen kleinen Webserver für `site/`, lässt Chromium die Seite headless laden
+  (`--dump-dom`) und prüft, ob alle Sätze aus `saetze.json` in der Liste stehen. Außerdem
+  prüft es, ob das HTML den `<noscript>`-Hinweis für ausgeschaltetes JavaScript enthält.
   ```
-  cd site && python3 -m http.server 8765 &
-  node scripts/test_seite.js                 # lokal
-  node scripts/test_seite.js https://tvanekeris.github.io/wortwaerts/   # live
+  python3 scripts/test_seite.py                                            # lokal
+  python3 scripts/test_seite.py https://tvanekeris.github.io/wortwaerts/   # live
   ```
-- Früherer Wegwerf-Test (nicht im Repo): Chromium mit
-  `--autoplay-policy=no-user-gesture-required`, drei Fälle über eine nachgebaute
-  `speechSynthesis`: keine Stimme (Schalter versteckt, MP3), funktionierende Stimme
-  (Schalter sichtbar, Browser spricht), stumme Stimme (Rückfall auf MP3 nach 2,5 s).
+- Frühere Wegwerf-Tests (nicht im Repo, mit Node.js + Playwright): Abspielen, Satzwechsel,
+  Tempo; Schalter MP3/Browser-Stimme (keine Stimme, funktionierende Stimme, stumme Stimme
+  mit Rückfall auf MP3); Satzliste auf iPhone/Dunkelmodus, ohne `speechSynthesis`, ohne
+  localStorage.
 
 ## Tempo
 
