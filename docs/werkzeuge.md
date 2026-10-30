@@ -4,7 +4,7 @@
 
 Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau/Mann) →
 2 Tempo (0,5 / 0,7 / 1,0) → 3 Satzlänge (kurze Sätze mit 3–4 Wörtern aus `saetze_kurz.json` /
-lange Sätze aus `saetze.json`) → 4 Thema (10 Themen + „Alle Themen“). Nach der Themenwahl spielt
+lange Sätze aus `saetze.json`) → 4 Thema (14 Themen + „Alle Themen“). Nach der Themenwahl spielt
 die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man „Satz aufdecken“
 drückt. „Neuer Satz“ wählt und spielt den nächsten Zufallssatz. Innerhalb eines Themas kommt
 jeder Satz einmal dran, bevor sich etwas wiederholt. Beim Laden ist „Alle Themen“ gewählt und
@@ -15,15 +15,15 @@ sich der Browser
 
 Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
 von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:
-`site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3` … `110.mp3` (lange Sätze) und `k001.mp3` …
-`k100.mp3` (kurze Sätze) – 210 Sätze × 2 Stimmen × 3 Tempi = 1.260 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
+`site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3` … `150.mp3` (lange Sätze) und `k001.mp3` …
+`k140.mp3` (kurze Sätze) – 290 Sätze × 2 Stimmen × 3 Tempi = 1.740 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
 
 ## Microsoft Azure AI Speech
 
 | Baustein | Version / Stand | Quelle |
 |----------|-----------------|--------|
 | Azure AI Speech, Text-to-Speech REST-API (`/cognitiveservices/v1`) | abgerufen 2026-10-30 | https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech |
-| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 32.500 Zeichen: lang 21.600, kurz 10.900) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
+| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 47.000 Zeichen: lang 31.600, kurz 15.400) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
 | Region | Germany West Central (`germanywestcentral`) | Azure-Portal |
 | Stimmen (vorläufig) | Frau: `de-DE-SeraphinaMultilingualNeural`, Mann: `de-DE-KillianNeural` | `stimmen.json` |
 | Ausgabeformat | `riff-24khz-16bit-mono-pcm` (WAV), danach ffmpeg → MP3 (24 kHz, mono, 64 kbit/s, Lautheit normalisiert) | |
@@ -41,7 +41,7 @@ Einrichtung (einmalig):
 Ablauf:
 ```
 python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeugen + Seite bauen
-python3 scripts/erzeuge_audio.py --neu         # alle 1.260 MP3s neu erzeugen
+python3 scripts/erzeuge_audio.py --neu         # alle 1.740 MP3s neu erzeugen
 python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
 Das Skript führt in `site/audio/manifest.json` Buch, mit welcher Stimme, welchem Tempo und
@@ -93,7 +93,7 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 - `scripts/test_seite.py` (Python 3, nur Standardbibliothek, plus Chromium; **kein Node.js**):
   startet einen kleinen Webserver für `site/`, lässt Chromium die Seite headless laden
   (`--dump-dom`) und prüft, ob es für jedes Thema einen Knopf gibt (plus „Alle Themen“), ob
-  alle 1.260 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
+  alle 1.740 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
   ```
   python3 scripts/test_seite.py                                            # lokal
   python3 scripts/test_seite.py https://tvanekeris.github.io/wortwaerts/   # live
@@ -123,3 +123,11 @@ Außerdem beginnen die Azure-Aufnahmen mit gut 0,1 s Stille.
 Die 100 kurzen Sätze (`saetze_kurz.json`, 10 je Thema, je 3–4 Wörter) wurden am 2026-10-30 von
 Claude (Anthropic) passend zu den Themen formuliert und geprüft: Wortzahl 3–4, keine Dubletten,
 dieselben Themen in derselben Reihenfolge wie `saetze.json` (prüft auch `erzeuge_audio.py`).
+
+## Weitere Themen (2026-10-30)
+
+Vier Themen speziell für den Alltag nach einem Schlaganfall, je 10 kurze und 10 lange Sätze,
+von Claude (Anthropic) formuliert: Körperpflege & Anziehen, Gefühle & Bedürfnisse,
+Hilfe & Notfall, Therapie & Reha. Sie stehen am Ende von `saetze.json` / `saetze_kurz.json`,
+damit die Nummern der bisherigen Sätze (und deren Aufnahmen) gleich bleiben – neue Themen
+immer hinten anfügen. Symbole: Strichzeichnungen in `vorlage/seite.html` (`SYMBOLE`).

@@ -10,15 +10,17 @@ Therapeut:innen. Es ergänzt eine logopädische Therapie, ersetzt sie aber nicht
 1. **Stimme** wählen: Frau oder Mann.
 2. **Tempo** wählen: langsam (0,5×), mittel (0,7×) oder normal (1,0×).
 3. **Satzlänge** wählen: kurze Sätze (3–4 Wörter) oder lange Sätze.
-4. **Thema** antippen – eines von 10 Themen oder „Alle Themen“. Ein zufälliger Satz aus dem
+4. **Thema** antippen – eines von 14 Themen oder „Alle Themen“. Ein zufälliger Satz aus dem
    Thema wird sofort vorgespielt.
 5. Mit dem großen **Abspielen**-Knopf den Satz so oft wiederholen wie nötig.
 6. **Satz aufdecken** zeigt den Text – erst nach dem Hören, zum Üben des Sprachverständnisses.
 7. **Neuer Satz** spielt den nächsten Zufallssatz aus dem Thema.
 
-210 Sätze in 10 Themen – je Thema 10 kurze Sätze (3–4 Wörter) und 11 lange Sätze: Begrüßung & Smalltalk, Essen & Trinken, Einkaufen,
-Unterwegs, Arbeit & Termine, Zuhause & Familie, Gesundheit, Freizeit & Verabredungen,
-Verständigung & Höflichkeit, Wetter & Zeit.
+290 Sätze in 14 Themen – je Thema 10 kurze Sätze (3–4 Wörter) und 10–11 lange Sätze:
+Begrüßung & Smalltalk, Essen & Trinken, Einkaufen, Unterwegs, Arbeit & Termine,
+Zuhause & Familie, Gesundheit, Freizeit & Verabredungen, Verständigung & Höflichkeit,
+Wetter & Zeit, Körperpflege & Anziehen, Gefühle & Bedürfnisse, Hilfe & Notfall,
+Therapie & Reha.
 
 Die Aufnahmen kommen von Microsoft Azure (neuronale Stimmen); jedes Tempo ist eigens
 eingesprochen, nicht nachträglich verlangsamt. Probehören aller deutschen Stimmen:

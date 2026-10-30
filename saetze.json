@@ -128,5 +128,53 @@
     "Die Zeit vergeht so schnell.",
     "Im Sommer wird es hier sehr heiß.",
     "Ich komme in fünf Minuten."
+  ],
+  "Körperpflege & Anziehen": [
+    "Kannst du mir bitte beim Anziehen der Jacke helfen?",
+    "Ich möchte heute Morgen zuerst duschen.",
+    "Das Wasser ist mir ein bisschen zu heiß.",
+    "Wo habe ich nur meine Brille hingelegt?",
+    "Ich ziehe heute die blaue Hose an.",
+    "Bitte gib mir das Handtuch aus dem Schrank.",
+    "Die Knöpfe an diesem Hemd sind sehr klein.",
+    "Nach dem Frühstück putze ich mir die Zähne.",
+    "Diese Schuhe kann ich allein anziehen.",
+    "Ich möchte mir heute die Haare waschen."
+  ],
+  "Gefühle & Bedürfnisse": [
+    "Heute geht es mir richtig gut.",
+    "Ich bin ein bisschen traurig, weil ich müde bin.",
+    "Bitte lass mir einen Moment Zeit zum Antworten.",
+    "Ich freue mich sehr auf deinen Besuch.",
+    "Manchmal finde ich die richtigen Wörter nicht.",
+    "Ich brauche jetzt eine kleine Pause.",
+    "Es ärgert mich, wenn ich etwas nicht verstehe.",
+    "Ich bin stolz auf das, was ich heute geschafft habe.",
+    "Mir ist kalt, kannst du bitte das Fenster schließen?",
+    "Ich möchte gern ein bisschen allein sein."
+  ],
+  "Hilfe & Notfall": [
+    "Bitte ruf sofort den Notruf an.",
+    "Ich bin hingefallen und komme nicht mehr hoch.",
+    "Kannst du bitte meine Tochter anrufen?",
+    "Ich habe starke Schmerzen in der Brust.",
+    "Bitte bleib bei mir, bis Hilfe kommt.",
+    "Mein Arm fühlt sich plötzlich ganz taub an.",
+    "Die Telefonnummer steht auf dem Zettel am Kühlschrank.",
+    "Ich habe meinen Hausschlüssel verloren.",
+    "Können Sie mir bitte über die Straße helfen?",
+    "Ich weiß gerade nicht, wo ich bin."
+  ],
+  "Therapie & Reha": [
+    "Heute habe ich um zehn Uhr Logopädie.",
+    "Die Übungen mit der Hand fallen mir noch schwer.",
+    "Können wir das Wort bitte noch einmal üben?",
+    "Mit dem Rollator kann ich schon allein gehen.",
+    "Meine Physiotherapeutin ist sehr geduldig.",
+    "Jeden Tag wird das Sprechen ein bisschen besser.",
+    "Ich mache die Übungen auch zu Hause.",
+    "Bitte sprich langsam und deutlich mit mir.",
+    "Nach der Therapie bin ich immer sehr müde.",
+    "Nächste Woche fahre ich zur Reha."
   ]
 }
