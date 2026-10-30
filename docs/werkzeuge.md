@@ -3,25 +3,27 @@
 ## Die App (Stand 2026-10-30)
 
 Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau/Mann) →
-2 Tempo (0,5 / 0,7 / 1,0) → 3 Thema (10 Themen + „Alle Themen“). Nach der Themenwahl spielt
+2 Tempo (0,5 / 0,7 / 1,0) → 3 Satzlänge (kurze Sätze mit 3–4 Wörtern aus `saetze_kurz.json` /
+lange Sätze aus `saetze.json`) → 4 Thema (10 Themen + „Alle Themen“). Nach der Themenwahl spielt
 die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man „Satz aufdecken“
 drückt. „Neuer Satz“ wählt und spielt den nächsten Zufallssatz. Innerhalb eines Themas kommt
 jeder Satz einmal dran, bevor sich etwas wiederholt. Beim Laden ist „Alle Themen“ gewählt und
 ein Zufallssatz vorgeladen (abgespielt wird erst nach dem ersten Tipp – Browser erlauben Ton
-erst nach einer Bedienung). Standard beim ersten Besuch: Frau, langsam. Stimme und Tempo merkt sich der Browser
+erst nach einer Bedienung). Standard beim ersten Besuch: Frau, langsam, kurze Sätze. Stimme, Tempo und Satzlänge merkt
+sich der Browser
 (`localStorage`, nur Komfort).
 
 Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
 von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:
-`site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3` … `110.mp3` – 110 Sätze × 2 Stimmen × 3 Tempi
-= 660 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
+`site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3` … `110.mp3` (lange Sätze) und `k001.mp3` …
+`k100.mp3` (kurze Sätze) – 210 Sätze × 2 Stimmen × 3 Tempi = 1.260 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
 
 ## Microsoft Azure AI Speech
 
 | Baustein | Version / Stand | Quelle |
 |----------|-----------------|--------|
 | Azure AI Speech, Text-to-Speech REST-API (`/cognitiveservices/v1`) | abgerufen 2026-10-30 | https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech |
-| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 21.600 Zeichen) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
+| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 32.500 Zeichen: lang 21.600, kurz 10.900) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
 | Region | Germany West Central (`germanywestcentral`) | Azure-Portal |
 | Stimmen (vorläufig) | Frau: `de-DE-SeraphinaMultilingualNeural`, Mann: `de-DE-KillianNeural` | `stimmen.json` |
 | Ausgabeformat | `riff-24khz-16bit-mono-pcm` (WAV), danach ffmpeg → MP3 (24 kHz, mono, 64 kbit/s, Lautheit normalisiert) | |
@@ -39,14 +41,15 @@ Einrichtung (einmalig):
 Ablauf:
 ```
 python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeugen + Seite bauen
-python3 scripts/erzeuge_audio.py --neu         # alle 660 MP3s neu erzeugen
+python3 scripts/erzeuge_audio.py --neu         # alle 1.260 MP3s neu erzeugen
 python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
 Das Skript führt in `site/audio/manifest.json` Buch, mit welcher Stimme, welchem Tempo und
-welchem Text jede Datei erzeugt wurde. Ändert man `stimmen.json` oder `saetze.json`, werden
+welchem Text jede Datei erzeugt wurde. Ändert man `stimmen.json`, `saetze.json` oder
+`saetze_kurz.json`, werden
 nur die betroffenen Dateien neu erzeugt. Der Gratis-Tarif erlaubt nur wenige Anfragen pro
-Minute (das Skript wartet bei HTTP 429 automatisch); ein kompletter Durchlauf dauert gut
-30 Minuten.
+Minute (das Skript wartet bei HTTP 429 automatisch); ein kompletter Durchlauf dauert etwa
+eine Stunde (rund 3 Sekunden je Aufnahme).
 
 Stimme wechseln: Kurznamen in `stimmen.json` eintragen (Liste:
 `python3 scripts/stimmproben.py --liste`), dann `python3 scripts/erzeuge_audio.py`.
@@ -101,7 +104,7 @@ Einmalig im Repo einstellen: Settings → Pages → Source: „GitHub Actions“
 - `scripts/test_seite.py` (Python 3, nur Standardbibliothek, plus Chromium; **kein Node.js**):
   startet einen kleinen Webserver für `site/`, lässt Chromium die Seite headless laden
   (`--dump-dom`) und prüft, ob es für jedes Thema einen Knopf gibt (plus „Alle Themen“), ob
-  alle 660 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
+  alle 1.260 Aufnahmen abrufbar sind und ob das HTML den `<noscript>`-Hinweis enthält.
   ```
   python3 scripts/test_seite.py                                            # lokal
   python3 scripts/test_seite.py https://tvanekeris.github.io/wortwaerts/   # live
@@ -125,3 +128,9 @@ Abhilfe in der App: Beim Abspielen läuft über Web Audio ein unhörbarer Ton (2
 der die Ausgabe offen hält. Beim ersten Abspielen (oder nach mehr als 60 s Stille) wartet die
 App 0,4 s, bevor der Satz beginnt. 60 s nach dem letzten Satz wird der Ton angehalten.
 Außerdem beginnen die Azure-Aufnahmen mit gut 0,1 s Stille.
+
+## Kurze Sätze
+
+Die 100 kurzen Sätze (`saetze_kurz.json`, 10 je Thema, je 3–4 Wörter) wurden am 2026-10-30 von
+Claude (Anthropic) passend zu den Themen formuliert und geprüft: Wortzahl 3–4, keine Dubletten,
+dieselben Themen in derselben Reihenfolge wie `saetze.json` (prüft auch `erzeuge_audio.py`).

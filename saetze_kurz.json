@@ -1,0 +1,122 @@
+{
+  "Begrüßung & Smalltalk": [
+    "Guten Morgen, Anna!",
+    "Wie geht es dir?",
+    "Mir geht es gut.",
+    "Schön, dich zu sehen.",
+    "Bis morgen, tschüss!",
+    "Ich heiße Peter.",
+    "Woher kommst du?",
+    "Danke, sehr gut.",
+    "Schönen Tag noch!",
+    "Gute Nacht, schlaf gut."
+  ],
+  "Essen & Trinken": [
+    "Ich habe Hunger.",
+    "Ich habe Durst.",
+    "Einen Kaffee, bitte.",
+    "Das schmeckt sehr gut.",
+    "Die Rechnung, bitte.",
+    "Ein Glas Wasser, bitte.",
+    "Was gibt es heute?",
+    "Ich esse gern Nudeln.",
+    "Ich wünsche guten Appetit.",
+    "Der Tee ist heiß."
+  ],
+  "Einkaufen": [
+    "Was kostet das?",
+    "Ich brauche Brot.",
+    "Ich zahle bar.",
+    "Geht auch Karte?",
+    "Das ist zu teuer.",
+    "Ich nehme das.",
+    "Wo ist die Kasse?",
+    "Haben Sie Äpfel?",
+    "Eine Tüte, bitte.",
+    "Das passt gut."
+  ],
+  "Unterwegs": [
+    "Wo ist der Bahnhof?",
+    "Der Bus kommt.",
+    "Ich fahre nach Hause.",
+    "Wann fährt der Zug?",
+    "Ist das weit?",
+    "Bitte links abbiegen.",
+    "Der Zug ist pünktlich.",
+    "Ich gehe zu Fuß.",
+    "Wo ist die Haltestelle?",
+    "Eine Fahrkarte, bitte."
+  ],
+  "Arbeit & Termine": [
+    "Ich habe einen Termin.",
+    "Ich komme später.",
+    "Wann treffen wir uns?",
+    "Heute habe ich frei.",
+    "Ich muss arbeiten.",
+    "Das Meeting beginnt jetzt.",
+    "Ich bin pünktlich.",
+    "Morgen um neun.",
+    "Ich mache Pause.",
+    "Der Termin passt."
+  ],
+  "Zuhause & Familie": [
+    "Ich bin zu Hause.",
+    "Das Essen ist fertig.",
+    "Wo sind die Schlüssel?",
+    "Licht aus, bitte.",
+    "Die Kinder schlafen.",
+    "Ich räume auf.",
+    "Mama ruft an.",
+    "Wir essen zusammen.",
+    "Ich gehe ins Bett.",
+    "Die Tür ist offen."
+  ],
+  "Gesundheit": [
+    "Mir ist schlecht.",
+    "Ich habe Kopfschmerzen.",
+    "Ich bin müde.",
+    "Ich brauche einen Arzt.",
+    "Mein Bauch tut weh.",
+    "Ich habe Fieber.",
+    "Wo ist die Apotheke?",
+    "Es geht mir besser.",
+    "Ich nehme Tabletten.",
+    "Gute Besserung für dich!"
+  ],
+  "Freizeit & Verabredungen": [
+    "Hast du heute Zeit?",
+    "Wir gehen spazieren.",
+    "Ich lese gern.",
+    "Kommst du mit?",
+    "Das Kino beginnt bald.",
+    "Ich höre Musik.",
+    "Wir treffen uns morgen.",
+    "Das macht Spaß!",
+    "Ich spiele Karten.",
+    "Bis Samstag dann!"
+  ],
+  "Verständigung & Höflichkeit": [
+    "Vielen Dank dafür!",
+    "Bitte noch einmal.",
+    "Ich verstehe nicht.",
+    "Bitte langsamer sprechen.",
+    "Das tut mir leid.",
+    "Das ist kein Problem.",
+    "Können Sie helfen?",
+    "Was bedeutet das?",
+    "Ja, sehr gerne.",
+    "Bitte, gern geschehen."
+  ],
+  "Wetter & Zeit": [
+    "Es regnet heute.",
+    "Die Sonne scheint.",
+    "Es ist kalt.",
+    "Wie spät ist es?",
+    "Es ist acht Uhr.",
+    "Heute ist Montag.",
+    "Morgen wird es warm.",
+    "Es schneit draußen.",
+    "Der Wind ist stark.",
+    "Bald ist Sommer."
+  ]
+}

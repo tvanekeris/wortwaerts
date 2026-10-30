@@ -9,13 +9,14 @@ Therapeut:innen. Es ergänzt eine logopädische Therapie, ersetzt sie aber nicht
 ## So funktioniert es
 1. **Stimme** wählen: Frau oder Mann.
 2. **Tempo** wählen: langsam (0,5×), mittel (0,7×) oder normal (1,0×).
-3. **Thema** antippen – eines von 10 Themen oder „Alle Themen“. Ein zufälliger Satz aus dem
+3. **Satzlänge** wählen: kurze Sätze (3–4 Wörter) oder lange Sätze.
+4. **Thema** antippen – eines von 10 Themen oder „Alle Themen“. Ein zufälliger Satz aus dem
    Thema wird sofort vorgespielt.
-4. Mit dem großen **Abspielen**-Knopf den Satz so oft wiederholen wie nötig.
-5. **Satz aufdecken** zeigt den Text – erst nach dem Hören, zum Üben des Sprachverständnisses.
-6. **Neuer Satz** spielt den nächsten Zufallssatz aus dem Thema.
+5. Mit dem großen **Abspielen**-Knopf den Satz so oft wiederholen wie nötig.
+6. **Satz aufdecken** zeigt den Text – erst nach dem Hören, zum Üben des Sprachverständnisses.
+7. **Neuer Satz** spielt den nächsten Zufallssatz aus dem Thema.
 
-110 Sätze in 10 Themen zu je 11 Sätzen: Begrüßung & Smalltalk, Essen & Trinken, Einkaufen,
+210 Sätze in 10 Themen – je Thema 10 kurze Sätze (3–4 Wörter) und 11 lange Sätze: Begrüßung & Smalltalk, Essen & Trinken, Einkaufen,
 Unterwegs, Arbeit & Termine, Zuhause & Familie, Gesundheit, Freizeit & Verabredungen,
 Verständigung & Höflichkeit, Wetter & Zeit.
 
@@ -26,18 +27,19 @@ https://tvanekeris.github.io/wortwaerts/stimmen/
 ## Aufbau
 | Pfad | Inhalt |
 |------|--------|
-| [saetze.json](saetze.json) | Die Sätze, Format `{"Thema": ["Satz", …]}` |
+| [saetze.json](saetze.json) | Die langen Sätze, Format `{"Thema": ["Satz", …]}` |
+| [saetze_kurz.json](saetze_kurz.json) | Die kurzen Sätze (3–4 Wörter), gleiches Format und dieselben Themen |
 | [stimmen.json](stimmen.json) | Welche Azure-Stimme für „Frau“ und „Mann“ verwendet wird |
 | [vorlage/seite.html](vorlage/seite.html) | HTML-Vorlage der App |
 | [scripts/erzeuge_audio.py](scripts/erzeuge_audio.py) | Erzeugt die MP3s (Azure) und baut daraus `site/index.html` |
 | [scripts/stimmproben.py](scripts/stimmproben.py) | Baut die Probehör-Seite `site/stimmen/` |
 | [scripts/test_seite.py](scripts/test_seite.py) | Prüft die Seite (Themen, alle Aufnahmen, Hinweis ohne JavaScript) |
-| [site/](site/) | Fertige Webseite mit `audio/<frau\|mann>/<tempo>/001.mp3` …, wird als GitHub Pages veröffentlicht |
+| [site/](site/) | Fertige Webseite mit `audio/<frau\|mann>/<tempo>/001.mp3` … (lang) und `k001.mp3` … (kurz), wird als GitHub Pages veröffentlicht |
 | [docs/werkzeuge.md](docs/werkzeuge.md) | Verwendete Werkzeuge, Versionen, Ablauf |
 | [.github/workflows/pages.yml](.github/workflows/pages.yml) | Veröffentlicht `site/` bei jedem Push auf `main` |
 
 ## Sätze oder Stimmen ändern
-1. `saetze.json` bzw. `stimmen.json` bearbeiten.
+1. `saetze.json`, `saetze_kurz.json` bzw. `stimmen.json` bearbeiten.
 2. Audio erzeugen (Azure-Zugang und ffmpeg nötig, siehe [docs/werkzeuge.md](docs/werkzeuge.md)):
    ```
    python3 scripts/erzeuge_audio.py
