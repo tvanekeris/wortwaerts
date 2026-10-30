@@ -8,7 +8,8 @@ die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man �
 drückt. „Neuer Satz“ wählt und spielt den nächsten Zufallssatz. Innerhalb eines Themas kommt
 jeder Satz einmal dran, bevor sich etwas wiederholt. Beim Laden ist „Alle Themen“ gewählt und
 ein Zufallssatz vorgeladen (abgespielt wird erst nach dem ersten Tipp – Browser erlauben Ton
-erst nach einer Bedienung). Stimme und Tempo merkt sich der Browser (`localStorage`, nur Komfort).
+erst nach einer Bedienung). Standard beim ersten Besuch: Frau, langsam. Stimme und Tempo merkt sich der Browser
+(`localStorage`, nur Komfort).
 
 Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
 von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:

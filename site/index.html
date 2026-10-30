@@ -204,7 +204,7 @@
   <fieldset class="schritt tempo">
     <legend class="schritt-titel"><span class="schritt-nr">2</span> Tempo</legend>
     <div class="regler">
-      <input type="range" id="tempo" min="0" max="2" step="1" value="1" aria-label="Tempo">
+      <input type="range" id="tempo" min="0" max="2" step="1" value="0" aria-label="Tempo">
       <div class="stufen" id="stufen" aria-hidden="true">
         <span>langsam</span>
         <span>mittel</span>
@@ -283,7 +283,7 @@
   function merke(k, v) { try { localStorage.setItem("wortwaerts-" + k, v); } catch {} }
 
   let stimme = lies("stimme") === "mann" ? "mann" : "frau";
-  let tempoStufe = ["0", "1", "2"].includes(lies("tempo")) ? Number(lies("tempo")) : 1;
+  let tempoStufe = ["0", "1", "2"].includes(lies("tempo")) ? Number(lies("tempo")) : 0;
   let thema = null;       // ALLE oder Index in DATEN.themen
   let stapel = [];        // gemischte, noch nicht gespielte Sätze des Themas
   let satz = null;        // aktueller Satz {nr, de}
