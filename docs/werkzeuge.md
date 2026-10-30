@@ -68,41 +68,6 @@ Tonhöhe der Stimmen vergleichen: `python3 scripts/messe_tonhoehe.py site/stimme
 Killian 103 Hz, Conrad 111, Christoph 113, Klaus 117, Florian 132, Kasper 136, Ralf 145, Bernd 152;
 Frauen 165 (Seraphina) bis 229 Hz (Maja), Gisela 302 Hz.
 
-## Frühere Quelle: Piper (offline, bis 2026-10-30)
-
-Bis zur Umstellung auf Azure kamen die MP3s aus Piper (`piper-tts` 1.8.0 von PyPI, mit
-onnxruntime 1.31.1 und numpy 2.5.4; Stimme „Thorsten“ low, CC0, aus
-https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-de-thorsten-low.tar.gz).
-Die Qualität war bei einigen Wörtern schlecht; die besseren Piper-Stimmen liegen auf
-huggingface.co, das in der Cloud-Umgebung gesperrt war. Der Piper-Aufruf steht in der
-Git-Historie von `scripts/erzeuge_audio.py`. Ebenfalls entfallen: die Einzeldatei
-`alltagssaetze.html` (alle MP3s eingebettet, mit 660 Aufnahmen zu groß) und
-`alle-saetze.mp3`.
-
-## Piper-Hörproben (Vergleich, 2026-10-30)
-
-`scripts/piper_proben.py` erzeugt den Testsatz mit Piper-Stimmen, je normal und langsam
-(`--length-scale 2.0`), zum Vergleich mit Azure:
-```
-python3 -m venv venv && ./venv/bin/pip install piper-tts
-python3 scripts/piper_proben.py --piper venv/bin/piper --modelle modelle --ziel proben \
-    --stimme de_DE-thorsten-high --stimme de_DE-kerstin-low --stimme de_DE-mls-medium:19
-```
-
-| Baustein | Version / Stand | Quelle |
-|----------|-----------------|--------|
-| piper-tts | 1.8.0 (mit onnxruntime 1.31.1) | PyPI |
-| Modelle | `de_DE-thorsten-high` (Mann, 114 MB), `de_DE-kerstin-low` (Frau, 63 MB), `de_DE-mls-medium` (236 Sprecher, Sprecherin 19) | https://huggingface.co/rhasspy/piper-voices (Download über `us.aws.cdn.hf.co`, muss im Netzwerk erlaubt sein) |
-
-Deutsche Piper-Stimmen laut `voices.json`: thorsten (low/medium/high), thorsten_emotional
-(medium), mls (medium, 236 Sprecher), kerstin, ramona, karlsson, pavoque (low), eva_k (x_low).
-Eine deutsche Frauenstimme in „high“ gibt es nicht. Frauen im mls-Modell (Tonhöhe ≥ 165 Hz)
-unter den Sprechern 0–29: 4, 5, 10, 12, 14, 15, 17, 19, 26.
-
-Ergebnis Testsatz: Thorsten high normal 2,1 s / langsam 4,1 s; Kerstin low 2,7 / 4,3 s;
-mls 19 4,7 / 11,7 s (Hörbuch-Aufnahmen mit Grundrauschen). Zum Vergleich Azure: 3,3 s (1,0)
-bis 6,7 s (0,5).
-
 ## GitHub Pages
 
 | Baustein | Version | Quelle |
