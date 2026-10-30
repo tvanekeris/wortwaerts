@@ -1,5 +1,33 @@
 # Werkzeuge & Ablauf: Audio für die Alltagssätze
 
+## Microsoft Azure AI Speech (aktuelle Quelle für die Stimmen)
+
+| Baustein | Version / Stand | Quelle |
+|----------|-----------------|--------|
+| Azure AI Speech, Text-to-Speech REST-API (`/cognitiveservices/v1`) | abgerufen 2026-10-30 | https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech |
+| Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; alle Sätze ≈ 4.000 Zeichen) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
+| Region | Germany West Central (`germanywestcentral`) | Azure-Portal |
+| Ausgabeformat | `riff-24khz-16bit-mono-pcm` (WAV), danach ffmpeg → MP3 (24 kHz, mono, 64 kbit/s, Lautheit normalisiert) | |
+| Python | 3, nur Standardbibliothek (`urllib`), keine Zusatzpakete, kein Node.js | |
+
+Einrichtung (einmalig):
+1. Azure-Konto mit Subscription (kostenloses Konto oder „Nutzungsbasierte Bezahlung“).
+2. Ressource „Speech-Dienste“ anlegen: Region Germany West Central, Tarif Free F0.
+3. „Schlüssel und Endpunkt“ → Schlüssel 1. Als Umgebungsvariablen bereitstellen:
+   `AZURE_SPEECH_KEY` (Schlüssel) und `AZURE_SPEECH_REGION` (`germanywestcentral`).
+   In der Claude-Cloud-Umgebung: Umgebung bearbeiten → Network secrets; außerdem unter
+   Network access die Domain `germanywestcentral.tts.speech.microsoft.com` erlauben.
+
+Ablauf:
+```
+python3 scripts/stimmproben.py --liste                 # deutsche Stimmen anzeigen
+python3 scripts/stimmproben.py --ziel /tmp/proben      # Hörproben + stimmproben.html
+python3 scripts/erzeuge_audio.py --azure de-DE-KatjaNeural   # alle Sätze neu erzeugen
+```
+`erzeuge_audio.py` schreibt den Stimmennamen nach `site/audio/stimme.txt`; die Seite zeigt ihn an.
+
+## Piper (frühere Quelle, offline)
+
 Ziel: Sprachausgabe nicht mehr über die Browser-Stimme (`speechSynthesis`), sondern über
 fertige MP3-Dateien, die überall abspielbar sind (Artifact, Webseite, beliebiger Player).
 
