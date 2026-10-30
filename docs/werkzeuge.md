@@ -6,8 +6,9 @@ Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau/
 2 Tempo (0,5 / 0,7 / 1,0) → 3 Thema (10 Themen + „Alle Themen“). Nach der Themenwahl spielt
 die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man „Satz aufdecken“
 drückt. „Neuer Satz“ wählt und spielt den nächsten Zufallssatz. Innerhalb eines Themas kommt
-jeder Satz einmal dran, bevor sich etwas wiederholt. Stimme, Tempo und Thema merkt sich der
-Browser (`localStorage`, nur Komfort).
+jeder Satz einmal dran, bevor sich etwas wiederholt. Beim Laden ist „Alle Themen“ gewählt und
+ein Zufallssatz vorgeladen (abgespielt wird erst nach dem ersten Tipp – Browser erlauben Ton
+erst nach einer Bedienung). Stimme und Tempo merkt sich der Browser (`localStorage`, nur Komfort).
 
 Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
 von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:
