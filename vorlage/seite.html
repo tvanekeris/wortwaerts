@@ -248,7 +248,7 @@
 </div>
 
 <script>
-  // Wird von scripts/erzeuge_audio.py befüllt: {themen: [{name, saetze: [{nr, de}]}], tempi, stimmen}
+  // Wird von scripts/erzeuge_audio.py befüllt: {themen: [{name, lang: [{nr, de, ordner}], kurz: […]}], tempi, stimmen}
   const DATEN = /*__DATEN__*/;
   const TEMPI = DATEN.tempi;            // ["0.5", "0.7", "1.0"]
   const ALLE = "alle";
@@ -450,7 +450,7 @@
   let startTimer = null;
 
   function aufnahme() {
-    return `audio/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
+    return `audio/${satz.ordner}/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
   }
 
   function zeigeSpielt(an) {
