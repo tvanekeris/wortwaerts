@@ -124,11 +124,11 @@ def seite(satz, tempi, stimmen):
 </head>
 <body>
 <div class="wrap">
-  <h1>Welche Stimme gefällt Ihnen?</h1>
-  <p>Alle Stimmen sprechen denselben Satz. Tippen Sie auf einen Knopf, um ihn zu hören.
-     Merken Sie sich die Nummer der Stimme, die Sie am besten verstehen.</p>
+  <h1>Welche Stimme gefällt dir?</h1>
+  <p>Alle Stimmen sprechen denselben Satz. Tipp auf einen Knopf, um ihn zu hören.
+     Merk dir die Nummer der Stimme, die du am besten verstehst.</p>
   <div class="satz">„{escape(satz)}“</div>
-  <noscript><p>Zum Abspielen wird JavaScript benötigt.</p></noscript>
+  <noscript><p>Zum Abspielen brauchst du JavaScript. Bitte schalte es in deinem Browser ein und lade die Seite neu.</p></noscript>
   {''.join(f"<section><h2>{t}</h2><ol>{''.join(k)}</ol></section>" for t, k in abschnitte)}
   <p class="fuss"><a href="../">Zurück zu Wortwärts</a></p>
 </div>
