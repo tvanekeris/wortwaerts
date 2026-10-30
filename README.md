@@ -37,7 +37,7 @@ https://tvanekeris.github.io/wortwaerts/stimmen/
 | [site/audio/README.md](site/audio/README.md) | Übersicht: welche MP3 zu welchem Satz gehört (Tabelle je Thema mit Links), dazu [uebersicht.csv](site/audio/uebersicht.csv) für Tabellenprogramme |
 | [scripts/stimmproben.py](scripts/stimmproben.py) | Baut die Probehör-Seite `site/stimmen/` |
 | [scripts/test_seite.py](scripts/test_seite.py) | Prüft die Seite (Themen, alle Aufnahmen, Hinweis ohne JavaScript) |
-| [site/](site/) | Fertige Webseite mit `audio/<frau\|mann>/<tempo>/001.mp3` … (lang) und `k001.mp3` … (kurz), wird als GitHub Pages veröffentlicht |
+| [site/](site/) | Fertige Webseite mit `audio/<Thema>/<kurz\|lang>/<frau\|mann>/<tempo>/<Nr>.mp3`, wird als GitHub Pages veröffentlicht |
 | [docs/werkzeuge.md](docs/werkzeuge.md) | Verwendete Werkzeuge, Versionen, Ablauf |
 | [.github/workflows/pages.yml](.github/workflows/pages.yml) | Veröffentlicht `site/` bei jedem Push auf `main` |
 

@@ -6,7 +6,8 @@ Zweck:
        das fertige DOM aus. Darin muss es je Thema aus saetze.json einen Knopf geben, plus
        „Alle Themen“.
     2. Jede Aufnahme, die die Seite abspielen kann (lange und kurze Sätze × Stimme × Tempo, aus
-       den Daten in der Seite), muss unter audio/<frau|mann>/<tempo>/<nr>.mp3 abrufbar sein.
+       den Daten in der Seite), muss unter audio/<Thema>/<kurz|lang>/<frau|mann>/<tempo>/<nr>.mp3
+       abrufbar sein.
     3. Ohne JavaScript: Das ausgelieferte HTML muss den <noscript>-Hinweis enthalten.
 
 Aufruf:
@@ -80,7 +81,7 @@ def main():
     # 2. Alle Aufnahmen erreichbar
     html = urllib.request.urlopen(url, timeout=30).read().decode("utf-8")
     daten = json.loads(re.search(r"const DATEN = (\{.*?\});\n", html).group(1))
-    pfade = [f"audio/{g}/{t}/{s['nr']}.mp3" for g in daten["stimmen"] for t in daten["tempi"]
+    pfade = [f"audio/{s['ordner']}/{g}/{t}/{s['nr']}.mp3" for g in daten["stimmen"] for t in daten["tempi"]
              for th in daten["themen"] for laenge in ("lang", "kurz") for s in th[laenge]]
     fehlend = []
     for pfad in pfade:

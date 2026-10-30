@@ -7,10 +7,12 @@ Zweck:   Erzeugt aus saetze.json (lange Sätze) und saetze_kurz.json (kurze Sät
          vorlage/seite.html die Webseite site/index.html. Außerdem schreibt es eine Übersicht,
          welche MP3 zu welchem Satz gehört: site/audio/README.md (Tabelle je Thema mit Links)
          und site/audio/uebersicht.csv (jede Datei eine Zeile, für Tabellenprogramme).
-         Ablage: site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3 … (lange Sätze)
-                                                     k001.mp3 … (kurze Sätze)
+         Ablage: site/audio/<Thema>/<kurz|lang>/<frau|mann>/<0.5|0.7|1.0>/<Nr>.mp3, z. B.
+                 site/audio/02-essen-trinken/kurz/frau/0.5/k011.mp3
+                 (Themen-Ordner mit laufender Nummer; lange Sätze 001 …, kurze Sätze k001 …)
          Vorhandene Dateien werden nur neu erzeugt, wenn sich Stimme, Tempo oder Satztext geändert
-         haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent.
+         haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent. Ändert sich
+         nur der Ablageort (z. B. Thema umbenannt), wird die vorhandene Datei verschoben.
 Aufruf:  python3 scripts/erzeuge_audio.py               (fehlende/geänderte MP3s + Seite)
          python3 scripts/erzeuge_audio.py --neu         (alle MP3s neu erzeugen)
          python3 scripts/erzeuge_audio.py --nur-seiten  (nur site/index.html und Übersicht neu bauen)
@@ -76,20 +78,44 @@ def anzeigename(kurzname):
 
 
 def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
-    """saetze: Liste von (nr, text), z. B. ("001", "…") oder ("k001", "…")."""
+    """saetze: Liste von (nr, text, ordner), z. B. ("k011", "Ich habe Hunger.", "02-essen-trinken/kurz")."""
     manifest_datei = audio_dir / "manifest.json"
     manifest = {} if neu or not manifest_datei.exists() else json.loads(manifest_datei.read_text("utf-8"))
     soll = {}
     for g in GESCHLECHTER:
         for tempo in TEMPI:
-            for nr, de in saetze:
-                soll[f"{g}/{tempo}/{nr}.mp3"] = (stimmen[g], tempo, de)
+            for nr, de, ordner in saetze:
+                soll[f"{ordner}/{g}/{tempo}/{nr}.mp3"] = (stimmen[g], tempo, de)
+
+    # Vorhandene Aufnahmen mit gleichem Inhalt (Stimme, Tempo, Text) an einem anderen Ort
+    # verschieben statt neu erzeugen
+    # (derselbe Text kann mehrfach vorkommen, z. B. als kurzer und als langer Satz)
+    vorhanden = {}
+    for pfad, w in manifest.items():
+        if pfad not in soll and (audio_dir / pfad).exists():
+            vorhanden.setdefault(tuple(w), []).append(pfad)
+    verschoben = 0
+    for pfad, w in soll.items():
+        if manifest.get(pfad) == list(w) and (audio_dir / pfad).exists():
+            continue
+        alt = vorhanden.get(w, []).pop() if vorhanden.get(w) else None
+        if alt:
+            (audio_dir / pfad).parent.mkdir(parents=True, exist_ok=True)
+            os.replace(audio_dir / alt, audio_dir / pfad)
+            manifest[pfad] = list(w)
+            del manifest[alt]
+            verschoben += 1
+    if verschoben:
+        print(f"{verschoben} MP3s an den neuen Ablageort verschoben")
 
     # Dateien, die nicht mehr gebraucht werden (z. B. Satz gelöscht), entfernen
     for alt in audio_dir.rglob("*.mp3"):
         if alt.relative_to(audio_dir).as_posix() not in soll:
             alt.unlink()
             manifest.pop(alt.relative_to(audio_dir).as_posix(), None)
+    for ordner in sorted((d for d in audio_dir.rglob("*") if d.is_dir()), reverse=True):
+        if not any(ordner.iterdir()):
+            ordner.rmdir()
 
     offen = [(pfad, w) for pfad, w in soll.items()
              if manifest.get(pfad) != list(w) or not (audio_dir / pfad).exists()]
@@ -109,15 +135,26 @@ def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
     manifest_datei.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), "utf-8")
 
 
+def themen_ordner(index, thema):
+    """z. B. (2, "Essen & Trinken") -> "02-essen-trinken" (ohne Umlaute und Sonderzeichen)."""
+    name = thema.lower()
+    for a, b in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")):
+        name = name.replace(a, b)
+    woerter = "".join(z if z.isascii() and z.isalnum() else " " for z in name).split()
+    return f"{index:02d}-" + "-".join(woerter)
+
+
 def nummeriere(lang, kurz):
-    """Liefert {Thema: {"lang": [(nr, text)], "kurz": [(nr, text)]}} mit fortlaufenden Nummern."""
+    """Liefert {Thema: {"lang": [(nr, text, ordner)], "kurz": [...]}} mit fortlaufenden Nummern;
+    ordner ist der Ablageort relativ zu site/audio, z. B. "02-essen-trinken/kurz"."""
     ergebnis = {thema: {"lang": [], "kurz": []} for thema in lang}
+    ordner = {thema: themen_ordner(i, thema) for i, thema in enumerate(lang, 1)}
     for laenge, themen, praefix in (("lang", lang, ""), ("kurz", kurz, "k")):
         nr = 0
         for thema, liste in themen.items():
             for de in liste:
                 nr += 1
-                ergebnis[thema][laenge].append((f"{praefix}{nr:03d}", de))
+                ergebnis[thema][laenge].append((f"{praefix}{nr:03d}", de, f"{ordner[thema]}/{laenge}"))
     return ergebnis
 
 
@@ -128,7 +165,7 @@ def baue_seite(nummern, stimmen):
     }
     for thema, laengen in nummern.items():
         daten["themen"].append({"name": thema, **{
-            laenge: [{"nr": nr, "de": de} for nr, de in eintraege]
+            laenge: [{"nr": nr, "de": de, "ordner": ordner} for nr, de, ordner in eintraege]
             for laenge, eintraege in laengen.items()}})
     vorlage = (PROJEKT / "vorlage" / "seite.html").read_text(encoding="utf-8")
     html = vorlage.replace("/*__DATEN__*/", json.dumps(daten, ensure_ascii=False))
@@ -149,7 +186,7 @@ def schreibe_uebersicht(nummern, stimmen, audio_dir):
         "Automatisch erzeugt von `scripts/erzeuge_audio.py` – bitte nicht von Hand bearbeiten.",
         "",
         f"{anzahl} Sätze × 2 Stimmen × 3 Tempi = {anzahl * 6} MP3-Dateien. Ablage: "
-        "`<frau|mann>/<tempo>/<nr>.mp3` – lange Sätze `001` …, kurze Sätze `k001` …",
+        "`<Thema>/<kurz|lang>/<frau|mann>/<tempo>/<nr>.mp3` – lange Sätze `001` …, kurze Sätze `k001` …",
         "",
         f"- Frau: {namen['frau']} (`{stimmen['frau']}`)",
         f"- Mann: {namen['mann']} (`{stimmen['mann']}`)",
@@ -161,12 +198,13 @@ def schreibe_uebersicht(nummern, stimmen, audio_dir):
     for thema, laengen in nummern.items():
         md += ["", f"## {thema}", "", "| Nr | Länge | Satz | Frau | Mann |", "|----|-------|------|------|------|"]
         for laenge in ("kurz", "lang"):
-            for nr, de in laengen[laenge]:
-                links = {g: " · ".join(f"[{tempo_text(t)}]({g}/{t}/{nr}.mp3)" for t in TEMPI) for g in GESCHLECHTER}
+            for nr, de, ordner in laengen[laenge]:
+                links = {g: " · ".join(f"[{tempo_text(t)}]({ordner}/{g}/{t}/{nr}.mp3)" for t in TEMPI)
+                         for g in GESCHLECHTER}
                 md.append(f"| {nr} | {laenge} | {de.replace('|', '\\|')} | {links['frau']} | {links['mann']} |")
                 for g in GESCHLECHTER:
                     for t in TEMPI:
-                        zeilen.append([f"site/audio/{g}/{t}/{nr}.mp3", thema, laenge, nr, de,
+                        zeilen.append([f"site/audio/{ordner}/{g}/{t}/{nr}.mp3", thema, laenge, nr, de,
                                        g, stimmen[g], tempo_text(t)])
     (audio_dir / "README.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     # Semikolon und BOM, damit Excel die Datei mit Umlauten direkt richtig öffnet
