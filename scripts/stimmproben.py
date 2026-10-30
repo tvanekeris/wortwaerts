@@ -2,11 +2,13 @@
 """
 Zweck:   Erzeugt Hörproben deutscher Azure-Stimmen (ein Satz, mehrere Tempi pro Stimme) und eine
          Webseite zum Probehören mit großen Knöpfen, damit der Patient die passende Stimme wählen
-         kann. Die Stimmen sind durchnummeriert („Stimme 1“ …), damit man sie leicht benennen kann.
+         kann. Frauen- und Männerstimmen stehen in eigenen Gruppen; die Stimmen sind durchgehend
+         nummeriert („Stimme 1“ …), damit man sie leicht benennen kann.
          Die gewählte Stimme gibt man dann an: scripts/erzeuge_audio.py --azure <Stimme>
 Aufruf:  python3 scripts/stimmproben.py                      (alle deutschen Stimmen → site/stimmen/)
          python3 scripts/stimmproben.py --satz "Guten Morgen!" --tempi 0.5 0.8 1.0
          python3 scripts/stimmproben.py --stimmen de-DE-KatjaNeural de-DE-ConradNeural --ziel /tmp/proben
+         python3 scripts/stimmproben.py --nur-seite               (nur HTML neu, vorhandene MP3s nutzen)
          python3 scripts/stimmproben.py --liste                   (deutsche Stimmen nur auflisten)
          (im Wurzelverzeichnis des Repos wortwaerts ausführen; braucht AZURE_SPEECH_KEY und
          AZURE_SPEECH_REGION als Umgebungsvariablen)
@@ -46,17 +48,26 @@ def tempo_text(t):
     return f"{t:.1f}".replace(".", ",") + "×"
 
 
+GRUPPEN = [("Female", "Frauenstimmen"), ("Male", "Männerstimmen")]
+
+
 def seite(satz, tempi, stimmen):
-    karten = []
+    # Frauen zuerst, dann Männer (Unbekanntes zuletzt); Nummern laufen durch
+    reihenfolge = {g: i for i, (g, _) in enumerate(GRUPPEN)}
+    stimmen = sorted(stimmen, key=lambda s: reihenfolge.get(s[1], len(GRUPPEN)))
+    titel = dict(GRUPPEN)
+    abschnitte = []
     for n, (kurz, geschlecht) in enumerate(stimmen, 1):
+        if n == 1 or geschlecht != stimmen[n - 2][1]:
+            karten = []
+            abschnitte.append((titel.get(geschlecht, "Weitere Stimmen"), karten))
         knoepfe = "".join(
             f'<button type="button" data-src="audio/{kurz}-{t:.1f}.mp3">'
             f'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>'
             f'<span>Tempo {tempo_text(t)}</span></button>' for t in tempi)
-        art = "Frau" if geschlecht == "Female" else "Mann"
         karten.append(
             f'<li><div class="kopf"><span class="nr">Stimme {n}</span>'
-            f'<span class="name">{escape(anzeigename(kurz))} · {art}</span></div>'
+            f'<span class="name">{escape(anzeigename(kurz))}</span></div>'
             f'<div class="knoepfe">{knoepfe}</div></li>')
     return f"""<!doctype html>
 <html lang="de">
@@ -97,6 +108,7 @@ def seite(satz, tempi, stimmen):
         display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; }}
   li.aktiv {{ border-color: var(--mark); background: var(--mark-soft); }}
   .kopf {{ display: grid; gap: 2px; }}
+  h2 {{ font-family: var(--font-display); font-weight: 800; font-size: 24px; margin: 32px 0 12px; }}
   .nr {{ font-family: var(--font-display); font-weight: 800; font-size: 26px; }}
   .name {{ font-size: 16px; color: var(--muted); }}
   .knoepfe {{ display: flex; flex-wrap: wrap; gap: 10px; }}
@@ -117,7 +129,7 @@ def seite(satz, tempi, stimmen):
      Merken Sie sich die Nummer der Stimme, die Sie am besten verstehen.</p>
   <div class="satz">„{escape(satz)}“</div>
   <noscript><p>Zum Abspielen wird JavaScript benötigt.</p></noscript>
-  <ol>{''.join(karten)}</ol>
+  {''.join(f"<section><h2>{t}</h2><ol>{''.join(k)}</ol></section>" for t, k in abschnitte)}
   <p class="fuss"><a href="../">Zurück zu Wortwärts</a></p>
 </div>
 <script>
@@ -153,6 +165,7 @@ def main():
     ap.add_argument("--tempi", nargs="+", type=float, default=TEMPI)
     ap.add_argument("--stimmen", nargs="+", help="Kurznamen; ohne Angabe alle deutschen Stimmen")
     ap.add_argument("--ziel", type=Path, default=PROJEKT / "site" / "stimmen")
+    ap.add_argument("--nur-seite", action="store_true", help="keine Synthese, nur index.html neu bauen")
     ap.add_argument("--liste", action="store_true", help="deutsche Stimmen nur auflisten")
     a = ap.parse_args()
 
@@ -165,6 +178,14 @@ def main():
     stimmen = [(s, geschlecht.get(s, "")) for s in (a.stimmen or [v["ShortName"] for v in alle])]
 
     audio_dir = a.ziel / "audio"
+    if a.nur_seite:
+        fehlend = [f"{k}-{t:.1f}.mp3" for k, _ in stimmen for t in a.tempi
+                   if not (audio_dir / f"{k}-{t:.1f}.mp3").exists()]
+        if fehlend:
+            sys.exit("Fehlende MP3s: " + ", ".join(fehlend))
+        (a.ziel / "index.html").write_text(seite(a.satz, a.tempi, stimmen), encoding="utf-8")
+        print(a.ziel / "index.html")
+        return
     shutil.rmtree(audio_dir, ignore_errors=True)
     audio_dir.mkdir(parents=True)
     with tempfile.TemporaryDirectory() as t:
