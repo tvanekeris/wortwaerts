@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """
-Zweck:   Erzeugt aus saetze.json ({Thema: [Sätze]}) MP3-Dateien für jeden Satz plus eine
-         Gesamtdatei – wahlweise mit Microsoft Azure AI Speech (neuronale Stimmen, online) oder
-         der Offline-Sprachsynthese Piper – und baut daraus zwei Varianten des Players:
-           - site/index.html        Webseite, lädt die MP3s aus site/audio/
-           - alltagssaetze.html     Artifact-Version, MP3s als data:-URIs eingebettet
-Aufruf:  python3 scripts/erzeuge_audio.py --azure de-DE-KatjaNeural
-           (braucht die Umgebungsvariablen AZURE_SPEECH_KEY und AZURE_SPEECH_REGION)
-         python3 scripts/erzeuge_audio.py --piper <pfad/zu/piper> --modell <pfad/zu/de-thorsten-low.onnx>
-         python3 scripts/erzeuge_audio.py --nur-seiten   (nur HTML neu bauen, vorhandene MP3s nutzen)
-         (im Wurzelverzeichnis des Repos wortwaerts ausführen)
-Pakete:  ffmpeg (System); für Azure nur die Python-Standardbibliothek;
-         für Piper: piper-tts (pip), Stimme voice-de-thorsten-low.tar.gz
-         – Details und Versionen in docs/werkzeuge.md
+Zweck:   Erzeugt aus saetze.json ({Thema: [Sätze]}) mit Microsoft Azure AI Speech für jeden Satz
+         MP3-Dateien in zwei Stimmen (Frau/Mann, festgelegt in stimmen.json) und drei Tempi
+         (0,5 / 0,7 / 1,0 – das Tempo erzeugt Azure direkt, per SSML <prosody rate>) und baut aus
+         vorlage/seite.html die Webseite site/index.html.
+         Ablage: site/audio/<frau|mann>/<0.5|0.7|1.0>/001.mp3 …
+         Vorhandene Dateien werden nur neu erzeugt, wenn sich Stimme, Tempo oder Satztext geändert
+         haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent.
+Aufruf:  python3 scripts/erzeuge_audio.py               (fehlende/geänderte MP3s + Seite)
+         python3 scripts/erzeuge_audio.py --neu         (alle MP3s neu erzeugen)
+         python3 scripts/erzeuge_audio.py --nur-seiten  (nur site/index.html neu bauen)
+         (im Wurzelverzeichnis des Repos wortwaerts ausführen; braucht die Umgebungsvariablen
+         AZURE_SPEECH_KEY und AZURE_SPEECH_REGION)
+Pakete:  Python 3 (nur Standardbibliothek), ffmpeg (System) – Details in docs/werkzeuge.md
 """
 import argparse
-import base64
 import json
 import os
 import subprocess
@@ -27,23 +26,19 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 PROJEKT = Path(__file__).resolve().parent.parent
-PAUSE_SEK = 0.8  # Stille zwischen den Sätzen in der Gesamtdatei
+TEMPI = ["0.5", "0.7", "1.0"]
+GESCHLECHTER = ["frau", "mann"]
 
 
 def run(cmd, **kw):
     subprocess.run(cmd, check=True, **kw)
 
 
-def synthese(piper, modell, text, wav):
-    run([piper, "--model", str(modell), "--output_file", str(wav)],
-        input=text.encode("utf-8"), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-
 def azure_synthese(stimme, text, wav, tempo=1.0):
     """Spricht text mit einer Azure-Stimme (z. B. de-DE-KatjaNeural) als WAV (24 kHz, mono)."""
     key, region = os.environ["AZURE_SPEECH_KEY"], os.environ["AZURE_SPEECH_REGION"]
     ssml = (f'<speak version="1.0" xml:lang="de-DE"><voice name="{stimme}">'
-            f'<prosody rate="{tempo:.2f}">{escape(text)}</prosody></voice></speak>')
+            f'<prosody rate="{float(tempo):.2f}">{escape(text)}</prosody></voice></speak>')
     anfrage = urllib.request.Request(
         f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1",
         data=ssml.encode("utf-8"),
@@ -51,110 +46,96 @@ def azure_synthese(stimme, text, wav, tempo=1.0):
                  "Content-Type": "application/ssml+xml",
                  "X-Microsoft-OutputFormat": "riff-24khz-16bit-mono-pcm",
                  "User-Agent": "wortwaerts"})
-    for versuch in range(5):
+    for versuch in range(8):
         try:
             with urllib.request.urlopen(anfrage, timeout=60) as antwort:
                 Path(wav).write_bytes(antwort.read())
             return
         except urllib.error.HTTPError as e:
-            # 429: Gratis-Tarif F0 erlaubt nur wenige Anfragen gleichzeitig/pro Minute
-            if e.code != 429 or versuch == 4:
+            # 429: Gratis-Tarif F0 erlaubt nur wenige Anfragen pro Minute
+            if e.code not in (429, 500, 502, 503) or versuch == 7:
                 raise
-            time.sleep(2 ** versuch)
+            warten = e.headers.get("Retry-After")
+            time.sleep(float(warten) if warten and warten.isdigit() else min(60, 2 ** versuch))
 
 
 def zu_mp3(wav, mp3):
-    # Mono, 64 kbit/s, 24 kHz: klar genug für Sprache, Artifact-Datei bleibt klein
+    # Mono, 64 kbit/s, 24 kHz: klar genug für Sprache
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav),
          "-af", "loudnorm=I=-16:TP=-1.5", "-ar", "24000", "-ac", "1",
          "-codec:a", "libmp3lame", "-b:a", "64k", str(mp3)])
 
 
-def gesamtdatei(wavs, ziel, tmp):
-    stille = tmp / "stille.wav"
-    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
-         "anullsrc=r=24000:cl=mono", "-t", str(PAUSE_SEK), str(stille)])
-    liste = tmp / "liste.txt"
-    teile = []
-    for w in wavs:
-        teile += [w, stille]
-    liste.write_text("".join(f"file '{p}'\n" for p in teile))
-    roh = tmp / "gesamt.wav"
-    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0",
-         "-i", str(liste), "-ar", "24000", "-ac", "1", str(roh)])
-    zu_mp3(roh, ziel)
+def anzeigename(kurzname):
+    return kurzname.split("-")[2].replace("MultilingualNeural", "").replace("Neural", "")
 
 
-def seite(vorlage, daten, fusszeile, stimme):
+def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
+    manifest_datei = audio_dir / "manifest.json"
+    manifest = {} if neu or not manifest_datei.exists() else json.loads(manifest_datei.read_text("utf-8"))
+    soll = {}
+    for g in GESCHLECHTER:
+        for tempo in TEMPI:
+            for i, (_thema, de) in enumerate(saetze, 1):
+                soll[f"{g}/{tempo}/{i:03d}.mp3"] = (stimmen[g], tempo, de)
+
+    # Dateien, die nicht mehr gebraucht werden (z. B. Satz gelöscht), entfernen
+    for alt in audio_dir.rglob("*.mp3"):
+        if alt.relative_to(audio_dir).as_posix() not in soll:
+            alt.unlink()
+            manifest.pop(alt.relative_to(audio_dir).as_posix(), None)
+
+    offen = [(pfad, w) for pfad, w in soll.items()
+             if manifest.get(pfad) != list(w) or not (audio_dir / pfad).exists()]
+    print(f"{len(offen)} von {len(soll)} MP3s zu erzeugen")
+    with tempfile.TemporaryDirectory() as t:
+        wav = Path(t) / "x.wav"
+        for n, (pfad, (stimme, tempo, de)) in enumerate(offen, 1):
+            ziel = audio_dir / pfad
+            ziel.parent.mkdir(parents=True, exist_ok=True)
+            azure_synthese(stimme, de, wav, tempo)
+            zu_mp3(wav, ziel)
+            manifest[pfad] = [stimme, tempo, de]
+            if n % 20 == 0 or n == len(offen):
+                # Zwischenstand sichern, damit ein Abbruch nicht alles wiederholt
+                manifest_datei.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), "utf-8")
+            print(f"[{n}/{len(offen)}] {pfad}  {de}", flush=True)
+    manifest_datei.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), "utf-8")
+
+
+def baue_seite(themen, stimmen):
+    daten = {
+        "themen": [], "tempi": TEMPI,
+        "stimmen": {g: anzeigename(stimmen[g]) for g in GESCHLECHTER},
+    }
+    nr = 0
+    for thema, liste in themen.items():
+        eintraege = []
+        for de in liste:
+            nr += 1
+            eintraege.append({"nr": f"{nr:03d}", "de": de})
+        daten["themen"].append({"name": thema, "saetze": eintraege})
+    vorlage = (PROJEKT / "vorlage" / "seite.html").read_text(encoding="utf-8")
     html = vorlage.replace("/*__DATEN__*/", json.dumps(daten, ensure_ascii=False))
-    html = html.replace("/*__STIMME__*/", stimme)
-    html = html.replace("/*__ANZAHL__*/", str(len(daten)))
-    html = html.replace("/*__THEMEN__*/", str(len({d["thema"] for d in daten})))
-    return html.replace("/*__FUSSZEILE__*/", fusszeile)
+    (PROJEKT / "site" / "index.html").write_text(html, encoding="utf-8")
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--azure", metavar="STIMME",
-                    help="Azure-Stimme, z. B. de-DE-KatjaNeural (Liste: scripts/stimmproben.py --liste)")
-    ap.add_argument("--piper")
-    ap.add_argument("--modell", type=Path)
-    ap.add_argument("--nur-seiten", action="store_true",
-                    help="keine Sprachsynthese, nur die HTML-Seiten aus vorhandenen MP3s bauen")
+    ap.add_argument("--neu", action="store_true", help="alle MP3s neu erzeugen")
+    ap.add_argument("--nur-seiten", action="store_true", help="keine Sprachsynthese, nur site/index.html bauen")
     a = ap.parse_args()
-    if not a.nur_seiten and not a.azure and not (a.piper and a.modell):
-        ap.error("--azure STIMME oder --piper und --modell sind nötig (oder --nur-seiten)")
 
     themen = json.loads((PROJEKT / "saetze.json").read_text(encoding="utf-8"))
+    stimmen = json.loads((PROJEKT / "stimmen.json").read_text(encoding="utf-8"))
     saetze = [(thema, de) for thema, liste in themen.items() for de in liste]
     audio_dir = PROJEKT / "site" / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
-    vorlage = (PROJEKT / "vorlage" / "seite.html").read_text(encoding="utf-8")
 
     if not a.nur_seiten:
-        for alt in audio_dir.glob("*.mp3"):
-            alt.unlink()
-        with tempfile.TemporaryDirectory() as t:
-            tmp = Path(t)
-            wavs = []
-            for i, (_thema, de) in enumerate(saetze, 1):
-                wav = tmp / f"{i:03d}.wav"
-                if a.azure:
-                    azure_synthese(a.azure, de, wav)
-                else:
-                    synthese(a.piper, a.modell, de, wav)
-                zu_mp3(wav, audio_dir / f"{i:03d}.mp3")
-                wavs.append(wav)
-                print(f"{i:03d}.mp3  {de}")
-            gesamtdatei(wavs, audio_dir / "alle-saetze.mp3", tmp)
-            print("alle-saetze.mp3")
-        stimme = (f"{a.azure.split('-')[2].replace('MultilingualNeural', '').replace('Neural', '')}"
-                  " (Microsoft Azure, Deutsch)") if a.azure else "Thorsten (Piper, Deutsch)"
-        (audio_dir / "stimme.txt").write_text(stimme + "\n", encoding="utf-8")
-    stimme_datei = audio_dir / "stimme.txt"
-    stimme = (stimme_datei.read_text(encoding="utf-8").strip() if stimme_datei.exists()
-              else "Thorsten (Piper, Deutsch)")
-
-    # Webseite: relative Pfade, funktioniert lokal (Doppelklick) und auf jedem Webserver
-    web = [{"thema": t, "de": de, "src": f"audio/{i:03d}.mp3"} for i, (t, de) in enumerate(saetze, 1)]
-    kopf = ('<!doctype html>\n<html lang="de">\n<head>\n<meta charset="utf-8">\n'
-            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-            '<meta name="description" content="Wortwärts: deutsche Alltagssätze zum Hören und '
-            'Nachsprechen, mit einstellbarem Tempo – zum Üben bei Aphasie.">\n'
-            '<style>body{margin:0}[hidden]{display:none!important}</style>\n')
-    inhalt = seite(vorlage, web, '<a href="audio/alle-saetze.mp3" style="color:inherit">Alle Sätze als MP3</a>',
-                   stimme)
-    inhalt = inhalt.replace("<div class=\"wrap\">", "</head>\n<body>\n<div class=\"wrap\">", 1)
-    (PROJEKT / "site" / "index.html").write_text(kopf + inhalt + "</body>\n</html>\n", encoding="utf-8")
-
-    # Artifact: MP3s als data:-URIs, damit keine externen Dateien nötig sind
-    art = []
-    for i, (t, de) in enumerate(saetze, 1):
-        b64 = base64.b64encode((audio_dir / f"{i:03d}.mp3").read_bytes()).decode()
-        art.append({"thema": t, "de": de, "src": "data:audio/mpeg;base64," + b64})
-    (PROJEKT / "alltagssaetze.html").write_text(
-        seite(vorlage, art, "Audio eingebettet, offline abspielbar", stimme), encoding="utf-8")
-    print("site/index.html und alltagssaetze.html geschrieben")
+        erzeuge_mp3s(saetze, stimmen, audio_dir, a.neu)
+    baue_seite(themen, stimmen)
+    print("site/index.html geschrieben")
 
 
 if __name__ == "__main__":

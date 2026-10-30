@@ -41,7 +41,7 @@ document.getElementById('los').onclick = () => (async () => {
   const z = [];
   for (const f of ['001', '012', '068'])
     for (const r of [1, 0.7, 0.5])
-      z.push(`${f} ${r}x: ${await messe('audio/' + f + '.mp3', r)}`);
+      z.push(`${f} ${r}x: ${await messe('audio/frau/1.0/' + f + '.mp3', r)}`);
   out.textContent = 'FERTIG\n' + z.join('\n');
 })().catch(e => out.textContent = 'FEHLER ' + e);
 </script>
