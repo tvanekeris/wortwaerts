@@ -53,7 +53,6 @@
     font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 6vw, 44px);
     line-height: 1.05; margin: 0; letter-spacing: -.01em;
   }
-  .lede { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.5; }
 
   .schritt {
     background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
@@ -153,7 +152,6 @@
   .play:hover:not(:disabled) { filter: brightness(1.08); }
   .play:disabled { opacity: .4; cursor: default; box-shadow: none; }
   .play.spielt { background: var(--mark); color: #17202b; }
-  .hinweis { margin: 0; color: var(--muted); font-size: 16px; text-align: center; min-height: 1.5em; }
 
   .knopf {
     width: min(100%, 360px); min-height: 56px; border-radius: 999px; cursor: pointer;
@@ -189,7 +187,6 @@
 <div class="wrap">
   <header>
     <h1>Wortwärts</h1>
-    <p class="lede">Hör dir einen Satz an und sprich ihn nach.</p>
   </header>
 
   <noscript>
@@ -226,7 +223,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true" id="play-icon"><path d="M7 4.5v15l13-7.5z"/></svg>
       <span id="play-label">Abspielen</span>
     </button>
-    <p class="hinweis" id="hinweis" aria-live="polite">Wähl zuerst ein Thema.</p>
 
     <button class="knopf" id="aufdecken" type="button" disabled aria-expanded="false" aria-controls="satz">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -272,7 +268,6 @@
   const playBtn = document.getElementById("play");
   const playIcon = document.getElementById("play-icon");
   const playLabel = document.getElementById("play-label");
-  const hinweis = document.getElementById("hinweis");
   const aufdeckenBtn = document.getElementById("aufdecken");
   const aufdeckenLabel = document.getElementById("aufdecken-label");
   const satzBox = document.getElementById("satz");
@@ -349,17 +344,19 @@
 
   function waehleThema(wert, abspielen) {
     thema = wert;
-    merke("thema", String(wert));
     themenKnoepfe.forEach(([w, b]) => b.setAttribute("aria-pressed", String(w === wert)));
     stapel = [];
     naechsterSatz();
     playBtn.disabled = aufdeckenBtn.disabled = neuBtn.disabled = false;
-    hinweis.textContent = "";
     if (abspielen) {
       spiele();
       // auf dem Handy liegt der Play-Knopf unter den Themen: dorthin scrollen
       const ruhig = matchMedia("(prefers-reduced-motion: reduce)").matches;
       document.querySelector(".hoeren").scrollIntoView({ block: "nearest", behavior: ruhig ? "auto" : "smooth" });
+    } else {
+      // nur vorladen, damit der erste Tipp auf Abspielen sofort klingt
+      audio.src = aufnahme();
+      audio.load();
     }
   }
 
@@ -426,6 +423,10 @@
   audio.preload = "auto";
   let startTimer = null;
 
+  function aufnahme() {
+    return `audio/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
+  }
+
   function zeigeSpielt(an) {
     playBtn.classList.toggle("spielt", an);
     playIcon.innerHTML = an ? ICON_STOP : ICON_PLAY;
@@ -443,7 +444,7 @@
     if (!satz) return;
     stoppe();
     note.hidden = true;
-    audio.src = `audio/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
+    audio.src = aufnahme();
     zeigeSpielt(true);
     startTimer = setTimeout(() => {
       audio.play().catch(err => {
@@ -468,10 +469,9 @@
     else spiele();
   });
 
-  // Zuletzt gewähltes Thema wieder auswählen (ohne Abspielen – Browser erlauben Ton erst nach einem Tipp)
-  const gemerkt = lies("thema");
-  if (gemerkt === ALLE) waehleThema(ALLE, false);
-  else if (gemerkt !== null && DATEN.themen[Number(gemerkt)]) waehleThema(Number(gemerkt), false);
+  // Beim Laden: „Alle Themen“ wählen und einen Zufallssatz vorladen
+  // (ohne Abspielen – Browser erlauben Ton erst nach einem Tipp)
+  waehleThema(ALLE, false);
 </script>
 </body>
 </html>
