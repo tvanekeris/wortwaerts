@@ -2,7 +2,7 @@
 
 ## Die App (Stand 2026-10-30)
 
-Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau/Mann) →
+Eine Seite (`site/index.html`, gebaut aus `vorlage/seite.html`): 1 Stimme (Frau = Elke / Mann = Killian) →
 2 Tempo (0,5 / 0,7 / 1,0) → 3 Satzlänge (kurze Sätze mit 3–4 Wörtern aus `saetze_kurz.json` /
 lange Sätze aus `saetze.json`) → 4 Thema (14 Themen + „Alle Themen“). Nach der Themenwahl spielt
 die Seite sofort einen zufälligen Satz ab; der Text bleibt verdeckt, bis man „Satz aufdecken“
@@ -11,15 +11,21 @@ jeder Satz einmal dran, bevor sich etwas wiederholt. Beim Laden ist „Alle Them
 ein Zufallssatz vorgeladen (abgespielt wird erst nach dem ersten Tipp – Browser erlauben Ton
 erst nach einer Bedienung). Standard beim ersten Besuch: Frau, langsam, kurze Sätze. Stimme, Tempo und Satzlänge merkt
 sich der Browser
-(`localStorage`, nur Komfort).
+(`localStorage`, nur Komfort). Jeder Knopf hat ein Symbol (Strichzeichnungen direkt im HTML/JS der
+Vorlage, selbst gezeichnet, keine Bibliothek) – Regel in `CLAUDE.md`.
 
 Alle Kombinationen sind fertige MP3s, das Tempo wird **nicht** im Browser umgerechnet, sondern
 von Azure beim Sprechen erzeugt (SSML `<prosody rate>`), das klingt natürlicher:
-`site/audio/<Thema>/<kurz|lang>/<frau|mann>/<0.5|0.7|1.0>/<Nr>.mp3`, z. B.
-`site/audio/02-essen-trinken/kurz/frau/0.5/k011.mp3`. Die Themen-Ordner sind in der Reihenfolge
+`site/audio/<Thema>/<kurz|lang>/<stimme>/<0.5|0.7|1.0>/<Nr>.mp3`, z. B.
+`site/audio/02-essen-trinken/kurz/elke/0.5/k011.mp3`. Der Stimmen-Ordner ist der Name der
+Azure-Stimme in Kleinbuchstaben, so liegen Aufnahmen mehrerer Stimmen nebeneinander. Die Themen-Ordner sind in der Reihenfolge
 der Themen nummeriert und ohne Umlaute/Sonderzeichen geschrieben; lange Sätze heißen `001.mp3` …
 `148.mp3`, kurze `k001.mp3` … `k140.mp3` (Nummern über alle Themen eindeutig) –
-288 Sätze × 2 Stimmen × 3 Tempi = 1.728 Dateien. Welche Stimmen verwendet werden, steht in `stimmen.json`.
+288 Sätze × 2 Stimmen × 3 Tempi = 1.728 Dateien in der App. Welche Stimmen verwendet werden, steht in
+`stimmen.json`: `frau` und `mann` sind die Stimmen hinter den Knöpfen; Stimmen unter `archiv`
+werden weder angeboten noch neu erzeugt, ihre vorhandenen Aufnahmen bleiben aber im Repo
+(und ziehen beim Umnummerieren mit um). Derzeit im Archiv: Seraphina (`seraphina/`, 864 Dateien,
+bis 2026-11-02 die Frauenstimme).
 
 ## Microsoft Azure AI Speech
 
@@ -28,7 +34,7 @@ der Themen nummeriert und ohne Umlaute/Sonderzeichen geschrieben; lange Sätze h
 | Azure AI Speech, Text-to-Speech REST-API (`/cognitiveservices/v1`) | abgerufen 2026-10-30 | https://learn.microsoft.com/azure/ai-services/speech-service/rest-text-to-speech |
 | Tarif | Free F0 (laut Preisseite 0,5 Mio. Zeichen/Monat für neuronale Stimmen; ein kompletter Durchlauf ≈ 47.000 Zeichen: lang 31.600, kurz 15.400) | https://azure.microsoft.com/de-de/pricing/details/speech/ |
 | Region | Germany West Central (`germanywestcentral`) | Azure-Portal |
-| Stimmen (vorläufig) | Frau: `de-DE-SeraphinaMultilingualNeural`, Mann: `de-DE-KillianNeural` | `stimmen.json` |
+| Stimmen | Frau: `de-DE-ElkeNeural` (seit 2026-11-02, vom Patienten gewählt), Mann: `de-DE-KillianNeural`; Archiv: `de-DE-SeraphinaMultilingualNeural` | `stimmen.json` |
 | Ausgabeformat | `riff-24khz-16bit-mono-pcm` (WAV), danach ffmpeg → MP3 (24 kHz, mono, 64 kbit/s, Lautheit normalisiert) | |
 | ffmpeg (inkl. libmp3lame) | 6.1.1-3ubuntu5 | System, `apt install ffmpeg` |
 | Python | 3.13, nur Standardbibliothek (`urllib`), keine Zusatzpakete, kein Node.js | |
@@ -44,13 +50,13 @@ Einrichtung (einmalig):
 Ablauf:
 ```
 python3 scripts/erzeuge_audio.py               # fehlende/geänderte MP3s erzeugen + Seite bauen
-python3 scripts/erzeuge_audio.py --neu         # alle 1.728 MP3s neu erzeugen
+python3 scripts/erzeuge_audio.py --neu         # alle 1.728 MP3s der aktiven Stimmen neu erzeugen (Archiv bleibt)
 python3 scripts/erzeuge_audio.py --nur-seiten  # nur site/index.html (nach Änderung der Vorlage)
 ```
 Übersicht für Menschen (wird bei jedem Lauf, auch mit `--nur-seiten`, neu geschrieben):
 `site/audio/README.md` – je Thema eine Tabelle mit Nummer, Satz und Links auf alle sechs
 Aufnahmen; `site/audio/uebersicht.csv` – jede MP3 eine Zeile (Pfad, Thema, Länge, Nr, Satz,
-Stimme, Azure-Stimme, Tempo), Semikolon-getrennt, UTF-8 mit BOM, öffnet direkt in Excel.
+Verwendung = Frauenstimme/Männerstimme/Archiv, Azure-Stimme, Tempo), Semikolon-getrennt, UTF-8 mit BOM, öffnet direkt in Excel.
 
 Ändert sich nur der Ablageort einer Aufnahme (z. B. Thema umbenannt, Ordnerstruktur geändert,
 Nummern aufgerückt, weil ein Satz gelöscht wurde), verschiebt das Skript die vorhandene Datei
@@ -63,8 +69,13 @@ nur die betroffenen Dateien neu erzeugt. Der Gratis-Tarif erlaubt nur wenige Anf
 Minute (das Skript wartet bei HTTP 429 automatisch); ein kompletter Durchlauf dauert etwa
 eine Stunde (rund 3 Sekunden je Aufnahme).
 
-Stimme wechseln: Kurznamen in `stimmen.json` eintragen (Liste:
-`python3 scripts/stimmproben.py --liste`), dann `python3 scripts/erzeuge_audio.py`.
+Stimme wechseln: Kurznamen in `stimmen.json` bei `frau` bzw. `mann` eintragen (Liste:
+`python3 scripts/stimmproben.py --liste`), die bisherige Stimme unter `archiv` eintragen (sonst
+löscht das Skript ihre Aufnahmen), dann `python3 scripts/erzeuge_audio.py`.
+
+Wechsel am 2026-11-02 (Seraphina → Elke): Beim ersten Lauf mit der neuen Ordnerstruktur hat das
+Skript die vorhandenen 1.728 Dateien aus `frau/` und `mann/` nach `seraphina/` und `killian/`
+verschoben (nichts neu erzeugt) und danach die 864 Elke-Aufnahmen bei Azure erzeugt.
 
 ### Probehör-Seite `site/stimmen/`
 

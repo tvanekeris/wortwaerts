@@ -31,13 +31,13 @@ https://tvanekeris.github.io/wortwaerts/stimmen/
 |------|--------|
 | [saetze.json](saetze.json) | Die langen Sätze, Format `{"Thema": ["Satz", …]}` |
 | [saetze_kurz.json](saetze_kurz.json) | Die kurzen Sätze (3–4 Wörter), gleiches Format und dieselben Themen |
-| [stimmen.json](stimmen.json) | Welche Azure-Stimme für „Frau“ und „Mann“ verwendet wird |
+| [stimmen.json](stimmen.json) | Welche Azure-Stimme für „Frau“ und „Mann“ verwendet wird, dazu nicht mehr genutzte Stimmen (`archiv`) |
 | [vorlage/seite.html](vorlage/seite.html) | HTML-Vorlage der App |
 | [scripts/erzeuge_audio.py](scripts/erzeuge_audio.py) | Erzeugt die MP3s (Azure) und baut daraus `site/index.html` |
 | [site/audio/README.md](site/audio/README.md) | Übersicht: welche MP3 zu welchem Satz gehört (Tabelle je Thema mit Links), dazu [uebersicht.csv](site/audio/uebersicht.csv) für Tabellenprogramme |
 | [scripts/stimmproben.py](scripts/stimmproben.py) | Baut die Probehör-Seite `site/stimmen/` |
 | [scripts/test_seite.py](scripts/test_seite.py) | Prüft die Seite (Themen, alle Aufnahmen, Hinweis ohne JavaScript) |
-| [site/](site/) | Fertige Webseite mit `audio/<Thema>/<kurz\|lang>/<frau\|mann>/<tempo>/<Nr>.mp3`, wird als GitHub Pages veröffentlicht |
+| [site/](site/) | Fertige Webseite mit `audio/<Thema>/<kurz\|lang>/<stimme>/<tempo>/<Nr>.mp3` (z. B. `elke`, `killian`), wird als GitHub Pages veröffentlicht |
 | [docs/werkzeuge.md](docs/werkzeuge.md) | Verwendete Werkzeuge, Versionen, Ablauf |
 | [.github/workflows/pages.yml](.github/workflows/pages.yml) | Veröffentlicht `site/` bei jedem Push auf `main` |
 
@@ -55,7 +55,8 @@ https://tvanekeris.github.io/wortwaerts/stimmen/
 ## Stand und nächste Schritte
 - Ausgelagert aus dem privaten Sammel-Repo `claude-chats` (Projekt „Alltagssätze“); die
   bisherige Git-Historie ist übernommen.
-- Die Stimmen (vorläufig Seraphina und Killian) wählt der Patient noch aus.
+- Stimmen vom Patienten gewählt: Elke (Frau) und Killian (Mann). Die früheren Seraphina-Aufnahmen
+  liegen weiter im Repo (`seraphina/`), werden in der App aber nicht angeboten.
 - Mögliche nächste Schritte: Bilder zu den Sätzen, Nachsprech-Pausen, weitere Themen.
 
 ## Lizenzen
