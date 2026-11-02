@@ -2,19 +2,24 @@
 """
 Zweck:   Erzeugt aus saetze.json (lange Sätze) und saetze_kurz.json (kurze Sätze, 3–4 Wörter),
          beide im Format {Thema: [Sätze]}, mit Microsoft Azure AI Speech für jeden Satz
-         MP3-Dateien in zwei Stimmen (Frau/Mann, festgelegt in stimmen.json) und drei Tempi
+         MP3-Dateien in zwei Stimmen (Frauen- und Männerstimme, festgelegt in stimmen.json) und drei Tempi
          (0,5 / 0,7 / 1,0 – das Tempo erzeugt Azure direkt, per SSML <prosody rate>) und baut aus
          vorlage/seite.html die Webseite site/index.html. Außerdem schreibt es eine Übersicht,
          welche MP3 zu welchem Satz gehört: site/audio/README.md (Tabelle je Thema mit Links)
          und site/audio/uebersicht.csv (jede Datei eine Zeile, für Tabellenprogramme).
-         Ablage: site/audio/<Thema>/<kurz|lang>/<frau|mann>/<0.5|0.7|1.0>/<Nr>.mp3, z. B.
-                 site/audio/02-essen-trinken/kurz/frau/0.5/k011.mp3
-                 (Themen-Ordner mit laufender Nummer; lange Sätze 001 …, kurze Sätze k001 …)
+         Ablage: site/audio/<Thema>/<kurz|lang>/<Stimme>/<0.5|0.7|1.0>/<Nr>.mp3, z. B.
+                 site/audio/02-essen-trinken/kurz/elke/0.5/k011.mp3
+                 (Themen-Ordner mit laufender Nummer; Stimmen-Ordner = Name der Azure-Stimme in
+                 Kleinbuchstaben, so liegen Aufnahmen mehrerer Stimmen nebeneinander;
+                 lange Sätze 001 …, kurze Sätze k001 …)
+         stimmen.json: "frau" und "mann" sind die Stimmen hinter den Knöpfen der App. Stimmen unter
+         "archiv" werden nicht benutzt und nicht neu erzeugt; ihre vorhandenen Aufnahmen bleiben
+         aber liegen (und ziehen mit um, wenn sich Nummern oder Ordner ändern).
          Vorhandene Dateien werden nur neu erzeugt, wenn sich Stimme, Tempo oder Satztext geändert
          haben (Buchführung in site/audio/manifest.json) – das spart Azure-Kontingent. Ändert sich
          nur der Ablageort (z. B. Thema umbenannt), wird die vorhandene Datei verschoben.
 Aufruf:  python3 scripts/erzeuge_audio.py               (fehlende/geänderte MP3s + Seite)
-         python3 scripts/erzeuge_audio.py --neu         (alle MP3s neu erzeugen)
+         python3 scripts/erzeuge_audio.py --neu         (alle MP3s der beiden aktiven Stimmen neu erzeugen)
          python3 scripts/erzeuge_audio.py --nur-seiten  (nur site/index.html und Übersicht neu bauen)
          (im Wurzelverzeichnis des Repos wortwaerts ausführen; braucht die Umgebungsvariablen
          AZURE_SPEECH_KEY und AZURE_SPEECH_REGION)
@@ -78,15 +83,35 @@ def anzeigename(kurzname):
     return kurzname.split("-")[2].replace("MultilingualNeural", "").replace("Neural", "")
 
 
+def stimmordner(kurzname):
+    """z. B. "de-DE-ElkeNeural" -> "elke" (Ordnername unter <Thema>/<kurz|lang>/)."""
+    return anzeigename(kurzname).lower()
+
+
+def aktive_und_archiv(stimmen):
+    aktiv = [stimmen[g] for g in GESCHLECHTER]
+    return aktiv, [s for s in stimmen.get("archiv", []) if s not in aktiv]
+
+
 def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
     """saetze: Liste von (nr, text, ordner), z. B. ("k011", "Ich habe Hunger.", "02-essen-trinken/kurz")."""
     manifest_datei = audio_dir / "manifest.json"
-    manifest = {} if neu or not manifest_datei.exists() else json.loads(manifest_datei.read_text("utf-8"))
+    manifest = json.loads(manifest_datei.read_text("utf-8")) if manifest_datei.exists() else {}
+    aktiv, archiv = aktive_und_archiv(stimmen)
+    if neu:   # nur die aktiven Stimmen neu, die Archiv-Aufnahmen bleiben
+        manifest = {p: w for p, w in manifest.items() if w[0] not in aktiv}
     soll = {}
-    for g in GESCHLECHTER:
+    for stimme in aktiv:
         for tempo in TEMPI:
             for nr, de, ordner in saetze:
-                soll[f"{ordner}/{g}/{tempo}/{nr}.mp3"] = (stimmen[g], tempo, de)
+                soll[f"{ordner}/{stimmordner(stimme)}/{tempo}/{nr}.mp3"] = (stimme, tempo, de)
+    # Archiv-Stimmen: nur Aufnahmen, die es schon gibt (werden nie neu erzeugt)
+    bestand = {tuple(w) for p, w in manifest.items() if (audio_dir / p).exists()}
+    for stimme in archiv:
+        for tempo in TEMPI:
+            for nr, de, ordner in saetze:
+                if (stimme, tempo, de) in bestand:
+                    soll[f"{ordner}/{stimmordner(stimme)}/{tempo}/{nr}.mp3"] = (stimme, tempo, de)
 
     # Vorhandene Aufnahmen mit gleichem Inhalt (Stimme, Tempo, Text) an einem anderen Ort
     # verschieben statt neu erzeugen – auch wenn der Zielort gerade von einer anderen Aufnahme
@@ -123,9 +148,10 @@ def erzeuge_mp3s(saetze, stimmen, audio_dir, neu):
     for ordner in sorted((d for d in audio_dir.rglob("*") if d.is_dir()), reverse=True):
         if not any(ordner.iterdir()):
             ordner.rmdir()
+    manifest_datei.write_text(json.dumps(manifest, ensure_ascii=False, indent=1), "utf-8")
 
-    offen = [(pfad, w) for pfad, w in soll.items()
-             if manifest.get(pfad) != list(w) or not (audio_dir / pfad).exists()]
+    offen = [(pfad, w) for pfad, w in soll.items() if w[0] in aktiv
+             and (manifest.get(pfad) != list(w) or not (audio_dir / pfad).exists())]
     print(f"{len(offen)} von {len(soll)} MP3s zu erzeugen")
     with tempfile.TemporaryDirectory() as t:
         wav = Path(t) / "x.wav"
@@ -168,7 +194,8 @@ def nummeriere(lang, kurz):
 def baue_seite(nummern, stimmen):
     daten = {
         "themen": [], "tempi": TEMPI,
-        "stimmen": {g: anzeigename(stimmen[g]) for g in GESCHLECHTER},
+        "stimmen": {g: {"name": anzeigename(stimmen[g]), "ordner": stimmordner(stimmen[g])}
+                    for g in GESCHLECHTER},
     }
     for thema, laengen in nummern.items():
         daten["themen"].append({"name": thema, **{
@@ -186,38 +213,47 @@ def tempo_text(tempo):
 def schreibe_uebersicht(nummern, stimmen, audio_dir):
     """site/audio/README.md (je Thema eine Tabelle) und site/audio/uebersicht.csv (je Datei eine Zeile)."""
     namen = {g: anzeigename(stimmen[g]) for g in GESCHLECHTER}
+    _, archiv = aktive_und_archiv(stimmen)
     anzahl = sum(len(l) for laengen in nummern.values() for l in laengen.values())
     md = [
         "# Übersicht der Aufnahmen",
         "",
         "Automatisch erzeugt von `scripts/erzeuge_audio.py` – bitte nicht von Hand bearbeiten.",
         "",
-        f"{anzahl} Sätze × 2 Stimmen × 3 Tempi = {anzahl * 6} MP3-Dateien. Ablage: "
-        "`<Thema>/<kurz|lang>/<frau|mann>/<tempo>/<nr>.mp3` – lange Sätze `001` …, kurze Sätze `k001` …",
+        f"{anzahl} Sätze × 2 Stimmen × 3 Tempi = {anzahl * 6} MP3-Dateien in der App. Ablage: "
+        "`<Thema>/<kurz|lang>/<stimme>/<tempo>/<nr>.mp3` – lange Sätze `001` …, kurze Sätze `k001` …",
         "",
-        f"- Frau: {namen['frau']} (`{stimmen['frau']}`)",
-        f"- Mann: {namen['mann']} (`{stimmen['mann']}`)",
+        f"- Frauenstimme: {namen['frau']} (`{stimmen['frau']}`), Ordner `{stimmordner(stimmen['frau'])}`",
+        f"- Männerstimme: {namen['mann']} (`{stimmen['mann']}`), Ordner `{stimmordner(stimmen['mann'])}`",
+        *[f"- Archiv (in der App nicht verwendet): {anzeigename(s)} (`{s}`), Ordner `{stimmordner(s)}`"
+          for s in archiv],
         "- Tempo: 0,5 = langsam, 0,7 = mittel, 1,0 = normal",
         "",
         "Dieselben Angaben je Datei: [uebersicht.csv](uebersicht.csv)",
     ]
     zeilen = []
     for thema, laengen in nummern.items():
-        md += ["", f"## {thema}", "", "| Nr | Länge | Satz | Frau | Mann |", "|----|-------|------|------|------|"]
+        md += ["", f"## {thema}", "", f"| Nr | Länge | Satz | Frau ({namen['frau']}) | Mann ({namen['mann']}) |",
+               "|----|-------|------|------|------|"]
         for laenge in ("kurz", "lang"):
             for nr, de, ordner in laengen[laenge]:
-                links = {g: " · ".join(f"[{tempo_text(t)}]({ordner}/{g}/{t}/{nr}.mp3)" for t in TEMPI)
-                         for g in GESCHLECHTER}
+                links = {g: " · ".join(f"[{tempo_text(t)}]({ordner}/{stimmordner(stimmen[g])}/{t}/{nr}.mp3)"
+                                       for t in TEMPI) for g in GESCHLECHTER}
                 md.append(f"| {nr} | {laenge} | {de.replace('|', '\\|')} | {links['frau']} | {links['mann']} |")
-                for g in GESCHLECHTER:
+                verwendung = [(stimmen["frau"], "Frauenstimme"), (stimmen["mann"], "Männerstimme")]
+                verwendung += [(s, "Archiv") for s in archiv]
+                for stimme, wofuer in verwendung:
                     for t in TEMPI:
-                        zeilen.append([f"site/audio/{ordner}/{g}/{t}/{nr}.mp3", thema, laenge, nr, de,
-                                       g, stimmen[g], tempo_text(t)])
+                        pfad = f"{ordner}/{stimmordner(stimme)}/{t}/{nr}.mp3"
+                        if wofuer == "Archiv" and not (audio_dir / pfad).exists():
+                            continue
+                        zeilen.append([f"site/audio/{pfad}", thema, laenge, nr, de,
+                                       wofuer, stimme, tempo_text(t)])
     (audio_dir / "README.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     # Semikolon und BOM, damit Excel die Datei mit Umlauten direkt richtig öffnet
     with open(audio_dir / "uebersicht.csv", "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f, delimiter=";")
-        w.writerow(["Pfad", "Thema", "Länge", "Nr", "Satz", "Stimme", "Azure-Stimme", "Tempo"])
+        w.writerow(["Pfad", "Thema", "Länge", "Nr", "Satz", "Verwendung", "Azure-Stimme", "Tempo"])
         w.writerows(zeilen)
 
 

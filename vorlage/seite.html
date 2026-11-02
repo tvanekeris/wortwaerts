@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: eine Spalte – 1 Stimme, 2 Tempo, 3 Satzlänge, 4 Thema, dann großer Play-Knopf, Aufdecken, Neuer Satz */
+  /* Jeder Knopf bekommt ein Symbol (Strichzeichnung 24×24, Farbe currentColor) neben der Beschriftung.
+     Layout: eine Spalte – 1 Stimme, 2 Tempo, 3 Satzlänge, 4 Thema, dann großer Play-Knopf, Aufdecken, Neuer Satz */
   :root {
     --bg: #eef1f4;
     --surface: #ffffff;
@@ -89,6 +90,10 @@
     transition: color .2s ease;
   }
   .schieber input:checked + span { color: var(--accent-ink); }
+  .schieber svg, .stufen svg {
+    flex: none; width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.9;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
 
   /* Tempo: natives <input type="range"> mit drei Rasterstufen, gestaltet wie der Stimmen-Schieber.
      Der Knopf ist ein Drittel so breit wie die Bahn, so liegt er bei jeder Stufe genau
@@ -119,7 +124,16 @@
     align-items: center; pointer-events: none;
     font-family: var(--font-display); font-weight: 600; font-size: 19px; color: var(--muted);
   }
-  .stufen span { text-align: center; }
+  .stufen span { display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .stufen svg { width: 22px; height: 22px; }
+  .schieber span, .stufen span { white-space: nowrap; }
+  /* Schmale Bildschirme: beim Tempo Symbol über die Beschriftung, Schrift etwas kleiner */
+  @media (max-width: 440px) {
+    .schieber span { font-size: 17px; gap: 6px; }
+    .stufen { font-size: 15px; }
+    .stufen span { flex-direction: column; gap: 0; line-height: 1.1; }
+    .stufen svg { width: 20px; height: 20px; }
+  }
   .stufen span.an { color: var(--accent-ink); }
 
   /* Themen: Kacheln mit Symbol und Beschriftung */
@@ -196,8 +210,8 @@
   <fieldset class="schritt">
     <legend class="schritt-titel"><span class="schritt-nr">1</span> Stimme</legend>
     <div class="schieber" id="stimme">
-      <label><input type="radio" name="stimme" value="frau"><span>Frau</span></label>
-      <label><input type="radio" name="stimme" value="mann"><span>Mann</span></label>
+      <label><input type="radio" name="stimme" value="frau"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2.7"/><path d="M9.5 9.5h5l3.5 8H6z"/><path d="M10.5 17.5V22M13.5 17.5V22"/></svg>Frau</span></label>
+      <label><input type="radio" name="stimme" value="mann"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="4.5" r="2.7"/><path d="M7.5 11.5a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2V17h-9z"/><path d="M10.5 17v5M13.5 17v5"/></svg>Mann</span></label>
     </div>
   </fieldset>
 
@@ -206,9 +220,9 @@
     <div class="regler">
       <input type="range" id="tempo" min="0" max="2" step="1" value="0" aria-label="Tempo">
       <div class="stufen" id="stufen" aria-hidden="true">
-        <span>langsam</span>
-        <span>mittel</span>
-        <span>normal</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 17a8.5 8.5 0 0 1 17 0"/><path d="M12 17L7 13"/><circle cx="12" cy="17" r="1"/></svg>langsam</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 17a8.5 8.5 0 0 1 17 0"/><path d="M12 17L12 10.5"/><circle cx="12" cy="17" r="1"/></svg>mittel</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 17a8.5 8.5 0 0 1 17 0"/><path d="M12 17L17 13"/><circle cx="12" cy="17" r="1"/></svg>normal</span>
       </div>
     </div>
   </fieldset>
@@ -216,8 +230,8 @@
   <fieldset class="schritt">
     <legend class="schritt-titel"><span class="schritt-nr">3</span> Satzlänge</legend>
     <div class="schieber" id="laenge">
-      <label><input type="radio" name="laenge" value="kurz"><span>kurze Sätze</span></label>
-      <label><input type="radio" name="laenge" value="lang"><span>lange Sätze</span></label>
+      <label><input type="radio" name="laenge" value="kurz"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-7l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>kurze Sätze</span></label>
+      <label><input type="radio" name="laenge" value="lang"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 2.5h8A1.5 1.5 0 0 1 13 4v4.5a1.5 1.5 0 0 1-1.5 1.5H7l-3 2.5V10h-.5A1.5 1.5 0 0 1 2 8.5V4a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M12.5 12h8a1.5 1.5 0 0 1 1.5 1.5V18a1.5 1.5 0 0 1-1.5 1.5H20V22l-3-2.5h-4.5A1.5 1.5 0 0 1 11 18v-4.5a1.5 1.5 0 0 1 1.5-1.5z"/></svg>lange Sätze</span></label>
     </div>
   </fieldset>
 
@@ -233,7 +247,7 @@
     </button>
 
     <button class="knopf" id="aufdecken" type="button" disabled aria-expanded="false" aria-controls="satz">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="aufdecken-icon"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
       <span id="aufdecken-label">Satz aufdecken</span>
     </button>
     <p class="satz" id="satz" hidden aria-live="polite"></p>
@@ -248,7 +262,8 @@
 </div>
 
 <script>
-  // Wird von scripts/erzeuge_audio.py befüllt: {themen: [{name, lang: [{nr, de, ordner}], kurz: […]}], tempi, stimmen}
+  // Wird von scripts/erzeuge_audio.py befüllt: {themen: [{name, lang: [{nr, de, ordner}], kurz: […]}], tempi,
+  //   stimmen: {frau: {name, ordner}, mann: {name, ordner}}} – ordner z. B. "elke" (Unterordner der Aufnahmen)
   const DATEN = /*__DATEN__*/;
   const TEMPI = DATEN.tempi;            // ["0.5", "0.7", "1.0"]
   const ALLE = "alle";
@@ -283,12 +298,15 @@
   const playLabel = document.getElementById("play-label");
   const aufdeckenBtn = document.getElementById("aufdecken");
   const aufdeckenLabel = document.getElementById("aufdecken-label");
+  const aufdeckenIcon = document.getElementById("aufdecken-icon");
   const satzBox = document.getElementById("satz");
   const neuBtn = document.getElementById("neu");
   const note = document.getElementById("note");
 
   const ICON_PLAY = '<path d="M7 4.5v15l13-7.5z"/>';
   const ICON_STOP = '<path d="M6.5 6.5h11v11h-11z"/>';
+  const ICON_AUGE = '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>';
+  const ICON_AUGE_ZU = '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 4l16 16"/>';
   const TEMPO_TEXT = ["langsam", "mittel", "normal"];
 
   // ---- Einstellungen merken (nur Komfort, Seite funktioniert auch ohne) ----
@@ -391,6 +409,7 @@
     satzBox.hidden = true;
     satzBox.textContent = "";
     aufdeckenLabel.textContent = "Satz aufdecken";
+    aufdeckenIcon.innerHTML = ICON_AUGE;
     aufdeckenBtn.setAttribute("aria-expanded", "false");
   }
   aufdeckenBtn.addEventListener("click", () => {
@@ -399,6 +418,7 @@
       satzBox.textContent = satz.de;
       satzBox.hidden = false;
       aufdeckenLabel.textContent = "Satz verdecken";
+      aufdeckenIcon.innerHTML = ICON_AUGE_ZU;
       aufdeckenBtn.setAttribute("aria-expanded", "true");
     } else {
       verdecke();
@@ -450,7 +470,7 @@
   let startTimer = null;
 
   function aufnahme() {
-    return `audio/${satz.ordner}/${stimme}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
+    return `audio/${satz.ordner}/${DATEN.stimmen[stimme].ordner}/${TEMPI[tempoStufe]}/${satz.nr}.mp3`;
   }
 
   function zeigeSpielt(an) {

@@ -1,4 +1,5 @@
 {
-  "frau": "de-DE-SeraphinaMultilingualNeural",
-  "mann": "de-DE-KillianNeural"
+  "frau": "de-DE-ElkeNeural",
+  "mann": "de-DE-KillianNeural",
+  "archiv": ["de-DE-SeraphinaMultilingualNeural"]
 }
